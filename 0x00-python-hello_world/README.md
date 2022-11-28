@@ -13,4 +13,4 @@ The Python code will be saved in the environmental variable $PYCODE
 `export PYCODE='print(f"Best School: {88+10}")'
 
 
-
+The file 2-print.py contains a python3 script to print a text
