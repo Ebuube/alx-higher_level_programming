@@ -8,3 +8,9 @@ The file 0-run is a Shell script that runs a Python script.
 The Python file name will be saved in the environment variable $PYFILE
 
 
+The file 1-run\_inline contains a Shell script that runs Python code.
+The Python code will be saved in the environmental variable $PYCODE
+`export PYCODE='print(f"Best School: {88+10}")'
+
+
+
