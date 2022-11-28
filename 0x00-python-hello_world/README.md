@@ -14,3 +14,9 @@ The Python code will be saved in the environmental variable $PYCODE
 
 
 The file 2-print.py contains a python3 script to print a text
+
+
+The file 3-print_nubmer.py displays a number to the screen
+
+
+
