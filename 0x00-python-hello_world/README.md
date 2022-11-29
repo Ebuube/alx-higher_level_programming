@@ -22,4 +22,7 @@ The file 3-print_nubmer.py displays a number to the screen
 The file 4-print_float.py displays a float to the screen
 
 
+The file 5-print_string.py displays a string
+
+
 
