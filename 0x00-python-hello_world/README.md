@@ -28,4 +28,7 @@ The file 5-print_string.py displays a string
 The file 6-concat.py displays a concatenated string
 
 
+The file 7-edges.py displays the edges of a string
+
+
 
