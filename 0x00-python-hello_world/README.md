@@ -34,4 +34,7 @@ The file 7-edges.py displays the edges of a string
 The file 8-concat_edges.py concatenates edge parts of a sting and displaus
 
 
+The file 9-easter_egg.py displays the Zen of Python
+
+
 
