@@ -25,4 +25,7 @@ The file 4-print_float.py displays a float to the screen
 The file 5-print_string.py displays a string
 
 
+The file 6-concat.py displays a concatenated string
+
+
 
