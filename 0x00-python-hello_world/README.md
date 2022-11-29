@@ -19,4 +19,7 @@ The file 2-print.py contains a python3 script to print a text
 The file 3-print_nubmer.py displays a number to the screen
 
 
+The file 4-print_float.py displays a float to the screen
+
+
 
