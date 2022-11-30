@@ -1,0 +1,2 @@
+#!/bin/bash
+python -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILEc')"
