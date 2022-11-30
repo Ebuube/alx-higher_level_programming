@@ -29,7 +29,7 @@ int check_cycle(listint_t *list)
 		if (!add_node_clist(list, &clist))
 		{
 			printf("ERROR: could not add node\n");
-			exit(EXIT_FAILURE);
+			return(cycle);
 		}
 	}
 	free_clist(&clist);
