@@ -37,4 +37,13 @@ The file 8-concat_edges.py concatenates edge parts of a sting and displaus
 The file 9-easter_egg.py displays the Zen of Python
 
 
+The file 10-check_cycle.c contains a C funcion that checks if a listint_t  list has a loop.
+
+
+The file cfuncs.c contains accessory functions for the 10-check_cycle.c file.
+
+
+The file clist.h is the header file for the functions in cfuncs.c
+
+
 
