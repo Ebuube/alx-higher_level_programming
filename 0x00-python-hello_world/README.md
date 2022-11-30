@@ -46,4 +46,7 @@ The file cfuncs.c contains accessory functions for the 10-check_cycle.c file.
 The file clist.h is the header file for the functions in cfuncs.c
 
 
+The file 100-write.py displays a string using the sys.stdout.write function
+
+
 
