@@ -50,3 +50,9 @@ The Python code will be saved in the environmental variable $PYCODE
 
 
 [101-compile.py](./101-compile): a bash script to compile a python script
+
+
+[102-magic_calculation.py](./102-magic_calculation.py): a python function that performs the same thing as a Python bytecode
+
+
+
