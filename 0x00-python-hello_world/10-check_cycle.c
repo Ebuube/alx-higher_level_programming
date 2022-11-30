@@ -23,7 +23,7 @@ int check_cycle(listint_t *list)
 		/* empty list */
 		return (0);
 	}
-	
+
 	for (slow = list->next, fast = list->next->next, found_loop = 0;
 		slow && fast && fast->next;
 		slow = slow->next, fast = fast->next->next)
@@ -34,6 +34,6 @@ int check_cycle(listint_t *list)
 			break;
 		}
 	}
-	
+
 	return (found_loop);
 }
