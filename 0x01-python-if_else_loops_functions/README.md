@@ -17,3 +17,6 @@ ONWUTA EBUBE GIDEON
 
 
 [4-print_hexa.py](./4-print_hexa.py): generates the hexadecimal value of decimal numbers from 0 ro 98
+
+
+[5-print_comb2.py](./5-print_comb2.py): generates a comma delimited list of integers from 0 to 99
