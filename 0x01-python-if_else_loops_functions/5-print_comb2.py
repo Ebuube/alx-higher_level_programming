@@ -3,6 +3,6 @@
 
 for num in range(0, 100):
     if num < 99:
-        print("{}".format(str(num)), end=", ")
+        print("{:02}".format(num), end=", ")
     else:
-        print("{}".format(str(num)))
+        print("{}".format(num))
