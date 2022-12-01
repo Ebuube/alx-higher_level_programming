@@ -11,3 +11,6 @@ ONWUTA EBUBE GIDEON
 
 
 [2-print_alphabet.py](./2-print_alphabet.py): a program that prints the ASCII alphabet
+
+
+[3-print_alphabt.py](./3-print_alphabt.py): a program that prints the ASCII alphabets except the letters `q` and `e`, and not followed by new line
