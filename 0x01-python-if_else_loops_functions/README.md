@@ -8,3 +8,6 @@ ONWUTA EBUBE GIDEON
 
 
 [1-last_digit.py](./1-last_digit.py): generates random integer and interpretest its last digit
+
+
+[2-print_alphabet.py](./2-print_alphabet.py): a program that prints the ASCII alphabet
