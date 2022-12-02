@@ -23,3 +23,6 @@ ONWUTA EBUBE GIDEON
 
 
 [6-print_comb3.py](./6-print_comb3.py): generates all the possible combinations of two digits numbers. Where 01 and 10 are considered equal. The program also generates only the smaller version of the combination
+
+
+[7-islower.py](./7-islower.py): contains a function that checks for lowrcase character
