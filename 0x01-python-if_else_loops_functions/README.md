@@ -4,10 +4,10 @@ ONWUTA EBUBE GIDEON
 
 # A Description of the Files in this directory
 
-[0-positive_or_negative.py](./0-positive_or_negative.py): generates random integer and tells if the value is positive, negative or zero (0)
+[0-positive\_or\_negative.py](./0-positive_or_negative.py): generates random integer and tells if the value is positive, negative or zero (0)
 
 
-[1-last_digit.py](./1-last_digit.py): generates random integer and interpretest its last digit
+[1-last\_digit.py](./1-last_digit.py): generates random integer and interpretest its last digit
 
 
 [2-print_alphabet.py](./2-print_alphabet.py): a program that prints the ASCII alphabet
@@ -44,3 +44,6 @@ ONWUTA EBUBE GIDEON
 
 
 [100-print_tebahpla.py](./100-print_tebahpla.py): a program that prints the ASCII alphabet, in reverse order, alternating lowercase and uppercase (`z` in lowercase and `Y` in uppercase), not followed by a new line
+
+
+[101-remove_char_at.py](./101-remove_char_at.py): contains a function that creates a copy of the string, removing the character at the position `n` (not the Python way, the `C array index`)
