@@ -35,3 +35,6 @@ ONWUTA EBUBE GIDEON
 
 
 [10-add.py](./10-add.py): contains a function that adds two integers and returns the result
+
+
+[11-pow.py](./11-pow.py): contains a function that computes a to power b and returns the result
