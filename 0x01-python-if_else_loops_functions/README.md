@@ -38,3 +38,6 @@ ONWUTA EBUBE GIDEON
 
 
 [11-pow.py](./11-pow.py): contains a function that computes a to power b and returns the result
+
+
+[12-fizzbuzz.py](./12-fizzbuzz.py): contains a function that runs the famous fizzbuzz program
