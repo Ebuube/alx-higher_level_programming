@@ -17,9 +17,6 @@ def islower(c):
 
 
 def uppercase(str):
-    if len(str) == 0:
-        print("")
-        return
     for count in range(len(str)):
         my_char = str[count]
         if islower(my_char):
@@ -29,5 +26,3 @@ def uppercase(str):
         else:
             print("{}".format(my_char))
 # end of function
-
-# test
