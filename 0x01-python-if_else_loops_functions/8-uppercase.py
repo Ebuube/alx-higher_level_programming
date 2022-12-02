@@ -22,9 +22,9 @@ def uppercase(str):
         if islower(my_char):
             my_char = chr(ord(my_char) - 32)
         if count < len(str) - 1:
-            print(my_char, end='')
+            print("{}".format(my_char), end='')
         else:
-            print(my_char)
+            print("{}".format(my_char))
 # end of function
 
 # test
