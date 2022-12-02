@@ -20,3 +20,6 @@ ONWUTA EBUBE GIDEON
 
 
 [5-print_comb2.py](./5-print_comb2.py): generates a comma delimited list of integers from 0 to 99
+
+
+[6-print_comb3.py](./6-print_comb3.py): generates all the possible combinations of two digits numbers. Where 01 and 10 are considered equal. The program also generates only the smaller version of the combination
