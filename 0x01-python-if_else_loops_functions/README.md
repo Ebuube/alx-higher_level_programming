@@ -41,3 +41,6 @@ ONWUTA EBUBE GIDEON
 
 
 [12-fizzbuzz.py](./12-fizzbuzz.py): contains a function that runs the famous fizzbuzz program
+
+
+[100-print_tebahpla.py](./100-print_tebahpla.py): a program that prints the ASCII alphabet, in reverse order, alternating lowercase and uppercase (`z` in lowercase and `Y` in uppercase), not followed by a new line
