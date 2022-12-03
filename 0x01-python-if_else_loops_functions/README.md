@@ -47,3 +47,6 @@ ONWUTA EBUBE GIDEON
 
 
 [101-remove_char_at.py](./101-remove_char_at.py): contains a function that creates a copy of the string, removing the character at the position `n` (not the Python way, the `C array index`)
+
+
+[13-insert_number.c](./13-insert_number.c): contains a function that inserts a number in a sorted, singly linked list
