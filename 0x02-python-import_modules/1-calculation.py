@@ -5,7 +5,7 @@ and does some maths and prints the result.
 """
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     from calculator_1 import sub, add, mul, div
 
     a = 10
