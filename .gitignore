@@ -1,0 +1,3 @@
+# files i want to be ignored by git
+
+__pycache__
