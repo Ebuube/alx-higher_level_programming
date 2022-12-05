@@ -11,3 +11,6 @@ ONWUTA EBUBE GIDOEN
 
 
 [2-args.py](./2-args.py): a program that prints the number of and the list of its arguments
+
+
+[3-infinite_add.py](./3-infinite_add.py): a program that prints the result of the addition of all arguments
