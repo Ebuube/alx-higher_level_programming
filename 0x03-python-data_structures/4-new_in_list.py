@@ -8,7 +8,9 @@ without modifying the original list (like in C)
 def new_in_list(my_list, idx, element):
     if my_list != list(my_list):
         return None
-    cp_list = my_list
+    cp_list = list()
+    for data in my_list:
+        cp_list.append(data)
     if (idx < 0 or idx > len(cp_list) - 1):
         return cp_list
     cp_list[idx] = element
