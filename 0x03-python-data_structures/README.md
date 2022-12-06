@@ -8,3 +8,6 @@ ONWUTA EBUBE GIDEON
 
 
 [1-element_at.py](./1-element_at.py): contains a function that retrieve an element from a list like in C
+
+
+[2-replace_in_list.py](./2-replace_in_list.py): contains a function that replaces an element of a list at a specific position (like in C)
