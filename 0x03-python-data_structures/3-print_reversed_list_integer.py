@@ -5,7 +5,7 @@ A function that prints all integers of a list in reversed order.
 
 
 def print_reversed_list_integer(my_list=[]):
-    if (len(my_list) == 0):
+    if (len(my_list) == 0) or (my_list == None):
         return (None)
     my_list.reverse()
     for num in my_list:
