@@ -11,3 +11,7 @@ ONWUTA EBUBE GIDEON
 
 
 [2-replace_in_list.py](./2-replace_in_list.py): contains a function that replaces an element of a list at a specific position (like in C)
+
+
+
+[3-print_reversed_list_integer.py](./3-print_reversed_list_integer.py): contains a function that prints all integers of a list, in reversed order
