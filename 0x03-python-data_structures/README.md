@@ -15,3 +15,6 @@ ONWUTA EBUBE GIDEON
 
 
 [3-print_reversed_list_integer.py](./3-print_reversed_list_integer.py): contains a function that prints all integers of a list, in reversed order
+
+
+[4-new_in_list.py](./4-new_in_list.py): contais a function that replaces an element in alist at a specific position without modifying the original list (like in C)
