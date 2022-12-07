@@ -14,5 +14,5 @@ def print_matrix_integer(matrix=[[]]):
                 count2 += 1
             print("{:d}".format(matrix[count1][count2]))
         count1 += 1
-    if (count1 == 1) and (count2 == 0):    # empty matrix
+    if (len(matrix) == 1) and (len(matrix[0]) == 0):    # empty matrix
         print()
