@@ -30,4 +30,8 @@ ONWUTA EBUBE GIDEON
 
 
 
-[7-add_tuple.py](./7-add_tuple.py): containsa function that adds two tuples
+[7-add_tuple.py](./7-add_tuple.py): contains a function that adds two tuples
+
+
+
+[8-multiple_returns.py](./8-multiple_returns.py): contains a function that returns a tuple with the length of a string and its first character
