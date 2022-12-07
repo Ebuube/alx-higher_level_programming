@@ -10,10 +10,10 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *forward = NULL;
-	listint_t *backward = NULL;
+	listint_t *tmp = NULL;
+	int *stack = NULL;
 	int is_pal = 1;
-	int len = 0, count1 = 0, count2 = 0, extra_step = 0;
+	int len = 0, pos = 0;
 
 	/* if list is empty: then it is palindrome */
 	if (!head || !(*head))
@@ -22,19 +22,22 @@ int is_palindrome(listint_t **head)
 	}
 
 	/* calculate length of the list */
-	for (forward = (*head); forward; forward = forward->next)
+	for (tmp = (*head); tmp; tmp = tmp->next)
 		len++;
+	stack = malloc(len * sizeof(int));
 
-	extra_step = len - 1;	/* extra step to take */
-	for (forward = (*head), count1 = 0; count1 < (int)(len / 2);
-			forward = forward->next, count1++, extra_step -= 2)
+	/* load pointers to stack */
+	for (tmp = (*head), pos = len - 1; 
+			tmp && pos >= 0; tmp = tmp->next, pos--)
 	{
-		/* traverse to other half of the list */
-		for (backward = forward, count2 = 0; count2 < extra_step;
-				backward = backward->next, count2++)
-			;
-
-		if (backward->n != forward->n)
+		stack[pos] = tmp->n;
+	}
+	/* check for palindrome */
+	for (tmp = (*head), pos = 0; tmp && (pos < len / 2);
+			tmp = tmp->next, pos++)
+	{
+		printf("tmp->n = %d\tstack[pos] = %d\n", tmp->n, stack[pos]);
+		if (tmp->n != stack[pos])
 		{
 			is_pal = 0;
 			break;
