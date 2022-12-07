@@ -36,7 +36,6 @@ int is_palindrome(listint_t **head)
 	for (tmp = (*head), pos = 0; tmp && (pos < len / 2);
 			tmp = tmp->next, pos++)
 	{
-		printf("tmp->n = %d\tstack[pos] = %d\n", tmp->n, stack[pos]);
 		if (tmp->n != stack[pos])
 		{
 			is_pal = 0;
