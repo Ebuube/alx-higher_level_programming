@@ -5,10 +5,14 @@ A function to print a matrix of integers
 
 
 def print_matrix_integer(matrix=[[]]):
-    if (matrix is None) or (len(matrix) == 0):
-        return None
-    count1, count2 = 0, 0
-    for count1 in range(len(matrix)):
-        for count2 in range(len(matrix[0]) - 1):
-            print("{} ".format(matrix[count1][count2]), end=' ')
-        print("{}".format(matrix[count1][count2 + 1]))
+    count1 = 0
+    while count1 < len(matrix):
+        count2 = 0
+        if (len(matrix[count1]) != 0):
+            while count2 < (len(matrix[count1]) - 1):
+                print("{} ".format(matrix[count1][count2]), end=' ')
+                count2 += 1
+            print("{}".format(matrix[count1][count2]))
+        count1 += 1
+    if (count1 == 1) and (count2 == 0):    # empty matrix
+        print()

@@ -23,3 +23,7 @@ ONWUTA EBUBE GIDEON
 
 
 [5-no_c.py](./5-no_c.py): contains a function that removes all characters `c` and `C` from a string
+
+
+
+[6-print_matrix_integer.py](./6-print_matrix_integer.py): contains a function that prints a matrix of integers
