@@ -51,3 +51,7 @@ ONWUTA EBUBE GIDEON
 
 
 [12-switch.py](./12-switch.py): a program to exaplify how to swap the values of two integers
+
+
+
+[13-is_palindrome.c](./13-is_palindrome.c): contains a C function to check if a singly linked list is a palindrome
