@@ -27,3 +27,7 @@ ONWUTA EBUBE GIDEON
 
 
 [6-print_matrix_integer.py](./6-print_matrix_integer.py): contains a function that prints a matrix of integers
+
+
+
+[7-add_tuple.py](./7-add_tuple.py): containsa function that adds two tuples
