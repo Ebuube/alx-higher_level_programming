@@ -10,7 +10,7 @@ def print_matrix_integer(matrix=[[]]):
         count2 = 0
         if (len(matrix[count1]) != 0):
             while count2 < (len(matrix[count1]) - 1):
-                print("{:d} ".format(matrix[count1][count2]), end=' ')
+                print("{:d}".format(matrix[count1][count2]), end=' ')
                 count2 += 1
             print("{:d}".format(matrix[count1][count2]))
         count1 += 1
