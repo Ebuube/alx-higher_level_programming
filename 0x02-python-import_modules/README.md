@@ -16,4 +16,8 @@ ONWUTA EBUBE GIDOEN
 [3-infinite_add.py](./3-infinite_add.py): a program that prints the result of the addition of all arguments
 
 
-[4-hidden_discovery.py](./4-hidden_discovery.py): a program tha prints all the names defined by the compiled module [hidden_4.pyc](https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc)
+[4-hidden_discovery.py](./4-hidden_discovery.py): a program that prints all the names defined by the compiled module [hidden_4.pyc](https://github.com/holbertonschool/0x02.py/raw/master/hidden_4.pyc)
+
+
+
+[5-variable_load.py](./5-variable_load.py): a program imports the variavle `a` from the file [variable_load_5.py](./variable_load_5.py) and prints its value.
