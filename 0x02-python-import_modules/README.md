@@ -21,3 +21,7 @@ ONWUTA EBUBE GIDOEN
 
 
 [5-variable_load.py](./5-variable_load.py): a program imports the variavle `a` from the file [variable_load_5.py](./variable_load_5.py) and prints its value.
+
+
+
+[100-my_calculator.py](./100-my_calculator.py): a program that runs basic arithmetic operations
