@@ -25,3 +25,7 @@ ONWUTA EBUBE GIDOEN
 
 
 [100-my_calculator.py](./100-my_calculator.py): a program that runs basic arithmetic operations
+
+
+
+[101-easy_print.py](./101-easy_print.py): a program that prints a message without using the keywords `print`, `eval`, `open` or `import sys`
