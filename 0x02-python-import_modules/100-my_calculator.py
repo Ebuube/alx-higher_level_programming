@@ -26,7 +26,7 @@ if __name__ == '__main__':
     try:    # reject invalid operands
         a = int(argv[1])
         b = int(argv[3])
-    except:
+    except ValueError:
         print("Invalid operands")
         exit(1)
 
