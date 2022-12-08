@@ -6,8 +6,10 @@ hidden_4.pyc (downloaded locally)
 
 
 if __name__ == "__main__":
-    import hidden_4.pyc as hidden_4
-    for name_def in hidden_4
-    if name_def[:2] == "__":
+    import hidden_4
+
+    names = dir(hidden_4)
+    for name_def in names:
+        if name_def[:2] != "__":
             continue
-    print(name_def)
+            print(name_def)
