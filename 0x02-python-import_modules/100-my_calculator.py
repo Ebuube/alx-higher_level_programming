@@ -17,10 +17,10 @@ if __name__ == '__main__':
     a = int()
     b = int()
     result = 0
-    try:    # check if the input operator is valid
-        operators.index(argv[2])
-    except ValueError:
-        print("Unknown operator. Available operators: are +, -, * and /")
+
+    # check if the input operator is valid
+    if argv[2] not in operators:
+        print("Unknown operator. Only: are +, -, * and / available")
         exit(1)
 
     try:    # reject invalid operands
