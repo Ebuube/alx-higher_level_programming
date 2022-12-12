@@ -1,3 +1,4 @@
 # files i want to be ignored by git
-
+*main.py
+*main.c
 __pycache__
