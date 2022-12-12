@@ -9,7 +9,7 @@ def multiply_list_map(my_list=[], number=0):
     Returns:
         a list with the values multiplied by a number
     """
-    if not my_list:
+    if not my_list or len(my_list) == 0:
         return None
 
     new_list = list(map((lambda element: element * number), my_list))

@@ -9,7 +9,7 @@ def update_dictionary(a_dictionary, key, value):
     Returns:
         modified dictionary
     """
-    if not a_dictionary:
+    if not a_dictionary or len(a_dictionary) == 0:
         return None
 
     try:

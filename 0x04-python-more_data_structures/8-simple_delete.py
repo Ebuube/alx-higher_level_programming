@@ -9,7 +9,7 @@ def simple_delete(a_dictionary, key=""):
         The modified version of a_dictionary
     """
 
-    if not a_dictionary:
+    if not a_dictionary or len(a_dictionary) == 0:
         return None
 
     try:

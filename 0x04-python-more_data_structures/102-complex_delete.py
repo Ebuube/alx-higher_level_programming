@@ -8,7 +8,7 @@ def complex_delete(a_dictionary, value):
     Returns:
         The same list but a modified version of it
     """
-    if not a_dictionary:
+    if not a_dictionary or len(a_dictionary) == 0:
         return None
 
     new_dict = dict(a_dictionary)

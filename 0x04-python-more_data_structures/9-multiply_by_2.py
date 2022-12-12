@@ -9,7 +9,7 @@ def multiply_by_2(a_dictionary):
         a dictionary with the same key but the values are twice the
         corresponding variable in a_dictionary
     """
-    if not a_dictionary:
+    if not a_dictionary or len(a_dictionary) == 0:
         return None
 
     new_dict = {}

@@ -10,7 +10,7 @@ def uniq_add(my_list=[]):
         Return: sum of all unique integers
     """
 
-    if not my_list:
+    if not my_list or len(my_list) == 0:
         return my_list
 
     my_set = set(my_list)

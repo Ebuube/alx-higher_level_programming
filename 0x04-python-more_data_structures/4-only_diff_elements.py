@@ -9,9 +9,9 @@ def only_diff_elements(set_1, set_2):
     Returns:
         A set of elements in only one set
     """
-    if not set_1:
+    if not set_1 or len(set_1) == 0:
         return set_2
-    if not set_2:
+    if not set_2 or len(set_2) == 0:
         return set_1
 
     set_3 = set(set_1) ^ set(set_2)

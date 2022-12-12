@@ -7,7 +7,7 @@ def print_sorted_dictionary(a_dictionary):
     Returns:
         nothing
     """
-    if not a_dictionary:
+    if not a_dictionary or len(a_dictionary) == 0:
         return None
 
     sorted_list_of_keys = sorted(dict(a_dictionary))
