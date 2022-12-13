@@ -60,3 +60,11 @@ ONWUTA EBUBE GIDEON
 
 
 [102-complex_delete.py](./102-complex_delete.py): A function that deletes keys with a specific value in a dictionary
+
+
+
+[103-python.c](./103-python.c): A CPython file that contains functions which display some information about python list and bytes objects.
+
+
+
+[103-tests.py](./103-tests.py): A test file to check the code for the CPython functions in the [103-python.c](./103-python.c).
