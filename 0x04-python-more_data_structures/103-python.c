@@ -1,5 +1,5 @@
-#ifndef _MY_PY_LIST
-#define _MY_PY_LIST
+#ifndef _MY_PY_INFO
+#define _MY_PY_INFO
 
 
 #include <stdio.h>
