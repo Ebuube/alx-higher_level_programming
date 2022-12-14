@@ -57,7 +57,11 @@ void print_python_bytes(PyObject *p)
 	len = (len < _MAX_) ? len + 1 : _MAX_;
 	printf("  first %ld bytes:", len);
 	for (count = 0; count < len; count++)
+	{
+		string[count] = (string[count] < 0) ?
+				string[count] + 1 : string[count];
 		printf(" %02x", string[count]);
+	}
 	putchar('\n');
 }
 
