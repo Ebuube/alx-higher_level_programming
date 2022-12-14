@@ -59,7 +59,7 @@ void print_python_bytes(PyObject *p)
 	for (count = 0; count < len; count++)
 	{
 		string[count] = (string[count] < 0) ?
-				string[count] + 1 : string[count];
+				string[count] + 256 : string[count];
 		printf(" %02x", string[count]);
 	}
 	putchar('\n');
