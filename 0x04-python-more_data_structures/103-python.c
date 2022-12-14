@@ -67,14 +67,13 @@ void print_python_bytes(PyObject *p)
  * @p: a python list object
  *
  * Description: Print format->
-
+ *
  * *********************** Separtor *****************************************
  * [*] Size of the Python List = <number of current elements>
  * [*] Allocated = <number of allocated>
  * Element 0: <type name>
  * Element 1: <type name>
  * Element (n - 1): <type name>
-
  * *********************** Separtor *****************************************
  *
  * Note Note that for the element types, it will be printed for only a list
