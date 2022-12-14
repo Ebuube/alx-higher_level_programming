@@ -102,4 +102,4 @@ void print_python_list(PyObject *p)
 	}
 }
 
-#endif	/* _MY_PY_LIST */
+#endif	/* _MY_PY_INFO */
