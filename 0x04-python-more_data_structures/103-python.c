@@ -58,7 +58,6 @@ void print_python_bytes(PyObject *p)
 	printf("  first %ld bytes:", len);
 	for (count = 0; count < len; count++)
 		printf(" %02x", string[count]);
-	putchar('\n');
 }
 
 
