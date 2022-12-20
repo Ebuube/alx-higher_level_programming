@@ -11,11 +11,11 @@ def safe_print_list_integers(my_list=[], x=0):
         The number of integers printed
     """
     count = 0
-    for count in range(x):
+    for idx in range(x):
         try:
-            print("{:d}".format(my_list[count]))
+            print("{:d}".format(my_list[idx]), end='')
             count += 1
-        except (IndexError, TypeError, ValueError):
+        except (TypeError, ValueError):
             continue
-
+    print()
     return (count)

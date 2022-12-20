@@ -8,7 +8,7 @@ ONWUTA EBUBE GIDEON
 
 
 
-[1-safe_print_integer.py](./1-safe_print_integer.py): a function that prints an integer with `"{:d}".format()`.
+[1-safe_print_integer.py](./1-safe_print_integer.py): a function that prints an integer with `"{:d}".format()`
 
 
 
