@@ -21,3 +21,7 @@ ONWUTA EBUBE GIDEON
 
 
 [4-list_division.py](./4-list_division.py): a function divides element by element 2 lists.
+
+
+
+[5-raise_exception.py](./5-raise_exception): a function that forcefully raises a type exception
