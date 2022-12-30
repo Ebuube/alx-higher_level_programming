@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
+
 def list_division(my_list_1, my_list_2, list_length):
     """A function that divides element by element 2 list
     both lists can contain any type (integer, string, etc.)
     list_length can be bigger than the length of both lists
-    
+
     Args:
         my_list_1: the first list object
         my_list_2: the second list object
