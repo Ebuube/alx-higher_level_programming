@@ -29,3 +29,7 @@ ONWUTA EBUBE GIDEON
 
 
 [6-raise_exception_msg.py](./6-raise_exception_msg.py): a function that raises a name exception with a message
+
+
+
+[100-safe_print_integer_err.py](./100-safe_print_integer_err.py): a function that prints an object if it is an integer, else prints an error message to stderr
