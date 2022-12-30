@@ -17,3 +17,7 @@ ONWUTA EBUBE GIDEON
 
 
 [3-safe_print_division.py](./3-safe_print_division.py): a function that divides 2 integers and prints the result
+
+
+
+[4-list_division.py](./4-list_division.py): a function divides element by element 2 lists.
