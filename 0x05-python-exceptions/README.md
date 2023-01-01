@@ -33,3 +33,7 @@ ONWUTA EBUBE GIDEON
 
 
 [100-safe_print_integer_err.py](./100-safe_print_integer_err.py): a function that prints an object if it is an integer, else prints an error message to stderr
+
+
+
+[101-safe_function.py](./101-safe_function.py): a function that executes another function safely
