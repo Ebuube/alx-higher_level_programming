@@ -15,6 +15,11 @@ class SinglyLinkedList:
         __head (Node): head of the list
     """
 
+
+
+# work to do, properly insert this class Node into class SinglyLinkedList
+
+
 class Node:
     """Represents a node object
 
@@ -101,7 +106,7 @@ class Node:
             self.__next_node = value
 
 
-
+# end of class Node
 
 
 
