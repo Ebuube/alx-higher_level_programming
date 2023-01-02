@@ -10,3 +10,7 @@ ONWUTA EBUBE GIDEON
 
 
 [1-square.py](./1-square.py): Contains a class that is initialized with a size variable
+
+
+
+[2-square.py](./2-square.py): Contains a class that represents a Square object with a private instance

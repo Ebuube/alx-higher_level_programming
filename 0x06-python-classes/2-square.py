@@ -9,6 +9,9 @@ class Square:
     """class Square
 
     This class contains capable methods for manipulating a Square object
+
+    Attributes:
+        __size (int): size of the square instance
     """
 
     def __init__(self, size=0):
@@ -21,14 +24,8 @@ class Square:
         """
 
         if type(size) != int:
-            try:
-                raise TypeError
-            except TypeError as e:
-                print('size must be an integer')
+            raise TypeError("size must be an integer")
         elif size < 0:
-            try:
-                raise ValueError
-            except ValueError as e:
-                print('size must be >= 0')
+            raise ValueError("size must be >= 0")
         else:
             self.__size = size
