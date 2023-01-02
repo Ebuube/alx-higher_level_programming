@@ -26,3 +26,7 @@ ONWUTA EBUBE GIDEON
 
 
 [5-square.py](./5-square.py): Contains a class that represents a Square object with a private instance attribute with its getter and setter. It also contains a public instance method for calculating objects area and printing the square
+
+
+
+[6-square.py](./6-square.py): Contains a class that represents a Square object with private intance attributes size and position. It has optionali instantiation and the public instance methods area and my\_print
