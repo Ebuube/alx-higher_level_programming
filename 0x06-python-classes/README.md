@@ -18,3 +18,7 @@ ONWUTA EBUBE GIDEON
 
 
 [3-square.py](./3-square.py): Contains a class that represents a Square object with a private instance attribute and a public instance method
+
+
+
+[4-square.py](./4-square.py): Contains a class that represents a Square object with a private instance attribute with its gettter and setter. It also contains a public instance method
