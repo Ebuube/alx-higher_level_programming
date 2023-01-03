@@ -7,19 +7,6 @@ Attributes:
 """
 
 
-class SinglyLinkedList:
-    """Represents a singly linked list object
-
-    Attributes:
-        Node (class): represents a node object
-        __head (Node): head of the list
-    """
-
-
-
-# work to do, properly insert this class Node into class SinglyLinkedList
-
-
 class Node:
     """Represents a node object
 
@@ -47,10 +34,10 @@ class Node:
         else:
             self.__data = data
 
-        if (type(next_node) != None) or (type(next_node) != Node):
-            raise TypeError("next_node must be a Node object")
-        else:
+        if (next_node is None) or (type(next_node) == Node):
             self.__next_node = next_node
+        else:
+            raise TypeError("next_node must be a Node object")
 
     @property
     def data(self):
@@ -73,7 +60,7 @@ class Node:
             value (int): value of the node
         """
 
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("data must be an integer")
         else:
             self.__data = value
@@ -100,16 +87,19 @@ class Node:
             value (Node): Holds the address of the next node object or None
         """
 
-        if (type(value) != None) or (type(value) != Node):
+        if (value is not None) and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = value
 
 
-# end of class Node
+class SinglyLinkedList:
+    """Represent a singly linked list object
 
-
-
+    Attributes:
+        Node (class): represents a node object
+        __head (Node): head of the list
+    """
 
     def __init__(self):
         """Initialize a SinglyLinkedList object
@@ -118,14 +108,68 @@ class Node:
         self.__head = None
 
     def __str__(self):
-        """Print the entire list
+        """Convert a SinglyLinkedList to string format
 
-        Prints the entire list in stdout
-        one node number by line
+        Returns:
+            The entire list in str format, one node number by line
+            Or an empty line if linked list is empty
         """
 
-        original_head = Node(self.__head)
-        my_str = str()
-        while self.__head != None:
-            my_str += str(self.__head.data()) + '\n'
-            self.__head = self.__head.next_node()
+        tmp = Node(self.__head.data)
+        tmp.next_node = self.__head.next_node
+
+        values = []
+        while tmp is not None:
+            values.append(tmp.data)
+            tmp = tmp.next_node
+        
+        values = [str(var) for var in values]
+        return ('\n'.join(values))
+
+    def sorted_insert(self, value):
+        """Insert a new Node object
+
+        Inserts a new Node object into the correct sorted position
+        in the list (increasing order)
+
+        Args:
+            value (int): value to be held by the Node object
+        """
+
+        if type(value) != int:
+            raise TypeError("data must be an integer")
+
+        new = Node(value, None)
+
+        # empty list
+        if self.__head is None:
+            print('self.__head is {}'.format(self.__head))   # test
+            self.__head = new
+            print('Therefore, self.__head should point to {}'.format(self.__head)) # test
+        else:
+            # Find comfortable position
+            print('\nFinding comfortable position\n')  # test
+            tmp = Node(self.__head.data)
+            tmp.next_node = self.__head.next_node
+            print('tmp is {}'.format(tmp))
+            print('tmp.next_node is {}'.format(tmp.next_node)) # test
+            print('tmp.data is {:d}'.format(tmp.data))  # test
+            while tmp is not None:
+                print('\ntmp is {}\n'.format(tmp))  # test
+                if tmp.data <= new.data:
+                    print('\ntmp is <= new.data\n')  # test
+                    if tmp.next_node is None:
+                        print('\ntmp  is {}\n'.format(tmp)) # test
+                        tmp.next_node = new
+                        print('Therefore, tmp should point to {}\n'.format(tmp.next_node))
+                        break
+                    if tmp.next_node.data >= new.data:
+                        new.next_node = tmp.next_node
+                        tmp.next_node = new
+                        break
+            
+
+        # test test test
+        print('self.__head is {}'.format(self.__head)) # test
+        print('self.__head.data is {:d}'.format(self.__head.data))  # test
+        print('self.__head.next_node is {}'.format(self.__head.next_node))  # test
