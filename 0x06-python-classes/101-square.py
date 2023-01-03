@@ -77,7 +77,6 @@ class Square:
 
             return (''.join(values[: -1]))
 
-
     def area(self):
         """Calculate the area of the square
 
