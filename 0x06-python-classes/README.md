@@ -38,3 +38,7 @@ ONWUTA EBUBE GIDEON
 
 
 [101-square.py](./101-square.py): Contains a class that represents a Square object with private instace attributes size and position. It has optional instantiation and the public instance methods area and my\_print. It equaly as a __str__ method for string representation of the class Square
+
+
+
+[102-square.py](./102-square.py): Contains a class that represents a Square object with a private instance attribute and a public instance method. It also contains operator overloaders for the operators `==`, `!=`, `>, `>=`, `<` and `<=`.
