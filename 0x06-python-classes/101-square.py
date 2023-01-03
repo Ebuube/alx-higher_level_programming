@@ -62,7 +62,7 @@ class Square:
             Or an empty line if the instance of this class is empty
         """
         if self.__size == 0:
-            return ('\n')
+            return ('')
         else:
             values = []
             for y_pos in range(self.__position[1]):
