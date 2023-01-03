@@ -115,14 +115,13 @@ class SinglyLinkedList:
             Or an empty line if linked list is empty
         """
 
-        tmp = Node(self.__head.data)
-        tmp.next_node = self.__head.next_node
-
+        tmp = self.__head
         values = []
+
         while tmp is not None:
             values.append(tmp.data)
             tmp = tmp.next_node
-        
+
         values = [str(var) for var in values]
         return ('\n'.join(values))
 
@@ -143,33 +142,14 @@ class SinglyLinkedList:
 
         # empty list
         if self.__head is None:
-            print('self.__head is {}'.format(self.__head))   # test
             self.__head = new
-            print('Therefore, self.__head should point to {}'.format(self.__head)) # test
+        elif self.__head.data > new.data:
+            new.next_node = self.__head
+            self.__head = new
         else:
-            # Find comfortable position
-            print('\nFinding comfortable position\n')  # test
-            tmp = Node(self.__head.data)
-            tmp.next_node = self.__head.next_node
-            print('tmp is {}'.format(tmp))
-            print('tmp.next_node is {}'.format(tmp.next_node)) # test
-            print('tmp.data is {:d}'.format(tmp.data))  # test
-            while tmp is not None:
-                print('\ntmp is {}\n'.format(tmp))  # test
-                if tmp.data <= new.data:
-                    print('\ntmp is <= new.data\n')  # test
-                    if tmp.next_node is None:
-                        print('\ntmp  is {}\n'.format(tmp)) # test
-                        tmp.next_node = new
-                        print('Therefore, tmp should point to {}\n'.format(tmp.next_node))
-                        break
-                    if tmp.next_node.data >= new.data:
-                        new.next_node = tmp.next_node
-                        tmp.next_node = new
-                        break
-            
-
-        # test test test
-        print('self.__head is {}'.format(self.__head)) # test
-        print('self.__head.data is {:d}'.format(self.__head.data))  # test
-        print('self.__head.next_node is {}'.format(self.__head.next_node))  # test
+            tmp = self.__head
+            while (tmp.next_node is not None and
+                    tmp.next_node.data < value):
+                tmp = tmp.next_node
+            new.next_node = tmp.next_node
+            tmp.next_node = new
