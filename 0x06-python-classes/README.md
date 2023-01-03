@@ -29,8 +29,12 @@ ONWUTA EBUBE GIDEON
 
 
 
-[6-square.py](./6-square.py): Contains a class that represents a Square object with private intance attributes size and position. It has optionali instantiation and the public instance methods area and my\_print
+[6-square.py](./6-square.py): Contains a class that represents a Square object with private intance attributes size and position. It has optional instantiation and the public instance methods area and my\_print
 
 
 
 [100-singly_linked_list.py](./100-singly_linked_list): Contains the defintion of the class Node and class SinglyLinkedList which represents a singly liked list abstract data type
+
+
+
+[101-square.py](./101-square.py): Contains a class that represents a Square object with private instace attributes size and position. It has optional instantiation and the public instance methods area and my\_print. It equaly as a __str__ method for string representation of the class Square
