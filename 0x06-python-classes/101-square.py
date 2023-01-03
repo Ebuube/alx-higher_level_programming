@@ -57,13 +57,12 @@ class Square:
     def __str__(self):
         """Define the string representation of an instance of the class Square
 
-        Prints an empty line if size of Square is zero(0)
-
         Returns:
             A string form of an instance of the class Square
+            Or an empty line if the instance of this class is empty
         """
         if self.__size == 0:
-            print()
+            return ('\n')
         else:
             values = []
             for y_pos in range(self.__position[1]):
