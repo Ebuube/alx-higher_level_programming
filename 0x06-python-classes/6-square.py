@@ -135,7 +135,10 @@ class Square:
                 print()
             for y_axis in range(self.__size):
                 for x_pos in range(self.__position[0]):
-                    print('_', end='')
+                    if self.__position[1] == 0:
+                        print(' ', end='')
+                    else if self.__position[1] > 0:
+                        print('_', end='')
                 for x_axis in range(self.__size):
                     print('#', end='')
                 print()
