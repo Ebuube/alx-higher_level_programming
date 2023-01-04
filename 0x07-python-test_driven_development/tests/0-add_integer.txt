@@ -1,0 +1,109 @@
+=======================================
+Testing the ``add_integer()`` function
+=======================================
+
+This test file tests all the edge cases for the function
+``add_integer()`` from the module ``../0-add_integer``
+Note: ``add_integer()`` function only accepts integers and floats
+
+All positive
+============
+
+``add_integer()`` returns the sum of two positive integers
+
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> print(add_integer(1, 2))
+	3
+
+One negetive
+=============
+
+``add_integer()`` returns the sum of differently signed integers
+
+::
+
+	>>> print(add_integer(100, -2))
+	98
+
+One argument only
+==================
+
+``add_integer()`` returns the sum of the single argument and the default
+value 98
+
+::
+
+	>>> print(add_integer(2))
+	100
+
+Supplying a float
+==================
+
+``add_integer()`` casts the floats to integers before adding them
+
+::
+
+	>>> print(add_integer(100.3, -2))
+	98
+	>>> print(add_integer(45.9, 12.4))
+	57
+
+Supplying type not float or int
+=================================
+
+``add_integer()`` raises a TypeError exception with the message
+`a must be an integer` or `b must be an integer` depending on whether the
+first value is an invalid type or the second is.
+
+
+First argument invalid
+=======================
+
+Checking when the first argument is invalid
+
+::
+
+	>>> print(add_integer('hello', 12))
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Second argument invalid
+========================
+
+Checking when the second argument is invalid
+
+::
+
+	>>> print(add_integer(23, 'dance'))
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+Both arguments invalid
+=========================
+
+When both arguments are invalid, only the first argument
+will be reported
+
+::
+
+	>>> print(add_integer('hello', None))
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Only one argument passed and it is invalid
+==============================================
+
+When only one argument is supplied and the argument is on invalid type,
+it will raise a TypeError exception
+
+::
+
+	>>> print(add_integer(None))
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
