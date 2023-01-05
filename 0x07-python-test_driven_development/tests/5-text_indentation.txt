@@ -1,0 +1,93 @@
+=================================================
+Test file for the function ``text_indentation()``
+=================================================
+
+The function ``text_indentation()`` from the module ``../5-text_indentation``
+prints a text to screen but prints a newline wherever it finds any of these
+characters: ``.``, ``?`` or ``:`` in the string.
+
+Note:
+	The text must be a string otherwise a TypeError exception is raised
+
+	And there is no space at the beginning or at the end of each printed
+	line
+
+	>>> text_indentation = __import__(
+	...	'5-text_indentation').text_indentation
+
+
+Supplying a string
+==================
+
+It is printed as stipulated above.
+
+::
+
+	>>> text_indentation("""Lorem ipsum dolor. \
+	... Sweet bananas? \
+	... MongoDB: \
+	... playing""")
+	... #doctest: +REPORT_NDIFF
+	Lorem ipsum dolor.
+	<BLANKLINE>
+	Sweet bananas?
+	<BLANKLINE>
+	MongoDB:
+	<BLANKLINE>
+	playing
+
+
+	>>> text_indentation("How?I don't know what happened.")
+	... #doctest: +REPORT_NDIFF
+	How?
+	<BLANKLINE>
+	I don't know what happened.
+	<BLANKLINE>
+
+	>>> text_indentation("I bought: rings, cats and dogs.")
+	... #doctest: +REPORT_NDIFF
+	I bought:
+	<BLANKLINE>
+	rings, cats and dogs.
+	<BLANKLINE>
+
+
+Supplying an emtpy string
+==========================
+
+Prints nothing
+
+::
+
+	>>> text_indentation("")
+	... #doctest: +REPORT_NDIFF
+
+
+Supplying a non-string
+=======================
+
+``text_indentation()`` raises a ``TypeError`` exception with the message
+``text must be a string``
+
+::
+
+	>>> text_indentation({1:"hello", 2:"world"})
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
+
+Supplying a string that has a new line character in it
+=======================================================
+
+The new line character is printed as it is
+
+::
+
+	>>> text_indentation("Has\nnewline\ncharacter")
+	... #doctest: +REPORT_NDIFF
+	Has
+	newline
+	character
+

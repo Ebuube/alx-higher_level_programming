@@ -17,3 +17,7 @@ ONWUTA EBUBE GIDEON
 
 
 [4-print_square.py](./4-print_square.py): This module contains a function that prints a square using only the charcter ``#``
+
+
+
+[5-text_indentation.py](./5-text_indentation.py): This module prints a text with two (2) lines after each of these characters: `.`, `?` and `: `
