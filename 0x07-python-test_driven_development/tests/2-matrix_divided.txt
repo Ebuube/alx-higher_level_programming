@@ -1,0 +1,152 @@
+=====================================================================
+This demonstrates how to use the ``matrix_divided()`` function from
+``../2-matrix_divided`` module
+=====================================================================
+
+
+The function ``matrix_divied()`` accepts two arguments, first ``matrix``
+then ``div``. Where ``matrix`` is a list of lists of integers or floats
+and ``div`` an integer or float.
+
+``matrix_divided()`` divides all elements of the matrix by div, and round
+them to 2 decimal places. Ther results are placed correspondingly into a
+new matrix that will be returned
+
+
+	>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Supplying a list of lists of floats and integers
+=================================================
+
+``matrix_divided()`` works well as stipulated above
+
+::
+
+	>>> matrix = [
+	...	[12, 5.7, 0],
+	...	[-13.2, 15, 1],
+	...	[3, -1.00, --5]
+	... ]
+	>>> div = 3.0
+	>>> result = matrix_divided(matrix, div)
+	>>> result == [
+	...	[4.00, 1.90, 0.00],
+	...	[-4.40, 5.00, 0.33],
+	...	[1.00, -0.33, 1.67]
+	... ]
+	True
+
+Supplying a list of lists of non-numerical types
+==================================================
+
+``matrix_divided()`` raises a ``TypeError`` exception with the message
+``matrix must be a matrix (list of lists) of integers/floats``
+
+::
+
+	>>> matrix = [
+	...	['a str', 6],
+	...	[-8.4, (23, 5)]
+	... ]
+	>>> div = 6
+	>>> print(matrix_divided(matrix, div))
+	... #doctest: +NORMALIZE_WHITESPACE, +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+Supplying a matrix containing lists of unequal lengths
+=======================================================
+
+``matrix_divided()`` raises a ``TypeError`` exception with the message
+``Each row of the matrix must have the same size``
+
+::
+
+	>>> matrix = [
+	...	[7, 12],
+	...	[0, -5, 6],
+	...	[9, 45, -123, -56]
+	... ]
+	>>> div = 9
+	>>> print(matrix_divided(matrix, div))
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: Each row of the matrix must have the same size
+
+
+Supplying ``div`` which is not a number
+========================================
+
+``matrix_divided()`` raises a ``TypeError`` exception with the message
+``div must be a number``
+
+::
+
+	>>> matrix = [
+	... [12, -3, -1],
+	... [4, 6, 7]
+	... ]
+	>>> div = (13, 5)
+	>>> print(matrix_divided(matrix, div))
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: div must be a number
+
+
+Supplying zero(0) as ``div``
+=============================
+
+``matrix_divided()`` raises a ``ZeroDivisionError`` exception with the message
+``division by zero``
+
+::
+
+	>>> matrix = [
+	... [4, 6, 3.5],
+	... ]
+	>>> div = 0
+	>>> print(matrix_divided(matrix, div))
+	... #doctest: +NORMALIZE_WHITESPACE, +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	ZeroDivisionError: division by zero
+
+
+Supplying a ``matrix`` which is of incorrect type
+===================================================
+
+``matix_divided()`` raises a ``TypeError`` exception with the message
+``matrix must be a matrix (list of lists) of integers/floats``
+
+::
+
+	>>> matrix = 'having a nice time'
+	>>> div = 14.6
+	>>> print(matrix_divided(matrix, div))
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+```matrix_divided()`` must return a new matrix
+===============================================
+
+The matrix supplied should not changed after passing through the function
+``matrix_divided()``.
+
+::
+
+	>>> matrix = [
+	...	[1, 5, -4],
+	...	[3, 93, -3.4425]
+	... ]
+	>>> original = eval(repr(matrix))
+	>>> div = 2
+	>>> new = matrix_divided(matrix, div)
+	>>> matrix == original
+	True
