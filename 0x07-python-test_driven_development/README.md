@@ -20,4 +20,8 @@ ONWUTA EBUBE GIDEON
 
 
 
-[5-text_indentation.py](./5-text_indentation.py): This module prints a text with two (2) lines after each of these characters: `.`, `?` and `: `
+[5-text_indentation.py](./5-text_indentation.py): This module contains a function that prints a text with two (2) lines after each of these characters: `.`, `?` and `: `
+
+
+
+[6-max_integer.py](./6-max_integer.py): This module contains a function that finds the maximum integer in a list. Its testfile is [6_max_integer_test.py](./tests/6_max_integer_test.py). The test file is written for unittest
