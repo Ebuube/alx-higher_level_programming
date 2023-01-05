@@ -6,24 +6,15 @@ This test file tests all the edge cases for the function
 ``add_integer()`` from the module ``../0-add_integer``
 Note: ``add_integer()`` function only accepts integers and floats
 
-All positive
-============
 
-``add_integer()`` returns the sum of two positive integers
-
-::
-
-	>>> add_integer = __import__('0-add_integer').add_integer
-	>>> print(add_integer(1, 2))
-	3
-
-One negetive
-=============
+Supplying integers
+===================
 
 ``add_integer()`` returns the sum of differently signed integers
 
 ::
 
+	>>> add_integer = __import__('0-add_integer').add_integer
 	>>> print(add_integer(100, -2))
 	98
 
