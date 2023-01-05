@@ -5,6 +5,7 @@ Attriutes:
     add_integer (def): adds two(2) integers
 """
 
+
 def add_integer(a, b=98):
     """Return the sum of two integers
         A TypeError is raised if the arguments are not integer or float
