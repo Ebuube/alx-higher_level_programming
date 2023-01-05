@@ -1,0 +1,65 @@
+===========================================================
+This test the function ``print_square()`` from the module
+``../4-print_square.py``
+===========================================================
+
+The function ``print_square()`` prints a square matrix consisiting of
+a repeatition of the character ``#``.
+
+The function only accepts the an integer value as argument
+
+
+	>>> print_square = __import__("4-print_square").print_square
+
+
+Supplying ap  positive integer value
+=====================================
+
+``print_square()`` works as stipulated above.
+
+::
+
+	>>> print_square(3)
+	###
+	###
+	###
+
+
+Supplying a negative integer value
+===================================
+
+``print_square()`` raises a ``ValueError`` exception with the message
+``size must be >= 0``
+
+::
+
+	>>> print_square(-4)	#doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	ValueError: size must be >= 0
+
+
+Supplying zero(0) as argument
+==============================
+
+``print_square()`` prints an empty line
+
+::
+
+	>>> print_square(0)
+	<BLANKLINE>
+
+
+Supplying a non-integer value
+==============================
+
+``print_square()`` raises a ``TypeError`` exception with the message
+``size must be an integer``
+
+::
+
+	>>> print_square('foo')	#doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: size must be an integer
+

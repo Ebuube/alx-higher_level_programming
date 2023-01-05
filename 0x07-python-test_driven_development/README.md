@@ -13,3 +13,7 @@ ONWUTA EBUBE GIDEON
 
 
 [3-say_my_name.py](./3-say_my_name.py): This module contains a function that prints the user's name
+
+
+
+[4-print_square.py](./4-print_square.py): This module contains a function that prints a square using only the charcter ``#``
