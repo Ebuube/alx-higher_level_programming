@@ -7,12 +7,16 @@ class Rectangle:
     """Defines the class ``Rectangle``
     """
 
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         """Initialize an instance of the class  ``Rectangle``
         """
 
         self.__width = width
         self.__height = height
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -65,16 +69,30 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return the canonical string representation of the object
+        """Return the informal string representation of the object
         """
 
         full_rect = []
-        rect_row = '#' * self.__width
+        rect_row = str(Rectangle.print_symbol) * self.__width
 
-        if self.__heigth == 0 or self.__width == 0:
+        if self.__height == 0 or self.__width == 0:
             return ""
 
         for row in range(self.__height):
             full_rect.append(rect_row)
 
         return '\n'.join(full_rect)
+
+    def __repr__(self):
+        """Return the canonical string representation of the object
+        """
+        w = self.__width
+        h = self.__height
+        return "Rectangle({:d}, {:d})".format(w, h)
+
+    def __del__(self):
+        """Display message when an instance is deleted
+        """
+
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")

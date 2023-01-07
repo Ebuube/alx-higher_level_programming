@@ -74,6 +74,9 @@ class Rectangle:
         full_rect = []
         rect_row = '#' * self.__width
 
+        if self.__height == 0 or self.__width == 0:
+            return ""
+
         for row in range(self.__height):
             full_rect.append(rect_row)
 
