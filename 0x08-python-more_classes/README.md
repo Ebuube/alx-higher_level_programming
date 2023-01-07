@@ -14,3 +14,7 @@ ONWUTA EBUBE GIDEON
 
 
 [2-rectangle.py](./2-rectangle.py): This Python module contains a class named ``Rectangle`` with the ability to calculate the area and perimeter of any ``Rectangle`` object
+
+
+
+[3-rectangle.py](./3-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to return the informal string representation of a ``RRectangle`` object
