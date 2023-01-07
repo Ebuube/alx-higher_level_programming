@@ -38,3 +38,7 @@ ONWUTA EBUBE GIDEON
 
 
 [8-rectangle.py](./8-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to allow users compare two rectangles statically
+
+
+
+[9-rectangle.py](./9-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to produce a square on demand
