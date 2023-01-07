@@ -52,3 +52,9 @@ class TestMaxInteger(unittest.TestCase):
         """
 
         self.assertEqual(max_integer([5]), 5)
+
+    def test_no_argument_supplied(self):
+        """Test when no argument is supplied to the function
+        """
+
+        self.assertIsNone(max_integer())

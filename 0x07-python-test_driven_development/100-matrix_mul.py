@@ -109,18 +109,12 @@ def matrix_mul(m_a, m_b):
 
     # Multiply both matrices
     result_matrix = []
-    row_result = len(m_a)
-    col_result = len(m_b[0])
-    for row in range(row_result):
+    for row in range(len(m_a)):
         new_row = []
-        for col in range(col_result):
+        for col in range(len(m_b[0])):
             sum_product = 0
-            for sub_row in range(len(m_a)):
-                for sub_col in range(len(m_b[0])):
-                    sum_product += (
-                            m_a[sub_row][sub_col] *
-                            m_b[sub_col][sub_row]
-                    )
+            for step in range(len(m_b)):
+                sum_product += m_a[row][step] * m_b[step][col]
             new_row.append(sum_product)
         result_matrix.append(new_row)
 

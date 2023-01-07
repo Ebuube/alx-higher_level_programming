@@ -25,3 +25,7 @@ ONWUTA EBUBE GIDEON
 
 
 [6-max_integer.py](./6-max_integer.py): This module contains a function that finds the maximum integer in a list. Its testfile is [6_max_integer_test.py](./tests/6_max_integer_test.py). The test file is written for unittest
+
+
+
+[100-matrix_mul.py](./100-matrix_mul.py): This module contains a function that multiplies two matrices
