@@ -26,3 +26,7 @@ ONWUTA EBUBE GIDEON
 
 
 [5-rectangle.py](./5-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to display an exit message whenever an instance of the class is deleted
+
+
+
+[6-rectangle.py](./6-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to provide the number of instances of the object that are still active
