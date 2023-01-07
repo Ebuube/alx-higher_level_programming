@@ -18,3 +18,7 @@ ONWUTA EBUBE GIDEON
 
 
 [3-rectangle.py](./3-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to return the informal string representation of a ``RRectangle`` object
+
+
+
+[4-rectangle.py](./4-rectangle.py): This Python moudlue contains a class named ``Rectangle`` with the extra ability to return both the informal and the canonical string representation of a ``Rectangle`` object
