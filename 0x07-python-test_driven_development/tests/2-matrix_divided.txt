@@ -150,3 +150,30 @@ The matrix supplied should not changed after passing through the function
 	>>> new = matrix_divided(matrix, div)
 	>>> matrix == original
 	True
+
+Missing one required argument
+===============================
+
+Throws a ``TypeError``
+
+::
+
+	>>> matrix_divided(matrix)
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+
+Missing both required arguments
+================================
+
+Throws a ``TypeError``
+
+::
+
+	>>> matrix_divided()
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'

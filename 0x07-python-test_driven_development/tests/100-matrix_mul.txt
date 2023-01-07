@@ -280,3 +280,34 @@ number of rows of the second argument, the function raises a
 	Traceback (most recent call last):
 		...
 	ValueError: m_a and m_b can't be multiplied
+
+
+Missing one positional argument
+================================
+
+Throws a ``TypeError`` exception with the message
+``matrix_mul() missing 1 required positional argument: 'm_b'``
+
+::
+
+	>>> m_b = [[4, 24]]
+	>>> result = matrix_mul(m_b)
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+
+Missing two positional argument
+================================
+
+Throws a ``TypeError`` exception with the message
+``matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+::
+
+	>>> result = matrix_mul()
+	... #doctest +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'

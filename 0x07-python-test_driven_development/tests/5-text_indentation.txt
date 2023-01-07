@@ -91,3 +91,17 @@ The new line character is printed as it is
 	newline
 	character
 
+
+Missing 1 required argument
+============================
+
+Throws a ``TypeError`` exception with the message
+``text_indentation() missing 1 required positional argument: 'text'``
+
+::
+
+	>>> text_indentation()
+	... #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+		...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
