@@ -30,3 +30,7 @@ ONWUTA EBUBE GIDEON
 
 
 [6-rectangle.py](./6-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to provide the number of instances of the object that are still active
+
+
+
+[7-rectangle.py](./7-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to allow users choose the symbol to be used for the string representation of the object

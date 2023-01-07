@@ -73,7 +73,7 @@ class Rectangle:
         """
 
         full_rect = []
-        rect_row = str(Rectangle.print_symbol) * self.__width
+        rect_row = str(self.print_symbol) * self.__width
 
         if self.__height == 0 or self.__width == 0:
             return ""
