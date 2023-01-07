@@ -22,3 +22,7 @@ ONWUTA EBUBE GIDEON
 
 
 [4-rectangle.py](./4-rectangle.py): This Python moudlue contains a class named ``Rectangle`` with the extra ability to return both the informal and the canonical string representation of a ``Rectangle`` object
+
+
+
+[5-rectangle.py](./5-rectangle.py): This Python module contains a class named ``Rectangle`` with the extra ability to display an exit message whenever an instance of the class is deleted
