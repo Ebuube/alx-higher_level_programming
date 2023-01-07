@@ -6,3 +6,7 @@ ONWUTA EBUBE GIDEON
 
 
 [0-rectangle.py](./0-rectangle.py): This is a Python module that contains an empty class ``Rectangle``
+
+
+
+[1-rectangle.py](./1-rectangle.py): This Python module contains a class named ``Rectangle``
