@@ -29,3 +29,7 @@ ONWUTA EBUBE GIDEON
 
 
 [100-matrix_mul.py](./100-matrix_mul.py): This module contains a function that multiplies two matrices
+
+
+
+[101-lazy_matrix_mul.py](./101-matrix_mul.py): This module contains a function that uses the ``numpy`` moudle to calculate the product of two matrices
