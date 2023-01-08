@@ -82,3 +82,39 @@ ONWUTA EBUBE GIDEON
 
 
 [19-copy_list.py](./19-copy_list.py): This Python module contains a function that returns a copy of a list object
+
+
+
+[20-answer.txt](./20-answer.txt): This file contains the answer to task 20
+
+
+
+[21-answer.txt](./21-answer.txt): This file contains the answer to task 21
+
+
+
+[22-answer.txt](./22-answer.txt): This file contains the answer to task 22
+
+
+
+[23-answer.txt](./23-answer.txt): This file contains the answer to task 23
+
+
+
+[24-answer.txt](./24-answer.txt): This file contains the answer to task 24
+
+
+
+[25-answer.txt](./25-answer.txt): This file contains the answer to task 25
+
+
+
+[26-answer.txt](./26-answer.txt): This file contains the answer to task 26
+
+
+
+[27-answer.txt](./27-answer.txt): This file contains the answer to task 27
+
+
+
+[28-answer.txt](./28-answer.txt): This file contains the answer to task 28
