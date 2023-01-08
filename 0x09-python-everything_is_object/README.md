@@ -10,3 +10,7 @@ ONWUTA EBUBE GIDEON
 
 
 [1-answer.txt](./1-answer.txt): This file contains the name of the function used to get the variable identifier of a name
+
+
+
+[2-answert.txt](./2-answer.txt): This file contains the answer to task 2
