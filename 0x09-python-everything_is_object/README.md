@@ -78,3 +78,7 @@ ONWUTA EBUBE GIDEON
 
 
 [18-answer.txt](./18-answer.txt): This file contains the answer to task 18
+
+
+
+[19-copy_list.py](./19-copy_list.py): This Python module contains a function that returns a copy of a list object
