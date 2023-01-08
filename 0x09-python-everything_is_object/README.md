@@ -13,7 +13,7 @@ ONWUTA EBUBE GIDEON
 
 
 
-[2-answert.txt](./2-answer.txt): This file contains the answer to task 2
+[2-answer.txt](./2-answer.txt): This file contains the answer to task 2
 
 
 
@@ -38,3 +38,7 @@ ONWUTA EBUBE GIDEON
 
 
 [8-answer.txt](./4-answer.txt): This file contains the answer to task 8
+
+
+
+[9-answer.txt](./4-answer.txt): This file contains the answer to task 9
