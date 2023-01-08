@@ -6,3 +6,7 @@ ONWUTA EBUBE GIDEON
 
 
 [0-answer.txt](./0-answer.txt): This file contains the name of the function used to print the type of an object
+
+
+
+[1-answer.txt](./1-answer.txt): This file contains the name of the function used to get the variable identifier of a name
