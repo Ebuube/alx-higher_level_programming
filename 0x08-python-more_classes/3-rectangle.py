@@ -11,8 +11,11 @@ class Rectangle:
         """Initialize an instance of the class  ``Rectangle``
         """
 
-        self.__width = width
-        self.__height = height
+        self.__width = 0
+        self.__height = 0
+
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
