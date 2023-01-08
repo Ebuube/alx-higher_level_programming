@@ -30,3 +30,7 @@ ONWUTA EBUBE GIDEON
 
 
 [6-answer.txt](./4-answer.txt): This file contains the answer to task 6
+
+
+
+[7-answer.txt](./4-answer.txt): This file contains the answer to task 7
