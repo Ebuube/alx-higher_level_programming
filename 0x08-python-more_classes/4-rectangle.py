@@ -75,7 +75,7 @@ class Rectangle:
         return perimeter
 
     def __str__(self):
-        """Return the canonical string representation of the object
+        """Return the informal string representation of the object
         """
 
         full_rect = []
