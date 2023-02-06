@@ -14,8 +14,8 @@ class Rectangle:
         self.__width = 0
         self.__height = 0
 
-        self.width = width
-        self.heigth = height
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
@@ -77,13 +77,18 @@ class Rectangle:
         """Return the informal string representation of the object
         """
 
+        print("__str__: Entry") # test
         full_rect = []
         rect_row = '#' * self.__width
 
-        if self.__height == 0 or self.__width == 0:
+        if (self.__height == 0) or (self.__width == 0):
+            print("\tself.__height = {}\tself.__width = {}".format(
+                self.__height, self.__width))   # test
+            print("\treturning an empty string\n")  # test
             return ""
 
         for row in range(self.__height):
+            print("\tgo in through loop, step {}\n".format(row))    # test
             full_rect.append(rect_row)
 
         return '\n'.join(full_rect)

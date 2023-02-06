@@ -17,8 +17,8 @@ class Rectangle:
         self.__width = 0
         self.__height = 0
 
-        self.width = width
-        self.heigth = height
+        self.__width = width
+        self.__height = height
 
         type(self).number_of_instances += 1
 
