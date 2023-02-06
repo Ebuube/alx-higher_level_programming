@@ -83,7 +83,7 @@ class Rectangle:
         """
 
         full_rect = []
-        rect_row = '#' * self.__width
+        rect_row = self.print_symbol * self.__width
 
         if self.__height == 0 or self.__width == 0:
             return ""
