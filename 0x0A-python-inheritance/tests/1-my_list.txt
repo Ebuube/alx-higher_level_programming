@@ -44,6 +44,7 @@ Checking that MyList inherits from list:
 
 	>>> issubclass(MyList, list)
 	... #doctest: +REPORT_NDIFF
+	True
 
 
 Checking for emtpy list:
@@ -113,8 +114,8 @@ Checking for list with negative number:
 Supplying too many arguments to the method:
 ===========================================
 
-	>>> new_list.print_sorted(extra_argument)
+	>>> new_list.print_sorted(1)
 	... #doctest: +REPORT_NDIFF
-	Traceback (most recent call lastt):
-	...
+	Traceback (most recent call last):
+		...
 	TypeError: print_sorted() takes 1 positional argument but 2 were given
