@@ -8,3 +8,4 @@ ONWUTA EBUBE GIDEON
 [0-lookup.py](./0-lookup.py): A function that returns the list of available attributes and methods of an object
 
 
+[1-my_list.py](./1-my_list.py): Contains a class that extends the functionality of the ``list`` class. It has a public instance method that prints the list in ascending order
