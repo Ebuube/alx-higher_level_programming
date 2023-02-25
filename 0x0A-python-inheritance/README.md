@@ -12,3 +12,6 @@ ONWUTA EBUBE GIDEON
 
 
 [2-is_same_class](./2-is_same_class): Contains a function that verifies that an object is exactly an instance of the specified class
+
+
+[4-inherits_from.py](./4-inherits_from.py): Contains a function that verifies that an object inherits from a specified class and is not an exact instance of the class
