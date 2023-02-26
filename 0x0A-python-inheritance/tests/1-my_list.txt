@@ -24,9 +24,8 @@ Checking for module docstring
 Checking for class docstring
 =============================
 
-	>>> m = __import__("1-my_list").__doc__
+	>>> m = __import__("1-my_list").MyList.__doc__
 	>>> len(m) > 0
-	... #doctest: +REPORT_NDIFF
 	True
 
 
