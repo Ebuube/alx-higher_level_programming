@@ -18,3 +18,9 @@ ONWUTA EBUBE GIDEON
 
 
 [4-inherits_from.py](./4-inherits_from.py): Contains a function that verifies that an object inherits from a specified class and is not an exact instance of the class
+
+
+[5-base_geometry.py](./5-base_geometry): Contains a emtpy class ``BaseGeometry``
+
+
+[6-base_geometry.py](./6-base_geometry): Defines the class ``BaseGeometry``
