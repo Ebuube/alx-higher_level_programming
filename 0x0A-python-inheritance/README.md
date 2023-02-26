@@ -20,10 +20,13 @@ ONWUTA EBUBE GIDEON
 [4-inherits_from.py](./4-inherits_from.py): Contains a function that verifies that an object inherits from a specified class and is not an exact instance of the class
 
 
-[5-base_geometry.py](./5-base_geometry): Contains a emtpy class ``BaseGeometry``
+[5-base_geometry.py](./5-base_geometry.py): Contains a emtpy class ``BaseGeometry``
 
 
-[6-base_geometry.py](./6-base_geometry): Defines the class ``BaseGeometry``
+[6-base_geometry.py](./6-base_geometry.py): Defines the class ``BaseGeometry``
 
 
-[7-base_geometry.py](./7-base_geometry): Defines the class ``BaseGeometry``, included two new methods: area() and integer_validator()
+[7-base_geometry.py](./7-base_geometry.py): Defines the class ``BaseGeometry``, included two new methods: area() and integer\_validator()
+
+
+[8-rectangle.py](./8-rectangle.py): Defines the class ``Rectangle`` which inherits from the class ``BaseGeometry``
