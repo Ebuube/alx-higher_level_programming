@@ -39,3 +39,6 @@ ONWUTA EBUBE GIDEON
 
 
 [11-square.py](./11-square.py): Following from [10-square.py](./10-square.py) with an the ``__str__`` method implemented
+
+
+[100-my_int.py](./100-my_int.py): Contains the definition of the class ``MyInt`` which inherits from the class ``int`` but with the ``__eq__`` and ``__ne__`` magic methods inverted
