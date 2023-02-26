@@ -30,3 +30,6 @@ ONWUTA EBUBE GIDEON
 
 
 [8-rectangle.py](./8-rectangle.py): Defines the class ``Rectangle`` which inherits from the class ``BaseGeometry`` as defined in [7-base_geometry.py](./7-base_geometry.py)
+
+
+[9-rectangle.py](./9-rectangle.py): Following from [8-rectangle.py](./8-rectangle.py), it implements the ``area()`` method and a ``__str__`` magic method
