@@ -29,4 +29,4 @@ ONWUTA EBUBE GIDEON
 [7-base_geometry.py](./7-base_geometry.py): Defines the class ``BaseGeometry``, included two new methods: area() and integer\_validator()
 
 
-[8-rectangle.py](./8-rectangle.py): Defines the class ``Rectangle`` which inherits from the class ``BaseGeometry``
+[8-rectangle.py](./8-rectangle.py): Defines the class ``Rectangle`` which inherits from the class ``BaseGeometry`` as defined in [7-base_geometry.py](./7-base_geometry.py)
