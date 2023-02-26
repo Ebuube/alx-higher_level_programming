@@ -42,3 +42,6 @@ ONWUTA EBUBE GIDEON
 
 
 [100-my_int.py](./100-my_int.py): Contains the definition of the class ``MyInt`` which inherits from the class ``int`` but with the ``__eq__`` and ``__ne__`` magic methods inverted
+
+
+[101-add_attribute.py](./101-add_attribute.py): Contains the a function that adds a new attribute to an object or raise a ``TypeError`` if it fails
