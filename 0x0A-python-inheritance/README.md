@@ -36,3 +36,6 @@ ONWUTA EBUBE GIDEON
 
 
 [10-square.py](./10-square.py): Defines a ``Square`` class that inherits from the ``Rectangle`` class in [9-rectangle.py](./9-rectangle.py). It has an ``area()`` method that overwrites the ones in the super class
+
+
+[11-square.py](./11-square.py): Following from [10-square.py](./10-square.py) with an the ``__str__`` method implemented
