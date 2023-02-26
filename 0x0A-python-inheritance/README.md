@@ -33,3 +33,6 @@ ONWUTA EBUBE GIDEON
 
 
 [9-rectangle.py](./9-rectangle.py): Following from [8-rectangle.py](./8-rectangle.py), it implements the ``area()`` method and a ``__str__`` magic method
+
+
+[10-square.py](./10-square.py): Defines a ``Square`` class that inherits from the ``Rectangle`` class in [9-rectangle.py](./9-rectangle.py). It has an ``area()`` method that overwrites the ones in the super class
