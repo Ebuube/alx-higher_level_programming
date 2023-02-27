@@ -15,3 +15,6 @@ ONWUTA EBUBE GIDEON
 
 
 [3-to_json_string.py](./3-to_json_string.py): Contains a function that returns the JSON (JavaScript Object Notation) representation of an object (string)
+
+
+[4-from_json_string.py](./4-from_json_string.py): Contains a function that returns the object (Python data structure) represented by a JSON string
