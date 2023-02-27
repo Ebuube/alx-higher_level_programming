@@ -21,3 +21,6 @@ ONWUTA EBUBE GIDEON
 
 
 [5-save_to_json_file](./5-save_to_json_file): Contains a function that writes an Object to a text file, using a JSON representation
+
+
+[6-load_from_json_file.py](./6-load_from_json_file.py): Contains a function that returns an object from a ``JSON file``
