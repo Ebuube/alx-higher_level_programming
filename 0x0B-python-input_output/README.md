@@ -24,3 +24,6 @@ ONWUTA EBUBE GIDEON
 
 
 [6-load_from_json_file.py](./6-load_from_json_file.py): Contains a function that returns an object from a ``JSON file``
+
+
+[7-add_item.py](./7-add_item.py): A python script that adds all arguments to a Python list and then save them to the file ``add_item.json``
