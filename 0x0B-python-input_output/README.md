@@ -12,3 +12,6 @@ ONWUTA EBUBE GIDEON
 
 
 [2-append_write.py](./2-append_write.py): Contains a function that appends text to a file and returns the number of characters successfully written
+
+
+[3-to_json_string.py](./3-to_json_string.py): Contains a function that returns the JSON (JavaScript Object Notation) representation of an object (string)
