@@ -30,3 +30,6 @@ ONWUTA EBUBE GIDEON
 
 
 [8-class_to_json.py](./8-class_to_json.py): Contains a function that returns the dictionary description with simple data structure for ``JSON`` serialization of an object
+
+
+[9-student.py](./9-student.py): This module defines the class ``Student``
