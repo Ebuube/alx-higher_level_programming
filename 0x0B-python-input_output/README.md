@@ -27,3 +27,6 @@ ONWUTA EBUBE GIDEON
 
 
 [7-add_item.py](./7-add_item.py): A python script that adds all arguments to a Python list and then save them to the file ``add_item.json``
+
+
+[8-class_to_json.py](./8-class_to_json.py): Contains a function that returns the dictionary description with simple data structure for ``JSON`` serialization of an object

@@ -18,7 +18,7 @@ class Node:
     def __init__(self, data, next_node=None):
         """Initialize a new node object
 
-        The argument data must be an integer otherwise it raises a TypeError
+        The argument ``data`` must be an integer else it raises a TypeError
         exception with message `data must be an integer`
         The argument `next_node` must be None or a Node object, otherwise
         it raises a TypeError exception with the message `next_node must be
