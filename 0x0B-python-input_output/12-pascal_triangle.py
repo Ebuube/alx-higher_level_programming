@@ -24,14 +24,10 @@ def pascal_triangle(n):
             left = 0
             right = 0
 
-            if col == 0:
-                left = 0
-            else:
+            if col > 0:
                 left = pascal[row - 1][col - 1]
 
-            if col == row:
-                right = 0
-            else:
+            if col < row:
                 right = pascal[row - 1][col]
 
             new_row.append(left + right)
