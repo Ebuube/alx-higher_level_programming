@@ -39,3 +39,6 @@ ONWUTA EBUBE GIDEON
 
 
 [11-student.py](./11-student.py): Defines the class ``Student`` as at [10-student.py](./10-student.py): It equally implements the public method ``reload_from_json(self, json)`` which replaces all attributes of the ``Student`` instance
+
+
+[12-pascal_triangle.py](./12-pascal_triangle.py): Contains a function ``pascal_triangle(n)`` that returns a list of lists of integers representing the Pascal's triangle of ``n``
