@@ -36,3 +36,6 @@ ONWUTA EBUBE GIDEON
 
 
 [10-student.py](./10-student.py): Defines the class ``Student`` as at [9-student.py](./9-student.py). It equally implements the non-positional option ``attrs``
+
+
+[11-student.py](./11-student.py): Defines the class ``Student`` as at [10-student.py](./10-student.py): It equally implements the public method ``reload_from_json(self, json)`` which replaces all attributes of the ``Student`` instance
