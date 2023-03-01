@@ -33,3 +33,6 @@ ONWUTA EBUBE GIDEON
 
 
 [9-student.py](./9-student.py): This module defines the class ``Student``
+
+
+[10-student.py](./10-student.py): Defines the class ``Student`` as at [9-student.py](./9-student.py). It equally implements the non-positional option ``attrs``
