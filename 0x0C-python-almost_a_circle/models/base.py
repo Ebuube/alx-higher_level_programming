@@ -7,6 +7,8 @@ THIS MODULE CREATES BASE CLASS
 class Base():
     """
     Define the Base Class
+
+    This forms the basis for other subsequent classes
     """
 
     __nb_objects = 0
