@@ -21,11 +21,11 @@ class Rectangle(Base):
         """
         Initialize an instance of the class ``Rectangle``
         """
-        super().__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
+        super().__init__(id)
 
     @property
     def width(self):
@@ -35,16 +35,16 @@ class Rectangle(Base):
         return self.__width
 
     @width.setter
-    def width(self, a_width):
+    def width(self, width):
         """
         Set the value of the Rectangle's width
         """
-        if not isinstance(type(a_width), int):
+        if not isinstance(type(width), int):
             raise TypeError("width must be an integer")
-        if a_width <= 0:
+        if width <= 0:
             raise ValueError("width must be > 0")
 
-        self.__width = a_width
+        self.__width = width
 
     @property
     def height(self):
@@ -54,16 +54,16 @@ class Rectangle(Base):
         return self.__height
 
     @height.setter
-    def height(self, a_height):
+    def height(self, height):
         """
         Set the value of the Rectangles's height
         """
-        if not isinstance(type(a_height), int):
+        if not isinstance(type(height), int):
             raise TypeError("height must be an integer")
-        if a_height <= 0:
+        if height <= 0:
             raise ValueError("height must be > 0")
 
-        self.__height = a_height
+        self.__height = height
 
     @property
     def x(self):
@@ -73,16 +73,16 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def x(self, a_x):
+    def x(self, x):
         """
         Set the value of ``x``
         """
-        if not isinstance(type(a_x), int):
+        if not isinstance(type(x), int):
             raise TypeError("x must be an integer")
-        if a_x < 0:
+        if x < 0:
             raise ValueError("x must be >= 0")
 
-        self.__x = a_x
+        self.__x = x
 
     @property
     def y(self):
@@ -92,13 +92,13 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def y(self, a_y):
+    def y(self, y):
         """
         Set the value of ``y``
         """
-        if not isinstance(type(a_y), int):
+        if not isinstance(type(y), int):
             raise TypeError("y must be an integer")
-        if a_y < 0:
+        if y < 0:
             raise ValueError("x must be >= 0")
 
-        self.__y = a_y
+        self.__y = y
