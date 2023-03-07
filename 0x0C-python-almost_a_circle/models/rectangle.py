@@ -39,7 +39,7 @@ class Rectangle(Base):
         """
         Set the value of the Rectangle's width
         """
-        if not isinstance(a_width, int):
+        if not isinstance(type(a_width), int):
             raise TypeError("width must be an integer")
         if a_width <= 0:
             raise ValueError("width must be > 0")
@@ -58,7 +58,7 @@ class Rectangle(Base):
         """
         Set the value of the Rectangles's height
         """
-        if not isinstance(a_height, int):
+        if not isinstance(type(a_height), int):
             raise TypeError("height must be an integer")
         if a_height <= 0:
             raise ValueError("height must be > 0")
@@ -77,7 +77,7 @@ class Rectangle(Base):
         """
         Set the value of ``x``
         """
-        if not isinstance(a_x, int):
+        if not isinstance(type(a_x), int):
             raise TypeError("x must be an integer")
         if a_x < 0:
             raise ValueError("x must be >= 0")
@@ -96,7 +96,7 @@ class Rectangle(Base):
         """
         Set the value of ``y``
         """
-        if not isinstance(a_y, int):
+        if not isinstance(type(a_y), int):
             raise TypeError("y must be an integer")
         if a_y < 0:
             raise ValueError("x must be >= 0")
