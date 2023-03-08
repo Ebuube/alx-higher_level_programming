@@ -162,3 +162,27 @@ class Rectangle(Base):
                 self.__width,
                 self.__height
                 )
+
+    def update(self, *args):
+        """
+        Update the attributes of the instance object
+        NOTE: THE ORDER IS VERY IMPORTANT
+
+        1st argument = id
+        2nd argument = width
+        3rd argument = height
+        4th argument = x
+        5th argument = y
+        """
+
+        for pos in range(len(args)):
+            if pos == 0:
+                self.id = args[pos]
+            elif pos == 1:
+                self.__width = args[pos]
+            elif pos == 2:
+                self.__height = args[pos]
+            elif pos == 3:
+                self.__x = args[pos]
+            elif pos == 4:
+                self.__y = args[pos]
