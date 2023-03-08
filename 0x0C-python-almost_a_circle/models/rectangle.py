@@ -136,9 +136,16 @@ class Rectangle(Base):
         """
         Print to stdout the ``Rectangle`` instance with the character
         ``#``
+        Takes care of the x and y coordinates of the instance object
         """
 
+        for y in range(self.__y):
+            print()
+
         for height in range(self.__height):
+            for x in range(self.__x):
+                print(' ', end='')
+
             for width in range(self.__width):
                 print('#', end='')
             print()
