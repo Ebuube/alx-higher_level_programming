@@ -203,3 +203,16 @@ class Rectangle(Base):
                     self.__x = kwargs[key]
                 elif key == "y":
                     self.__y = kwargs[key]
+
+    def to_dictionary(self):
+        """
+        Retrieve the dictionary representation of the ``Rectangle`` instance
+        """
+        obj_dict = dict()
+        obj_dict['id'] = self.id
+        obj_dict['width'] = self.width
+        obj_dict['height'] = self.height
+        obj_dict['x'] = self.x
+        obj_dict['y'] = self.y
+
+        return obj_dict
