@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Create the ``Rectangle`` that inherits from ``Base``
+Create the ``Rectangle`` class that inherits from ``Base`` class
 """
 
 
@@ -155,7 +155,8 @@ class Rectangle(Base):
         Return the non-canonical string representation of the
         ``Rectangle`` instance
         """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+        return "[{}] ({}) {}/{} - {}/{}".format(
+                type(self).__name__,
                 self.id,
                 self.__x,
                 self.__y,
