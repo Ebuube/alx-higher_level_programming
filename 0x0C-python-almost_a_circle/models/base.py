@@ -4,6 +4,9 @@ THIS MODULE CREATES BASE CLASS
 """
 
 
+import json
+
+
 class Base():
     """
     Define the Base Class
@@ -23,3 +26,18 @@ class Base():
         else:
             type(self).__nb_objects += 1
             self.id = type(self).__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """
+        Return the JSON string representation of the argument
+
+        Args:
+            list_dictionaries = a list of dictionaries
+        Return:
+            if ``list_dictionaries`` is None or empty,
+            return string ``""[]""``
+        """
+        if (list_dictionaries is None) or (len(list_dictionaries) == 0):
+            return "[]"
+        else:
+            return json.dumps(list_dictionaries)
