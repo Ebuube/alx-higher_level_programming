@@ -163,7 +163,7 @@ class Rectangle(Base):
                 self.__height
                 )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update the attributes of the instance object
         NOTE: THE ORDER IS VERY IMPORTANT
@@ -173,6 +173,8 @@ class Rectangle(Base):
         3rd argument = height
         4th argument = x
         5th argument = y
+
+        kwargs is ignored if args exists and is not empty
         """
 
         for pos in range(len(args)):
@@ -186,3 +188,17 @@ class Rectangle(Base):
                 self.__x = args[pos]
             elif pos == 4:
                 self.__y = args[pos]
+
+        # Skip this if *args already exist and is not empty, else execute it
+        if len(args) == 0:
+            for key in kwargs:
+                if key == "id":
+                    self.id = kwargs[key]
+                elif key == "width":
+                    self.__width = kwargs[key]
+                elif key == "height":
+                    self.__height = kwargs[key]
+                elif key == "x":
+                    self.__x = kwargs[key]
+                elif key == "y":
+                    self.__y = kwargs[key]
