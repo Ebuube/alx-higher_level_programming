@@ -88,3 +88,15 @@ class Square(Rectangle):
                     self.x = kwargs[key]
                 elif key == "y":
                     self.y = kwargs[key]
+
+    def to_dictionary(self):
+        """
+        Retrieve the dictionary representation of the ``Square`` instance
+        """
+        obj_dict = dict()
+        obj_dict['id'] = self.id
+        obj_dict['size'] = self.size
+        obj_dict['x'] = self.x
+        obj_dict['y'] = self.y
+
+        return obj_dict
