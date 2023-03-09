@@ -98,8 +98,42 @@ class Base():
         if (not (dictionary is None)) and (len(dictionary)) != 0:
             if cls.__name__ == "Rectangle":
                 new = cls(1, 1)
-            else:
+            elif cls.__name__ == "Square":
                 new = cls(1)
 
             new.update(**dictionary)
             return new
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return the list of instances from <classname>.json file
+
+        If the file doesn't exit, return an empty list
+
+        Otherwise, return a list of instances
+
+        The type of these instances depend on ``cls``
+        i.e. (current class using this method)
+
+        NOTE:
+            This function reads from ``<cls.__name__>.json``
+        """
+        filename = cls.__name__ + ".json"
+
+        try:
+            with open(filename, "r") as json_file:
+
+                # list_dicts: list of dictionaries represented by json string
+                list_dicts = Base.from_json_string(json_file.read())
+
+                # instance: a list of instances whether Rectangle or Squares
+                instance = list()
+
+                # obj: is a dictionary variable
+                for obj in list_dicts:
+                    instance.append(cls.create(**obj))
+
+                return instance
+        except IOError:
+            return list()
