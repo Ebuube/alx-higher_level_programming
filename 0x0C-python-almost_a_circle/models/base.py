@@ -68,3 +68,21 @@ class Base():
                 for x in list_objs:
                     list_dicts.append(x.to_dictionary())
                 the_jsonfile.write(Base.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Retrive a list from a JSON string
+
+        Args:
+            json_string: a string representation of list of dictionaries
+        Return:
+            if ``json_string`` is None or empty, return an emtpy list
+            else,
+            Returns the list represented by ``json_string``
+        """
+
+        if (json_string is None) or (len(json_string) == 0):
+            return list()
+        else:
+            return json.loads(json_string)
