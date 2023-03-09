@@ -154,6 +154,9 @@ class Rectangle(Base):
         """
         Return the non-canonical string representation of the
         ``Rectangle`` instance
+
+        Format:
+        >> [<cls.__name__>] (<id>) <x>/<y> - <width>/<height>
         """
         return "[{}] ({}) {}/{} - {}/{}".format(
                 type(self).__name__,

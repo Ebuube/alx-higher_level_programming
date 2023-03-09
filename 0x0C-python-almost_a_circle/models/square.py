@@ -21,6 +21,9 @@ class Square(Rectangle):
         Return the non-canonical string representation of the
         instance of ``Square``
 
+        Format:
+        >> [<cls.__name__>] (<id>) <x>/<y> - <size>
+
         NB:
             To access private instance attributes declared in the super class:
             1) Ensure that the attribute has getter and setter defined in
