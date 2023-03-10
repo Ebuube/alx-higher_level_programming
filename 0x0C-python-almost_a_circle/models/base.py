@@ -5,6 +5,7 @@ THIS MODULE CREATES BASE CLASS
 
 
 import json
+import csv
 
 
 class Base():
@@ -59,7 +60,7 @@ class Base():
 
         filename = cls.__name__ + ".json"
 
-        with open(filename, "w") as the_jsonfile:
+        with open(filename, 'w') as the_jsonfile:
             if list_objs is None:
                 the_jsonfile.write("[]")
             else:
@@ -122,7 +123,7 @@ class Base():
         filename = cls.__name__ + ".json"
 
         try:
-            with open(filename, "r") as json_file:
+            with open(filename, 'r') as json_file:
 
                 # list_dicts: list of dictionaries represented by json string
                 list_dicts = Base.from_json_string(json_file.read())
@@ -136,4 +137,122 @@ class Base():
 
                 return instance
         except IOError:
+            return list()
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serialze all the instances in ``list_objs`` to a the file
+        ``<Class name>.csv``, eg ``Rectangle.csv``
+
+        Args:
+            list_objs: a list of instances of ``cls``
+
+        Format:
+            For Rectangle: <id>, <width>, <height>, <x>, <y>
+            For Square: <id>, <size>, <x>, <y>
+
+        NOTE:
+
+            *   The csv file created has a header in the format above
+
+            *   This method overwrites any pre-existing file bearing the name
+                ``<Class name>.csv``. Otherwise, a new one is created
+        """
+        filename = cls.__name__ + ".csv"
+
+        with open(filename, 'w', newline='') as csvfile:
+
+            # Set fieldnames
+            if cls.__name__ == "Rectangle":
+                fieldnames = ['id', 'width', 'height', 'x', 'y']
+            elif cls.__name__ == "Square":
+                fieldnames = ['id', 'size', 'x', 'y']
+
+            # Setting DictWriter object
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames,
+                                    quoting=csv.QUOTE_NONNUMERIC)
+
+            # Write the header of the file
+            writer.writeheader()
+
+            if list_objs and (len(list_objs) > 0):
+
+                # list_dicts: a list of dictionaries gotten from list_objs
+                list_dicts = list()
+
+                # Convert each object to a dictionary and add them to list
+                for obj in list_objs:
+                    list_dicts.append(obj.to_dictionary())
+
+                # Write each dict representation of list_objs to csvfile
+                for obj in list_dicts:
+                    writer.writerow(obj)
+            else:
+                # Write an empty dictionary to csvfile
+                writer.writerow(dict())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialze all the dictionary entries in the file ``<Class name>.csv``
+        to a list of instances of the class ``<Class name>``
+
+        Format:
+            For Rectangle: <id>, <width>, <height>, <x>, <y>
+            For Square: <id>, <size>, <x>, <y>
+
+        Return:
+            *   If file exists return a list of instances
+
+            *   If the specified file doesn't exist, return an emtpy list
+
+        NOTE:
+
+            *   The csv file to be opened has a header in the format above
+        """
+        filename = cls.__name__ + ".csv"
+
+        try:
+            with open(filename, 'r', newline='') as csvfile:
+
+                # Set fieldnames
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ['id', 'width', 'height', 'x', 'y']
+                elif cls.__name__ == "Square":
+                    fieldnames = ['id', 'size', 'x', 'y']
+
+                # Setting DictReader object
+                # NB: the fieldnames argument is optional
+                reader = csv.DictReader(csvfile, fieldnames=fieldnames,
+                                        quoting=csv.QUOTE_NONNUMERIC)
+
+                # list_objs: a list of instances to be returned
+                list_objs = list()
+
+                # read_header: used to know if the header has been read
+                read_header = False
+
+                # Read each row of the csvfile as a dictionary
+                # Create an instance out of this dictionary
+                # And add it to the ``list_objs`` list
+                for row in reader:
+
+                    # Skip the header
+                    if read_header is False:
+                        read_header = True
+                        continue
+
+                    # convert each numeric field to int
+                    for key in row:
+                        if type(row[key]) == float:
+                            row[key] = int(row[key])
+
+                    list_objs.append(cls.create(**row))
+
+                # returning the list of instances
+                return list_objs
+
+        except IOError:
+            # Return an empty list if file doesn't exist
             return list()
