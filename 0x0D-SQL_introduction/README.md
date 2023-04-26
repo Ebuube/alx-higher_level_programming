@@ -74,7 +74,7 @@ This adds a row in the table (sometimes also refered to as a record, or more rar
 
 ## Why are they called `relational` databases?
 
-Historically, the initial reason was that tables used to be called `relations` (they gather a lot of datas that are “related” to each other, since they follow the same structure). However, tables are now tables, and the term `relation` has now been recycled for another use.
+Historically, the initial reason was that tables used to be called `relations` (they gather a lot of datas that are ``related`` to each other, since they follow the same structure). However, tables are now tables, and the term `relation` has now been recycled for another use.
 
 A relation as used today is something that ties two records together, most often across different tables. For instance, say you have a blog, and you have 2 tables:
 
@@ -129,7 +129,7 @@ Performance is dramatically better if you manage to get the database to do most 
 
 One particularly popular type of NoSQL database is document-oriented databases, such as MongoDB or CouchDB. One reason they’re popular is because their learning curve is very smooth, and they feel natural to use: you just send them JSON documents, much like we’ve done in the “Relational databases done wrong” project, and they make it right when you need to fetch them back. You don’t need your JSON documents to have specific fields of specific types, just send whatever JSON you want; the technical word for this is that they are schemaless.
 
-One caveat is that they’re much, much harder to scale than relational databases (the data being more “formatted” in relational databases makes it easier and faster to work with).
+One caveat is that they’re much, much harder to scale than relational databases (the data being more `formatted` in relational databases makes it easier and faster to work with).
 
 Another caveat is that there is some comfort in having the database enforcing a schema (proper columns of proper types, …); if the database doesn’t do it, you can expect that some JSON documents in the collection are not of the schema you expect, and then you have to enforce schema in your code, which means more work. As a result, some document-based databases offer ways to enforce some schema, but I don’t believe many developers use it, because it defeats the purpose of having schemaless storage.
 
@@ -139,7 +139,7 @@ Document-based databases will be covered towards the end of year 1.
 
 ## Another NoSQL kind of database: key-value stores
 
-Some applications may need very large key-value storage, which you may think of as the persistence of a single huge “dictionary” structure (the same structure that Ruby calls “hash”, Python calls “dict”, PHP calls “associative array”, Objective C and Swift calls “dictionary”, …). An obvious need for that is around caching (if you don’t understand why, we’ll cover this when we talk about caching). Cassandre, memcached and Redis are popular key-value stores.
+Some applications may need very large key-value storage, which you may think of as the persistence of a single huge `dictionary` structure (the same structure that Ruby calls `hash`, Python calls `dict`, PHP calls `associative array`, Objective C and Swift calls `dictionary`, …). An obvious need for that is around caching (if you don’t understand why, we’ll cover this when we talk about caching). Cassandre, memcached and Redis are popular key-value stores.
 
 As your collection of key-values grows, you may need pretty advanced ways to organize them (and expire them, for instance), so, obviously, each key-value storage solution comes with more advanced tools than just the usual CRUD operations.
 
@@ -147,7 +147,7 @@ As your collection of key-values grows, you may need pretty advanced ways to org
 
 As mentioned before, NoSQL databases sometimes get closer to relational databases by allowing to be queried using the SQL syntax (like Cassandra and Hypertable); but databases are getting closer also the other way around, as relational databases themselves have started offering some document-based storage.
 
-A mature example of that is PostgreSQL’s “hstore” type, which allows to store JSON data in PostgreSQL, in a way that is queriable. Most recently, this has allowed PostgreSQL to have a certain leg up against their competition of open-source relational databases, because MySQL hasn’t been able to ship a similar feature yet, although they’re expected too (MySQL development has dramatically slowed down now that they belong to Oracle, which is a direct closed-source competitor; a few years ago, most MySQL contributors went ahead to create another open-source database called MariaDB, which never really became mainstream, so maybe there won’t ever be document-based storage in MySQL, actually).
+A mature example of that is PostgreSQL’s `hstore` type, which allows to store JSON data in PostgreSQL, in a way that is queriable. Most recently, this has allowed PostgreSQL to have a certain leg up against their competition of open-source relational databases, because MySQL hasn’t been able to ship a similar feature yet, although they’re expected too (MySQL development has dramatically slowed down now that they belong to Oracle, which is a direct closed-source competitor; a few years ago, most MySQL contributors went ahead to create another open-source database called MariaDB, which never really became mainstream, so maybe there won’t ever be document-based storage in MySQL, actually).
 
 ## What NoSQL storage do I need?
 
