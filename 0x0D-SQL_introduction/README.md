@@ -94,12 +94,18 @@ Some more terminology around relational databases
 Indexes
 Say you want to get all of the comments that are attached to the post of ID 12:
 
+```
 SELECT * FROM comments WHERE post\_id=12;
+```
+
 If you have millions or billions of comments, having your database extract the comments that match this condition can be amazingly time-consuming. Therefore, you can add an index on the comments table, that applies to the post\_id column. This will “precompute” every possible SELECT query with WHERE conditions on this column, which will update themselves every time you modify data, so that those calls are ready to respond very quickly.
 
 Let’s complicate things a bit, and say you want to optimize this query:
 
+```
 SELECT * FROM comments WHERE post\_id=12 AND published=1;
+```
+
 Your index on the post\_id column might not help much on that query. However, for that query, you can absolutely define an index on multiple column (in this case, the columns post\_id and published).
 
 Setting indexes properly is a known quick win to improve performance of relational databases on queries that are performed very often and take a long time to respond (so-called slow queries). I can quote at least a dozen occurrences in my career where setting up an index properly boosted a database’s performance with minimal effort, the most notable of which allowed us to boost a data migration that was taking ~48 hours, to suddenly complete in about 3 hours.
