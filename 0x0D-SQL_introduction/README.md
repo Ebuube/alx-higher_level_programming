@@ -38,9 +38,9 @@ You will definitely run into the concept of “CRUD” operations. It’s just a
 
 When people talk about databases, they’re usually referring to relational databases (such as PostgreSQL, MySQL, Oracle, …); but there are many other kinds of databases used in the industry, which are globally referred to as “NoSQL” databases, even though they can be very different from each other, and serve very various purposes.
 
-Also, the name “NoSQL” comes from SQL, which is the name of the syntax used to give orders (CRUD operations, creating and deleting tables, …) to a relational databases; however, some non-relational databases, which are referred to as “NoSQL” give the option to use the SQL syntax. Therefore, the term “NoSQL” is quite controversial to refer to non-relational databases, but it is still widely used.
+Also, the name `NoSQL` comes from SQL, which is the name of the syntax used to give orders (CRUD operations, creating and deleting tables, …) to a relational databases; however, some non-relational databases, which are referred to as `NoSQL` give the option to use the SQL syntax. Therefore, the term `NoSQL` is quite controversial to refer to non-relational databases, but it is still widely used.
 
-“NoSQL” (non-relational) databases have known a boost in popularity, over the last decade or so, so much that there was a point, a few years ago, where people were wondering if they were to replace relational databases entirely. But years later, the market has now solidified, NoSQL databases’ market share doesn’t progress much anymore and is now quite steady.
+`NoSQL` (non-relational) databases have known a boost in popularity, over the last decade or so, so much that there was a point, a few years ago, where people were wondering if they were to replace relational databases entirely. But years later, the market has now solidified, NoSQL databases’ market share doesn’t progress much anymore and is now quite steady.
 
 The result: many NoSQL databases have made it into solid maturity, and are used in some very ambitious projects (as well as small ones), but relational databases are still by far the most used in projects, and are not going anywhere after all.
 
@@ -60,45 +60,47 @@ The fear of SQL explains a lot why non-relational databases got called “NoSQL�
 ## Some terminology around relational databases
 One good thing about relational databases is that whether they’re PostgreSQL, MySQL, Oracle, or other, they’ve managed to be pretty consistent across brands. Therefore, not only are their versions of SQL pretty decently similar (at least for CRUD operations), but the terminology they’re using are mostly the same.
 
-Say you need to store users. To do that, you create a table that is called “users”.
+Say you need to store users. To do that, you create a table that is called `users`.
 
-Your users have 3 pieces of information to store: their “id”, their “login”, and their “password”. Those are called columns, and they all have types, like integer for the “id”, varchar(32) for “login” (a string of variable length, but maximum 32), and char(32) (a string of exactly 32 characters, which is the case for all text encrypted with the md5 algorithm, for instance). The available types may vary heavily from one database “brand” to the other.
+Your users have 3 pieces of information to store: their `id`, their `login`, and their `password`. Those are called columns, and they all have types, like integer for the `id`, varchar(32) for `login` (a string of variable length, but maximum 32), and char(32) (a string of exactly 32 characters, which is the case for all text encrypted with the md5 algorithm, for instance). The available types may vary heavily from one database `brand` to the other.
 
 Now, let’s add a user in the database with SQL:
+
 ```
 INSERT INTO users (login, password) VALUES ('rudy', '01234567890123456789012345678901');
 ```
 
 This adds a row in the table (sometimes also refered to as a record, or more rarely, a tuple).
 
-## Why are they called “relational” databases?
+## Why are they called `relational` databases?
 
-Historically, the initial reason was that tables used to be called “relations” (they gather a lot of datas that are “related” to each other, since they follow the same structure). However, tables are now tables, and the term “relation” has now been recycled for another use.
+Historically, the initial reason was that tables used to be called `relations` (they gather a lot of datas that are “related” to each other, since they follow the same structure). However, tables are now tables, and the term `relation` has now been recycled for another use.
 
 A relation as used today is something that ties two records together, most often across different tables. For instance, say you have a blog, and you have 2 tables:
 
 * posts, with the fields id, title and body
 * comments, with the fields id and body
 
-In both tables, the “id” fields are primary keys, because they uniquely identify the row that they belong to (if you say “give me the post of id 4”, you’re sure to be getting only one post).
+In both tables, the `id` fields are primary keys, because they uniquely identify the row that they belong to (if you say `give me the post of id 4`, you’re sure to be getting only one post).
 
 But how do you know that a given comment is attached to a given post. Well, you add a postid field to the comments table, containing the id of the post you with to attach it to. The postid field is called a foreign key, uniquely identifying another’s table primary key.
 
 Now that you have that, you can easily identify, from a comment, which post it is attached to; but you can also easily identify, from a post, which comments are attached to it. Just fetch the comments whose post\_id field contain the id of the post you had in mind. The fact that you can do that is what is called a relation.
 
-Once you have your relation, you can do pretty advanced things. For instance, you can join tables together while querying them, which will allow you to search for “the comments whose posts were published within the last month”, for instance (well, provided the posts table has a published\_at column of type date, for instance).
+Once you have your relation, you can do pretty advanced things. For instance, you can join tables together while querying them, which will allow you to search for `the comments whose posts were published within the last month`, for instance (well, provided the posts table has a published\_at column of type date, for instance).
 
 Note: you can have a relation between rows of the same table, for instance, a user that is the “sponsor” of another one, a comment that is a “reply” of another one, …
 
-Some more terminology around relational databases
-Indexes
+## Some more terminology around relational databases
+### Indexes
+
 Say you want to get all of the comments that are attached to the post of ID 12:
 
 ```
 SELECT * FROM comments WHERE post\_id=12;
 ```
 
-If you have millions or billions of comments, having your database extract the comments that match this condition can be amazingly time-consuming. Therefore, you can add an index on the comments table, that applies to the post\_id column. This will “precompute” every possible SELECT query with WHERE conditions on this column, which will update themselves every time you modify data, so that those calls are ready to respond very quickly.
+If you have millions or billions of comments, having your database extract the comments that match this condition can be amazingly time-consuming. Therefore, you can add an index on the comments table, that applies to the post\_id column. This will `precompute` every possible SELECT query with WHERE conditions on this column, which will update themselves every time you modify data, so that those calls are ready to respond very quickly.
 
 Let’s complicate things a bit, and say you want to optimize this query:
 
@@ -110,7 +112,7 @@ Your index on the post\_id column might not help much on that query. However, fo
 
 Setting indexes properly is a known quick win to improve performance of relational databases on queries that are performed very often and take a long time to respond (so-called slow queries). I can quote at least a dozen occurrences in my career where setting up an index properly boosted a database’s performance with minimal effort, the most notable of which allowed us to boost a data migration that was taking ~48 hours, to suddenly complete in about 3 hours.
 
-Joins
+### Joins
 You can join tables together that have relations between each other, so that you can operate on data across those tables. For instance, I want the titles of all posts that have published comments.
 
 ```
@@ -149,6 +151,6 @@ A mature example of that is PostgreSQL’s “hstore” type, which allows to st
 
 ## What NoSQL storage do I need?
 
-NoSQL databases address all kinds of requirements, and therefore the ways they work are dramatically different. Here’s a really accurate map of the various solutions: [here](http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis)
+NoSQL databases address all kinds of requirements, and therefore the ways they work are dramatically different. Here’s a really accurate map of the various solutions: [Access it here](http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis).
 
 **Note**: in year 1, your main project must be done using a relational database, and we’ll cover document-oriented databases (probably MongoDB) and key-value stores (probably Redis) towards the end of the year.
