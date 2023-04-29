@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS cities(
 	name VARCHAR(256) NOT NULL,
 	CONSTRAINT cities_pk PRIMARY KEY (id),
 	CONSTRAINT cities_states_fk FOREIGN KEY (state_id)
-	REFERENCE states (id)
+	REFERENCES states (id)
 );
