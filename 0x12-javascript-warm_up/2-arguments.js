@@ -11,5 +11,5 @@ const cmdLineArgs = process.argv.slice(2);
 if (cmdLineArgs[0] === undefined) {
   console.log('No argument');
 } else {
-  console.log('Arguments found');
+  console.log('Argument found');
 }
