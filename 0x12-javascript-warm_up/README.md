@@ -50,7 +50,7 @@ Write a script that prints two arguments passed to it, in the following format: 
 * You must use `console.log(...)` to print all output
 * You are not allowed to use `var`
 
-## An Integer
+## 5. An Integer
 
 Write a script that prints `My number: <first argument converted in integer>` if the first argument can be converted to an integer:
 
@@ -59,7 +59,7 @@ Write a script that prints `My number: <first argument converted in integer>` if
 * You are not allowed to use `var`
 * You are not allowed to use `try/catch`
 
-## 6 Loop to languages
+## 6. Loop to languages
 
 Write a script that prints 3 lines: (like `1-multi_languages.js`) but by using an array of string and a loop
 
@@ -72,7 +72,7 @@ You are not allowed to use any `if/else` statement
 You can use only one `console.log`
 You must use a loop (`while`, `for`, etc.)
 
-## 7 I love C
+## 7. I love C
 
 Write a script that prints x times “C is fun”
 
@@ -83,7 +83,7 @@ Write a script that prints x times “C is fun”
 * You can use only two `console.log`
 * You must use a loop (`while`, `for`, etc.)
 
-## 8 Square
+## 8. Square
 
 Write a script that prints a square
 
@@ -94,7 +94,7 @@ Write a script that prints a square
 * You are not allowed to use `var`
 * You must use a loop (`while`, `for`, etc.)
 
-## 9 ADd
+## 9. ADd
 
 Write a script that prints the addition of 2 integers
 
@@ -104,7 +104,7 @@ Write a script that prints the addition of 2 integers
 * You must use `console.log(...)` to print all output
 * You are not allowed to use `var`
 
-## 10 Factorial
+## 10. Factorial
 
 Write a script that computes and prints a factorial
 
@@ -115,7 +115,7 @@ Write a script that computes and prints a factorial
 * You must use `console.log(...)` to print all output
 * You are not allowed to use `var`
 
-## 11 Second biggest!
+## 11. Second biggest!
 
 Write a script that searches the second biggest integer in the list of arguments.
 
