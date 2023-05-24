@@ -3,6 +3,6 @@
 // Add me maybe
 
 exports.addMeMaybe = function (number, theFunction) {
-  ++ number;
+  ++number;
   theFunction(number);
 };
