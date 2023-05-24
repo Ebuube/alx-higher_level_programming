@@ -125,7 +125,7 @@ Write a script that searches the second biggest integer in the list of arguments
 * You must use `console.log(...)` to print all output
 * You are not allowed to use `var`
 
-## 12, Object
+## 12. Object
 Update this script to replace the value `12` with `89`:
 
 * You are not allowed to use `var`
