@@ -137,3 +137,5 @@ Write a function that returns the addition of 2 integers.
 * The function must be visible from outside
 * The name of the function must be `add`
 * You are not allowed to use `var`
+
+[Tip](http://51elliot.blogspot.com/2012/01/simple-intro-to-nodejs-module-scope.html)
