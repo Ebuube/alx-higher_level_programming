@@ -139,3 +139,7 @@ Write a function that returns the addition of 2 integers.
 * You are not allowed to use `var`
 
 [Tip](http://51elliot.blogspot.com/2012/01/simple-intro-to-nodejs-module-scope.html)
+
+## 14. Const or not const
+
+Write a file that modifies the value of `myVar` to `333`
