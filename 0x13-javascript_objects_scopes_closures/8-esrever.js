@@ -3,5 +3,10 @@
 // Reverse a list
 
 exports.esrever = function (list) {
-  return list.reverse();
+	let new_list = [];
+	let list_length = list.length;
+	for (let index = 0; index < list_length; index++) {
+		new_list.push(list.pop());
+	}
+	return new_list;
 };
