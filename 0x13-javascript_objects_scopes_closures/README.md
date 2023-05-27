@@ -88,3 +88,10 @@ You must use the class notation for defining your class and extends
 Write a function that returns the number of occurrences in a list:
 
 * Prototype: `exports.nbOccurences = function (list, searchElement)`
+
+## 8. Esrever
+
+Write a function that returns the reversed version of a list:
+
+* Prototype: `exports.esrever = function (list)`
+* You are not allow to use the built-in method `reverse`
