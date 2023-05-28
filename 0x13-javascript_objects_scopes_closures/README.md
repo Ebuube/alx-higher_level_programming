@@ -110,3 +110,12 @@ Write a function that converts a number from base 10 to another base passed as a
 * Prototype: `exports.converter = function (base)`
 * You are not allowed to import any file
 * You are not allowed to declare any new variable (`var`, `let`, etc..)
+
+# 11. Factor index
+
+Write a script that imports an array and computes a new array.
+
+* Your script must import `list` from the file `100-data.js`
+* You must use a `map`. [Tips](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map?v=control)
+* A new list must be created with each value equal to the value of the initial list, multipled by the index in the list
+* Print both the initial list and the new list
