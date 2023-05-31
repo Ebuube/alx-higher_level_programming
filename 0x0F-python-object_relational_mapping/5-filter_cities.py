@@ -89,12 +89,9 @@ if __name__ == "__main__":
     # Fetch all results
     rows = Run(cur.fetchall)
 
+    # Display results
     if rows != ():
-        for row in range(len(rows)):
-            if row != len(rows) - 1:
-                print("{}".format(rows[row][0]), end=", ")
-            else:
-                print("{}".format(rows[row][0]))
+        print(", ".join([row[0] for row in rows]))
     else:
         print()
 
