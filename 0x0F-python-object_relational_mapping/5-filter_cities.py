@@ -106,4 +106,5 @@ if __name__ == "__main__":
     cur.close()
 
     # Close all instances of database connection
+    db.commit()
     db.close()
