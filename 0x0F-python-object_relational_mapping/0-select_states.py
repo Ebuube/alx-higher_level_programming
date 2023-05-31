@@ -7,25 +7,6 @@ import MySQLdb
 import sys
 
 
-if (len(sys.argv) < 4):
-    print("\nUsage: {} <mysql username> <mysql password> \
-<database name>".format(
-        sys.argv))
-    exit()
-
-
-"""
-IMPORTANT FUNCTIONS AND DECLARATIONS
-"""
-
-MY_HOST = 'localhost'
-MY_PORT = 3306
-MY_USER = sys.argv[1]
-MY_PASS = sys.argv[2]
-MY_DB = sys.argv[3]
-MY_TABLES = {'states': 'states'}
-
-
 def Run(command=None, statement=''):
     """
     Run - execute a MySQLdb command
@@ -57,24 +38,44 @@ def Run(command=None, statement=''):
 End of important functions
 """
 
+# Script should only execute if not imported
 
-# Create a connection with the database
-db = MySQLdb.connect(
-        host=MY_HOST,
-        port=MY_PORT,
-        user=MY_USER,
-        passwd=MY_PASS,
-        database=MY_DB)
+if __name__ == "__main__":
+    if (len(sys.argv) < 4):
+        print("\nUsage: {} <mysql username> <mysql password> \
+    <database name>".format(
+            sys.argv))
+        exit()
 
-# Create a cursor object for interacting with the database
-cur = db.cursor()
 
-Run(cur.execute, """SELECT id, name FROM {}
+    """
+    IMPORTANT FUNCTIONS AND DECLARATIONS
+    """
+
+    MY_HOST = 'localhost'
+    MY_PORT = 3306
+    MY_USER = sys.argv[1]
+    MY_PASS = sys.argv[2]
+    MY_DB = sys.argv[3]
+    MY_TABLES = {'states': 'states'}
+
+    # Create a connection with the database
+    db = MySQLdb.connect(
+            host=MY_HOST,
+            port=MY_PORT,
+            user=MY_USER,
+            passwd=MY_PASS,
+            database=MY_DB)
+
+    # Create a cursor object for interacting with the database
+    cur = db.cursor()
+
+    Run(cur.execute, """SELECT id, name FROM {}
         ORDER BY states.id;
         COMMIT""".format(MY_TABLES['states']))
 
-# Fetch all results
-rows = Run(cur.fetchall)
+    # Fetch all results
+    rows = Run(cur.fetchall)
 
-for row in rows:
-    print("({}, '{}')".format(row[0], row[1]))
+    for row in rows:
+        print("({}, '{}')".format(row[0], row[1]))

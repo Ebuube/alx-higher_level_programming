@@ -8,26 +8,6 @@ import MySQLdb
 import sys
 
 
-if (len(sys.argv) < 5):
-    print("\nUsage: {} <mysql username> <mysql password> \
-<database name> <state name searched>".format(
-        sys.argv))
-    exit()
-
-
-"""
-IMPORTANT FUNCTIONS AND DECLARATIONS
-"""
-
-MY_HOST = 'localhost'
-MY_PORT = 3306
-MY_USER = sys.argv[1]
-MY_PASS = sys.argv[2]
-MY_DB = sys.argv[3]
-MY_TABLES = {'states': 'states'}
-MY_MATCH = sys.argv[4]
-
-
 def Run(command=None, statement=''):
     """
     Run - execute a MySQLdb command
@@ -59,25 +39,45 @@ def Run(command=None, statement=''):
 End of important functions
 """
 
+# Script should only execute if not imported
+if __name__ == "__main__":
+    if (len(sys.argv) < 5):
+        print("\nUsage: {} <mysql username> <mysql password> \
+<database name> <state name searched>".format(
+            sys.argv))
+        exit()
 
-# Create a connection with the database
-db = MySQLdb.connect(
-        host=MY_HOST,
-        port=MY_PORT,
-        user=MY_USER,
-        passwd=MY_PASS,
-        database=MY_DB)
 
-# Create a cursor object for interacting with the database
-cur = db.cursor()
+    """
+    IMPORTANT FUNCTIONS AND DECLARATIONS
+    """
 
-Run(cur.execute, """SELECT id, name FROM {}
-        WHERE BINARY name = '{}'
-        ORDER BY states.id;
-        COMMIT""".format(MY_TABLES['states'], str(MY_MATCH)))
+    MY_HOST = 'localhost'
+    MY_PORT = 3306
+    MY_USER = sys.argv[1]
+    MY_PASS = sys.argv[2]
+    MY_DB = sys.argv[3]
+    MY_TABLES = {'states': 'states'}
+    MY_MATCH = sys.argv[4]
 
-# Fetch all results
-rows = Run(cur.fetchall)
+    # Create a connection with the database
+    db = MySQLdb.connect(
+            host=MY_HOST,
+            port=MY_PORT,
+            user=MY_USER,
+            passwd=MY_PASS,
+            database=MY_DB)
 
-for row in rows:
-    print("({}, '{}')".format(row[0], row[1]))
+    # Create a cursor object for interacting with the database
+    cur = db.cursor()
+
+    Run(cur.execute, """SELECT id, name FROM {}
+    WHERE BINARY name = '{}'
+    ORDER BY states.id;
+    COMMIT""".format(MY_TABLES['states'], str(MY_MATCH)))
+
+    # Fetch all results
+    rows = Run(cur.fetchall)
+
+    for row in rows:
+        print("({}, '{}')".format(row[0], row[1]))
