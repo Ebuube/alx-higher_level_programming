@@ -11,6 +11,7 @@ import sys
 IMPORTANT FUNCTIONS AND DECLARATIONS
 """
 
+
 def Run(command=None, statement=''):
     """
     Run - execute a MySQLdb command
