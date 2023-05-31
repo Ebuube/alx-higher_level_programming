@@ -80,3 +80,13 @@ if __name__ == "__main__":
 
     for row in rows:
         print("({}, '{}')".format(row[0], row[1]))
+
+    """
+    CLEAN UP ACTIONS
+    """
+
+    # Close all instances of cursor
+    cur.close()
+
+    # Close all instances of database connection
+    db.close()
