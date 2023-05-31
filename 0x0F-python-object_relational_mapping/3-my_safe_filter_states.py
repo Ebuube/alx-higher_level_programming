@@ -24,7 +24,7 @@ def Run(command=None, statement='', params=()):
         where it actually means `cur.fetchall()`
 
     statement: The statement to run
-    params: the parameters to substitute in the statement
+    params (tuple): the parameters to substitute in the statement
     """
     return_value = None
     try:
