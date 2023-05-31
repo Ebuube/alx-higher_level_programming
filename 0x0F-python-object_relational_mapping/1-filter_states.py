@@ -70,7 +70,7 @@ db = MySQLdb.connect(
 cur = db.cursor()
 
 Run(cur.execute, """SELECT id, name FROM {}
-        WHERE name LIKE 'N%' or BINARY name LIKE 'n%'
+        WHERE BINARY name LIKE 'N%'
         ORDER BY states.id;
         COMMIT""".format(MY_TABLES['states']))
 
