@@ -72,7 +72,7 @@ db = MySQLdb.connect(
 cur = db.cursor()
 
 Run(cur.execute, """SELECT id, name FROM {}
-        WHERE name = '{}'
+        WHERE BINARY name = '{}'
         ORDER BY states.id;
         COMMIT""".format(MY_TABLES['states'], str(MY_MATCH)))
 
