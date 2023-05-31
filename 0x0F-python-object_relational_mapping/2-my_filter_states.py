@@ -8,6 +8,10 @@ import MySQLdb
 import sys
 
 
+"""
+IMPORTANT FUNCTIONS AND DECLARATIONS
+"""
+
 def Run(command=None, statement=''):
     """
     Run - execute a MySQLdb command
@@ -48,7 +52,7 @@ if __name__ == "__main__":
         exit()
 
     """
-    IMPORTANT FUNCTIONS AND DECLARATIONS
+    IMPORTANT DECLARATIONS
     """
 
     MY_HOST = 'localhost'
