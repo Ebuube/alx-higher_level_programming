@@ -47,7 +47,6 @@ if __name__ == "__main__":
             sys.argv))
         exit()
 
-
     """
     IMPORTANT FUNCTIONS AND DECLARATIONS
     """

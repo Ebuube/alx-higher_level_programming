@@ -46,7 +46,6 @@ if __name__ == "__main__":
             sys.argv))
         exit()
 
-
     """
     IMPORTANT FUNCTIONS AND DECLARATIONS
     """
@@ -57,7 +56,6 @@ if __name__ == "__main__":
     MY_PASS = sys.argv[2]
     MY_DB = sys.argv[3]
     MY_TABLES = {'states': 'states'}
-
 
     # Create a connection with the database
     db = MySQLdb.connect(
