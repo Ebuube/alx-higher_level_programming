@@ -37,7 +37,7 @@ if __name__ == "__main__":
             State.name.like('%a%')).order_by(State.id).all()
 
     if (result is None) or (len(result) == 0):
-        print("Nothing")
+        pass    # do nothing
     else:
         for instance in result:
             print("{:d}: {:s}".format(instance.id, instance.name))
