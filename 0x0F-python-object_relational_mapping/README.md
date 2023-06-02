@@ -401,6 +401,38 @@ Write a script that lists all `State` objects that contain the letter `a` from t
 * The results must be displayed as they are in the example below
 * Your code should not be executed when imported
 
+```
+guillaume@ubuntu:~/0x0F$ ./9-model_state_filter_a.py root root hbtn_0e_6_usa
+1: California
+2: Arizona
+3: Texas
+5: Nevada
+guillaume@ubuntu:~/0x0F$
+```
+**No test cases needed**
+
+## 10. Get a state
+
+Write a script that prints the `State` object with the `name` passed as argument from the database `hbtn_0e_6_usa`
+
+* Your script should take 4 arguments: `mysql username`, `mysql password`, `database name` and `state name to search` (SQL injection free)
+* You must use the module `SQLAlchemy`
+* You must import `State` and `Base` from `model_state` - `from model_state import Base, State`
+* Your script should connect to a MySQL server running on `localhost` at port `3306`
+* You can assume you have one record with the state name to search
+* Results must display the `states.id`
+* If no state has the name you searched for, display `Not found`
+* Your code should not be executed when imported
+
+```
+guillaume@ubuntu:~/0x0F$ ./10-model_state_my_get.py root root hbtn_0e_6_usa Texas
+3
+guillaume@ubuntu:~/0x0F$ ./10-model_state_my_get.py root root hbtn_0e_6_usa Illinois
+Not found
+guillaume@ubuntu:~/0x0F$
+```
+**No test cases needed**
+
 
 
 ---
