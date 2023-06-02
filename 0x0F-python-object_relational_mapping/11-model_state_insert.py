@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This script prints the `State` object with the `name` passed as argument
-from the database `hbtn_0e_6_usa`
+This script adds the `State` object "Louisiana" to the database `hbtn_0e_6_usa`
 """
 
 import sys
@@ -13,16 +12,15 @@ from sqlalchemy.orm import sessionmaker
 if __name__ == "__main__":
 
     # Verify correct number of arguments
-    if (len(sys.argv) < 5):
+    if (len(sys.argv) < 4):
         print("\nUsage: {} <mysql username> <mysql password>\
-<database name> <state name to search>".format(sys.argv[0]))
+<database name>".format(sys.argv[0]))
         exit(1)
 
     # Assign arguments
     MY_USER = sys.argv[1]           # User name
     MY_PASS = sys.argv[2]           # User password
     MY_DB = sys.argv[3]             # Database name
-    STATE_TO_MATCH = sys.argv[4]    # State name to match
 
     # create engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
@@ -32,13 +30,24 @@ if __name__ == "__main__":
     session = Session()     # instance of a session for conversing
 
     """
-    Print all `State` objects that has the name `STATE_TO_MATCH`
+    Create a new state object
+    """
+    STATE_NAME = "Louisiana"
+    new_state = State(name=STATE_NAME)
+
+    """
+    Add a new state object with name "Louisiana"
+    """
+    session.add(new_state)
+    session.commit()        # commit the change to the database
+
+    """
+    Print the id of the newly created state record
     """
     result = session.query(State).filter_by(
-            name=STATE_TO_MATCH).order_by(State.id).all()
+            name=STATE_NAME).order_by(State.id).first()
 
-    if (result is None) or (len(result) == 0):
+    if result is None:
         print("Not found")
     else:
-        for instance in result:
-            print("{:d}".format(instance.id))
+        print("{:d}".format(result.id))
