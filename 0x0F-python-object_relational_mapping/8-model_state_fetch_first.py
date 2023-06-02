@@ -37,9 +37,9 @@ if __name__ == "__main__":
     """
     Print the first `State` object from the database
     """
-    result = session.query(State).order_by(State.id)
+    result = session.query(State).order_by(State.id)[:1]
 
-    if (result is not None) or (len(result) != 0):
-        print("{:d}: {:s}".format(result[0].id, result[0].name))
-    else:
+    if (result is None) or (len(result) == 0):
         print("Nothing")
+    else:
+        print("{:d}: {:s}".format(result[0].id, result[0].name))
