@@ -45,7 +45,7 @@ if __name__ == "__main__":
     Print the id of the newly created state record
     """
     result = session.query(State).filter_by(
-            name=STATE_NAME).order_by(State.id).first()
+            name=STATE_NAME).order_by(State.id).one()
 
     if result is None:
         print("Not found")
