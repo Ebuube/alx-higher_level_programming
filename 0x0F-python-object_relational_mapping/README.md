@@ -489,6 +489,83 @@ Write a script that deletes all `State` objects with a name containing the lette
 * You must import `State` and `Base` from `model_state` - `from model_state import Base, State`
 * Your script should connect to a MySQL server running on `localhost` at port `3306`
 * Your code should not be executed when imported
+```
+guillaume@ubuntu:~/0x0F$ ./13-model_state_delete_a.py root root hbtn_0e_6_usa 
+guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa 
+2: New Mexico
+4: New York
+guillaume@ubuntu:~/0x0F$
+```
+**No test cases needed**
+
+## 14. Cities in state
+
+Write a Python file similar to `model_state.py` named `model_city.py` that contains the class definition of a `City`.
+
+City class:
+	* inherits from `Base` (imported from `model_state`)
+	* links to the MySQL table `cities`
+	* class attribute `id` that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+	* class attribute `name` that represents a column of a string of 128 characters and can’t be null
+	* class attribute `state_id` that represents a column of an integer, can’t be null and is a foreign key to `states.id`
+* You must use the module `SQLAlchemy`
+
+Next, write a script `14-model_city_fetch_by_state.py` that prints all `City` objects from the database `hbtn_0e_14_usa`:
+
+* Your script should take 3 arguments: `mysql username`, `mysql password` and `database name`
+* You must use the module `SQLAlchemy`
+* You must import `State` and `Base` from `model_state` - `from model_state import Base, State`
+* Your script should connect to a MySQL server running on `localhost` at port `3306`
+* Results must be sorted in ascending order by `cities.id`
+* Results must be display as they are in the example below (`<state name>: (<city id>) <city name>`)
+* Your code should not be executed when imported
+```
+guillaume@ubuntu:~/0x0F$ cat 14-model_city_fetch_by_state.sql
+-- Create database hbtn_0e_14_usa, tables states and cities + some data
+CREATE DATABASE IF NOT EXISTS hbtn_0e_14_usa;
+USE hbtn_0e_14_usa;
+
+CREATE TABLE IF NOT EXISTS states ( 
+    id INT NOT NULL AUTO_INCREMENT, 
+    name VARCHAR(256) NOT NULL,
+    PRIMARY KEY (id)
+);
+INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"), ("New York"), ("Nevada");
+
+CREATE TABLE IF NOT EXISTS cities ( 
+    id INT NOT NULL AUTO_INCREMENT, 
+    state_id INT NOT NULL,
+    name VARCHAR(256) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY(state_id) REFERENCES states(id)
+);
+INSERT INTO cities (state_id, name) VALUES (1, "San Francisco"), (1, "San Jose"), (1, "Los Angeles"), (1, "Fremont"), (1, "Livermore");
+INSERT INTO cities (state_id, name) VALUES (2, "Page"), (2, "Phoenix");
+INSERT INTO cities (state_id, name) VALUES (3, "Dallas"), (3, "Houston"), (3, "Austin");
+INSERT INTO cities (state_id, name) VALUES (4, "New York");
+INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City");
+
+guillaume@ubuntu:~/0x0F$ cat 14-model_city_fetch_by_state.sql | mysql -uroot -p
+Enter password: 
+guillaume@ubuntu:~/0x0F$ ./14-model_city_fetch_by_state.py root root hbtn_0e_14_usa
+California: (1) San Francisco
+California: (2) San Jose
+California: (3) Los Angeles
+California: (4) Fremont
+California: (5) Livermore
+Arizona: (6) Page
+Arizona: (7) Phoenix
+Texas: (8) Dallas
+Texas: (9) Houston
+Texas: (10) Austin
+New York: (11) New York
+Nevada: (12) Las Vegas
+Nevada: (13) Reno
+Nevada: (14) Henderson
+Nevada: (15) Carson City
+guillaume@ubuntu:~/0x0F$
+```
+**No test cases needed**
 
 
 
