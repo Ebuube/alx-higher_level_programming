@@ -38,9 +38,7 @@ if __name__ == "__main__":
     # add new state to the current transaction
     session.add(new_state)
 
-    # commit the changes made
-    session.commit()
-
     # clean up action
+    session.commit()
     session.close()
     engine.dispose()
