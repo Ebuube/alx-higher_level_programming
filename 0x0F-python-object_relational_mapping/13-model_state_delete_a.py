@@ -33,7 +33,6 @@ if __name__ == "__main__":
     """
     Delete the record in the tables `states` where name has letter `a`
     """
-    LETTER_MATCH = 'a'
     # Fetch all States with name containing the letter 'a'
     objs = session.query(State).filter(State.name.like('%a%')).all()
 
