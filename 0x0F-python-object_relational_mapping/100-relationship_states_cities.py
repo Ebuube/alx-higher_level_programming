@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # add new state to the current transaction
     session.add(new_state)
-    #session.add(new_city)
+    # session.add(new_city)
 
     """
     for state in session.query(State).order_by(State.id).all():
