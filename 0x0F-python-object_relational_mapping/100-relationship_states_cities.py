@@ -37,6 +37,14 @@ if __name__ == "__main__":
 
     # add new state to the current transaction
     session.add(new_state)
+    #session.add(new_city)
+
+    """
+    for state in session.query(State).order_by(State.id).all():
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("{}: {}".format(city.id, city.name))
+    """
 
     # clean up action
     session.commit()
