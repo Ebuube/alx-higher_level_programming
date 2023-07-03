@@ -1,3 +1,6 @@
 # Ignorables
 
 ./[0-9]-main.py
+
+
+__pycache__/
