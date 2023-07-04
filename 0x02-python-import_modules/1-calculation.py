@@ -11,11 +11,7 @@ if __name__ == '__main__':
     a = 10
     b = 5
 
-    my_str = "{} + {} = {}".format(a, b, add(a, b))
-    print(my_str)
-    my_str = "{} - {} = {}".format(a, b, sub(a, b))
-    print(my_str)
-    my_str = "{} * {} = {}".format(a, b, mul(a, b))
-    print(my_str)
-    my_str = "{} / {} = {}".format(a, b, div(a, b))
-    print(my_str)
+    print("{} + {} = {}".format(a, b, add(a, b)))
+    print("{} - {} = {}".format(a, b, sub(a, b)))
+    print("{} * {} = {}".format(a, b, mul(a, b)))
+    print("{} / {} = {}".format(a, b, div(a, b)))
