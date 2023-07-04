@@ -6,10 +6,7 @@ and does some maths and prints the result.
 
 
 if __name__ == '__main__':
-    from calculator_1 import sub
-    from calculator_1 import add
-    from calculator_1 import mul
-    from calculator_1 import div
+    from calculator_1 import (sub, add, mul, div)
 
     a = 10
     b = 5
@@ -17,7 +14,7 @@ if __name__ == '__main__':
     my_str = "{} + {} =".format(a, b)
     print(my_str, add(a, b))
     my_str = "{} - {} =".format(a, b)
-    print(my_str, sub(a, b)
+    print(my_str, sub(a, b))
     my_str = "{} * {} =".format(a, b)
     print(my_str, mul(a, b))
     my_str = "{} / {} =".format(a, b)
