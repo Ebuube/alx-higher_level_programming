@@ -11,11 +11,11 @@ if __name__ == '__main__':
     a = 10
     b = 5
 
-    my_str = str(a) + ' + ' + str(b) + " = " + str(add(a, b))
+    my_str = "{} + {} = {}".format(a, b, add(a, b))
     print(my_str)
-    my_str = str(a) + ' - ' + str(b) + " = " + str(sub(a, b))
+    my_str = "{} - {} = {}".format(a, b, sub(a, b))
     print(my_str)
-    my_str = str(a) + ' * ' + str(b) + " = " + str(mul(a, b))
+    my_str = "{} * {} = {}".format(a, b, mul(a, b))
     print(my_str)
-    my_str = str(a) + ' / ' + str(b) + " = " + str(div(a, b))
+    my_str = "{} / {} = {}".format(a, b, div(a, b))
     print(my_str)
