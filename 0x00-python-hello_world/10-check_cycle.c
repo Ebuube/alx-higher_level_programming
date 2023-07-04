@@ -18,10 +18,14 @@ int check_cycle(listint_t *list)
 	listint_t *fast = 0;
 	int found_loop = 0;
 
-	if (!list)
+	if (list == NULL || list->next == NULL)
 	{
-		/* empty list */
+		/* empty list or 1 element list */
 		return (0);
+	}
+	if (list->next == list)
+	{/* self referencing node */
+		return (1);
 	}
 
 	for (slow = list->next, fast = list->next->next, found_loop = 0;
