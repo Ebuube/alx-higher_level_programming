@@ -43,5 +43,9 @@ int is_palindrome(listint_t **head)
 		}
 	}
 
+	/* Clean up */
+	if (stack != NULL)
+		free(stack);
+
 	return (is_pal);
 }
