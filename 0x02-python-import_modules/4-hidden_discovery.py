@@ -11,5 +11,4 @@ if __name__ == "__main__":
     names = dir(hidden_4)
     for name_def in names:
         if name_def[:2] != "__":
-            continue
             print(name_def)
