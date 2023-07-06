@@ -1,42 +1,31 @@
-#ifndef _MY_PY_LIST
-#define _MY_PY_LIST
-
 #include <stdio.h>
-
 #include "Python.h"
 
 
 /**
- * print_python_list_info - prints some information about a python list object
- * @p: a python list object
- *
- * Description: Print format->
- * [*] Size of the Python List = <number of current elements>
- * [*] Allocated = <number of allocated>
- * Element 0: <type name>
- * Element 1: <type name>
- * Element (n - 1): <type name>
- * ************** Separteor ****************************
- * Note that for the element types, it will be printed for only a list
- * with length n, such that n > 0
+ * print_python_list_info - print basic information of a python list
+ * @l: a list object
+ * Description: Information to be printed
+ * [*] Size of the Python List = %ld
+ * [*] Allocated = %ld
+ * Element %d: tp_name	# where %d is the index of the element not vaue
  *
  * Return: nothing
  */
-void print_python_list_info(PyObject *p)
+void print_python_list_info(PyObject *l)
 {
-	PyListObject *list = 0;
-	char *type_name = 0;
-	ssize_t count = 0;
+	PyListObject *mylist;
+	int i;
 
-	list = (PyListObject *)p;	/* Important for allocated and size */
-	printf("[*] Size of the Python List = %ld\n", list->ob_base.ob_size);
-	printf("[*] Allocated = %ld\n", list->allocated);
+	mylist = (PyListObject *)l;
 
-	for (count = 0; count < list->ob_base.ob_size; count++)
+	printf("[*] Size of the Python List = %ld\n", mylist->ob_base.ob_size);
+	printf("[*] Allocated = %ld\n", mylist->allocated);
+
+	/* All elements of the list */
+	for (i = 0; i < mylist->ob_base.ob_size; i++)
 	{
-		type_name = (char *)list->ob_item[count]->ob_type->tp_name;
-		printf("Element %ld: %s\n", count, type_name);
+		printf("Element %d:", i);
+		printf(" %s\n", (char *)mylist->ob_item[i]->ob_type->tp_name);
 	}
 }
-
-#endif	/* _MY_PY_LIST */
