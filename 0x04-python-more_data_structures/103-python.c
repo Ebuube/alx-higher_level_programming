@@ -6,6 +6,14 @@
 void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
 
+/*
+ * HELP FOR COMPILATION
+ * gcc -fPIC -shared libname.so ./this-file-name -I/usr/include/python3.8
+ *
+ * Where: libname.so specifies 'name' the name of the dynamic library
+ * this-file-name: The name of this particular file
+ */
+
 /**
  * print_python_list - print basic information about Python lists
  * and Python bytes objects
