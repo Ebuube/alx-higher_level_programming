@@ -8,7 +8,7 @@
  * Description: Information to be printed
  * [*] Size of the Python List = %ld
  * [*] Allocated = %ld
- * Element %d: tp_name	# where %d is the index of the element not vaue
+ * Element %d: tp_name	# where %d is the index of the element not vaule
  *
  * Return: nothing
  */
