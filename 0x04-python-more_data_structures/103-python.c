@@ -59,6 +59,7 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	PyBytesObject *bytes;
+	const char *SPACE = "  ";
 	ssize_t i = 0;
 	ssize_t size = 0;
 	const ssize_t MAX = 10;	/* maximum bytes to print */
@@ -67,17 +68,17 @@ void print_python_bytes(PyObject *p)
 
 	if ((strcmp(p->ob_type->tp_name, "bytes") != 0))
 	{/* Not a PyBytesObject */
-		printf("\t[ERROR] Invalid Bytes Object\n");
+		printf("%s[ERROR] Invalid Bytes Object\n", SPACE);
 		return;
 	}
 
 	bytes = (PyBytesObject *)p;
 
 	size = bytes->ob_base.ob_size;
-	printf("\tsize: %ld\n", size);
-	printf("\ttrying string: %s\n", bytes->ob_sval);
+	printf("%ssize: %ld\n", SPACE, size);
+	printf("%strying string: %s\n", SPACE, bytes->ob_sval);
 
-	printf("\tfirst %ld bytes:", ((size > MAX) ? MAX : size + 1));
+	printf("%sfirst %ld bytes:", SPACE, ((size > MAX) ? MAX : size + 1));
 	for (i = 0; i < MAX && i < size + 1; i++)
 	{
 		printf(" %02x", bytes->ob_sval[i]);
