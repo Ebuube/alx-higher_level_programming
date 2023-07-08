@@ -8,10 +8,11 @@ def uniq_add(my_list=[]):
            my_list: a list of integers
 
         Return: sum of all unique integers
+            else zero (0) if error occurs
     """
 
-    if not my_list or len(my_list) == 0:
-        return my_list
+    if my_list is None or len(my_list) == 0:
+        return 0
 
     my_set = set(my_list)
     sum = int()
