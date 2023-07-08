@@ -9,13 +9,10 @@ def update_dictionary(a_dictionary, key, value):
     Returns:
         modified dictionary
     """
-    if not a_dictionary or len(a_dictionary) == 0:
+    if type(a_dictionary) is not dict:
         return None
 
-    try:
-        a_dictionary[key] = value
-    except KeyError:    # if key is non-existent
-        a_dictionary.setdefault(key, value)
+    a_dictionary.update({key: value})
 
     return (a_dictionary)
 # end of function
