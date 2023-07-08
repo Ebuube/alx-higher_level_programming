@@ -77,7 +77,7 @@ void print_python_bytes(PyObject *p)
 	printf("\tsize: %ld\n", size);
 	printf("\ttrying string: %s\n", bytes->ob_sval);
 
-	printf("first %ld bytes:", ((size > MAX) ? MAX : size + 1));
+	printf("\tfirst %ld bytes:", ((size > MAX) ? MAX : size + 1));
 	for (i = 0; i < MAX && i < size + 1; i++)
 	{
 		printf(" %02x", bytes->ob_sval[i]);
