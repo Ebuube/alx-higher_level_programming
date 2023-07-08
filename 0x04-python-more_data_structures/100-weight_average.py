@@ -12,8 +12,8 @@ def weight_average(my_list=[]):
     Returns:
         The weighted average of the list
     """
-    if not my_list or len(my_list) == 0:
-        return None
+    if type(my_list) is not list or len(my_list) == 0:
+        return 0.00
 
     sum_values = sum(list(map((lambda x: x[0] * x[1]), my_list)))
     sum_weight = sum(list(map((lambda x: x[1]), my_list)))
