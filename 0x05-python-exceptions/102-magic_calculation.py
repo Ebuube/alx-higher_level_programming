@@ -64,7 +64,7 @@ def magic_calculation(a, b):
 
     for i in range(1, 3):
         try:
-            if a > i:
+            if not i > a:
                 result = result + ((a ** b) / i)
             else:
                 raise Exception('Too far')
