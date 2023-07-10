@@ -13,6 +13,31 @@ Import the necessary objects
 ::
 	>>> MyList = __import__('1-my_list').MyList
 
+
+Check for module docstring
+==========================
+::
+	>>> m = __import__('1-my_list').__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
+Check for class docstring
+=========================
+::
+	>>> m = __import__('1-my_list').MyList.__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
+Check for method docstring
+==========================
+::
+	>>> m = __import__('1-my_list').MyList.print_sorted.__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
 Ensure is subclass
 ==================
 Ensure that 'MyList is a subclass of 'list'
@@ -30,6 +55,14 @@ Creating instance
 	True
 	>>> del foo
 
+Empty list
+=========
+::
+	>>> foo = MyList()
+	>>> foo.print_sorted()
+	[]
+	>>> del foo
+
 Use `print_sorted()`
 ====================
 Use the user-defined `print_sorted()` function that differentiates the 'MyList'
@@ -44,6 +77,28 @@ class from the 'list' class
 	[-4, 0, 1, 5]
 	>>> print(foo)
 	[1, 5, -4, 0]
+	>>> del foo
+
+List already in order
+=====================
+::
+	>>> foo = MyList()
+	>>> foo.append(-1)
+	>>> foo.append(0)
+	>>> foo.append(1)
+	>>> foo.print_sorted()
+	[-1, 0, 1]
+	>>> del foo
+
+List in reverse order
+=====================
+::
+	>>> foo = MyList()
+	>>> foo.append(1)
+	>>> foo.append(0)
+	>>> foo.append(-1)
+	>>> foo.print_sorted()
+	[-1, 0, 1]
 	>>> del foo
 
 Reject positional arguments
