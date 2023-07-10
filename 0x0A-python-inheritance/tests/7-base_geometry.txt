@@ -68,6 +68,9 @@ Function of `integer_validator` method
 ======================================
 Signature:
 	def integer_validator(self, name, value)
+Assumptions:
+* `name` argument is a string
+
 Ensure that value is an integer
 ::
 	>>> foo = BaseGeometry()
