@@ -1,0 +1,97 @@
+======================================
+Testing the ``7-base_geometry`` module
+======================================
+
+This test analyses the edge cases of the `area()` and `integer_validator()`
+methods in the class `BaseGeometry'
+
+Set environment
+===============
+Import the necessary objects
+::
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+Check for module docstring
+==========================
+::
+	>>> m = __import__('7-base_geometry').__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
+Check for class docstring
+=========================
+::
+	>>> m = __import__('7-base_geometry').BaseGeometry.__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
+Check for `area` method docstring
+=================================
+::
+	>>> m = __import__('7-base_geometry').BaseGeometry.area.__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
+Check for `integer_validator` method docstring
+==============================================
+::
+	>>> m = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+	>>> len(m) > 0
+	True
+	>>> del m
+
+Creating instance
+=================
+`BaseGeometry` creates an instance of the class BaseGeometry
+::
+	>>> foo = BaseGeometry()
+	>>> isinstance(foo, BaseGeometry)
+	True
+	>>> del foo
+
+Function of `area` method
+==========================
+Ensure it raises an `Exception`
+::
+	>>> foo = BaseGeometry()
+	>>> foo.area()
+	Traceback (most recent call last):
+		...
+	Exception: area() is not implemented
+	>>> del foo
+
+Function of `integer_validator` method
+======================================
+Signature:
+	def integer_validator(self, name, value)
+Ensure that value is an integer
+::
+	>>> foo = BaseGeometry()
+	>>> foo.integer_validator('name', str())
+	Traceback (most recent call last):
+		...
+	TypeError: name must be an integer
+	>>> del foo
+
+Ensure that value is less or equal to zero(0)
+::
+	>>> foo = BaseGeometry()
+	>>> foo.integer_validator('name', -1)
+	Traceback (most recent call last):
+		...
+	ValueError: name must be greater than 0
+	>>> foo.integer_validator('name', 0)
+	Traceback (most recent call last):
+		...
+	ValueError: name must be greater than 0
+	>>> del foo
+
+Ensure that a value grater than 0 raises no error
+::
+	>>> foo = BaseGeometry()
+	>>> foo.integer_validator('name', 1)
+	>>> del foo
