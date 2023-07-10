@@ -32,6 +32,5 @@ class Rectangle(BaseGeometry):
         """
         Return the non-canonical string representation of instance
         """
-        val = "[{}] {}/{}".format(type(self).__name__,
-                                  self.__width, self.__height)
+        val = "[Rectangle] {}/{}".format(self.__width, self.__height)
         return val
