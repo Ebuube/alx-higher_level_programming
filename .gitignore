@@ -2,3 +2,5 @@
 *main.py
 *main.c
 __pycache__
+# aspell backup files
+*.bak
