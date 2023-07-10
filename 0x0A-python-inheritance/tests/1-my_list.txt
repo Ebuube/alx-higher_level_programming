@@ -12,7 +12,6 @@ Set environment
 Import the necessary objects
 ::
 	>>> MyList = __import__('1-my_list').MyList
-	>>>
 
 Ensure is subclass
 ==================
@@ -30,7 +29,6 @@ Creating instance
 	>>> isinstance(foo, list)
 	True
 	>>> del foo
-	>>>
 
 Use `print_sorted()`
 ====================
@@ -46,4 +44,18 @@ class from the 'list' class
 	[-4, 0, 1, 5]
 	>>> print(foo)
 	[1, 5, -4, 0]
+	>>> del foo
+
+Reject positional arguments
+===========================
+Ensure that positional arguments raise an error
+
+	>>> foo = MyList()
+	>>> foo.append(0)
+	>>> foo.append(1)
+	>>> foo.append(-1)
+	>>> foo.print_sorted(None)	# doctest: +IGNORE_EXCEPTION_DETAIL
+	Traceback (most recent call last):
+	...
+	TypeError: the method requires 1 positional argument (self) and nothing more 
 	>>> del foo
