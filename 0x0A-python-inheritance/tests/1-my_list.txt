@@ -1,0 +1,49 @@
+=====================================================================
+Testing the ``print_sorted()`` function in MyList user-defined class
+=====================================================================
+
+This test file tests all the edge cases for the function `print_sorted()`
+from the module `../1-my_list.py`
+Note: `print_sorted()` function accepts no positional or keyword arguments.
+
+
+Set environment
+===============
+Import the necessary objects
+::
+	>>> MyList = __import__('1-my_list').MyList
+	>>>
+
+Ensure is subclass
+==================
+Ensure that 'MyList is a subclass of 'list'
+::
+	>>> issubclass(MyList, list)
+	True
+
+Creating instance
+=================
+`MyList` creates an instance of the subclass MyList, with parent class
+`list`.
+::
+	>>> foo = MyList()
+	>>> isinstance(foo, list)
+	True
+	>>> del foo
+	>>>
+
+Use `print_sorted()`
+====================
+Use the user-defined `print_sorted()` function that differentiates the 'MyList'
+class from the 'list' class
+
+	>>> foo = MyList()
+	>>> foo.append(1)
+	>>> foo.append(5)
+	>>> foo.append(-4)
+	>>> foo.append(0)
+	>>> foo.print_sorted()
+	[-4, 0, 1, 5]
+	>>> print(foo)
+	[1, 5, -4, 0]
+	>>> del foo
