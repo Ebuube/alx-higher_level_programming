@@ -10,6 +10,8 @@ def read_file(filename=""):
     """
     mode = 'r'
     enc = "utf-8"
+    if filename == "":
+        return
     with open(filename, mode, encoding=enc) as f:
         print(f.read())
         f.close()
