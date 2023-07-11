@@ -13,5 +13,5 @@ def read_file(filename=""):
     if filename == "":
         return
     with open(filename, mode, encoding=enc) as f:
-        print(f.read())
-        f.close()
+        for line in f:
+            print(line, end='')
