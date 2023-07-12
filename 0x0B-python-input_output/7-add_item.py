@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module addss all arguments to a Python list, and then save them to a file
+This module adds all arguments to a Python list, and then save them to a file
 """
 import sys
 import os
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     enc = "utf-8"       # Encoding to use
     my_list = list()
 
-    if len(sys.argv) != 0 and os.path.exists(filename):
+    if len(sys.argv) > 1 and os.path.exists(filename):
         # Feed arguments to list
         my_list = load_from_json_file(filename)
         for i in range(1, len(sys.argv)):
