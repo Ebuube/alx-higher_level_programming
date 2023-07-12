@@ -16,7 +16,7 @@ my_list = list()
 
 if len(sys.argv) > 1 and os.path.exists(filename):
     # Feed arguments to list
-    my_list = load_from_json_file(filename)
+    my_list = list(load_from_json_file(filename))
     for i in range(1, len(sys.argv)):
         my_list.append(sys.argv[i])
 
