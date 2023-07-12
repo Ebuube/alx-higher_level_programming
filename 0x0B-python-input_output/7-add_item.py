@@ -10,16 +10,15 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 
-if __name__ == "__main__":
-    filename = "./add_item.json"      # file to save objects
-    enc = "utf-8"       # Encoding to use
-    my_list = list()
+filename = "./add_item.json"      # file to save objects
+enc = "utf-8"       # Encoding to use
+my_list = list()
 
-    if len(sys.argv) > 1 and os.path.exists(filename):
-        # Feed arguments to list
-        my_list = load_from_json_file(filename)
-        for i in range(1, len(sys.argv)):
-            my_list.append(sys.argv[i])
+if len(sys.argv) > 1 and os.path.exists(filename):
+    # Feed arguments to list
+    my_list = load_from_json_file(filename)
+    for i in range(1, len(sys.argv)):
+        my_list.append(sys.argv[i])
 
-    # Save object
-    save_to_json_file(my_list, filename)
+# Save object
+save_to_json_file(my_list, filename)
