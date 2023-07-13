@@ -127,7 +127,7 @@ class Rectangle(Base):
         Return a non-canonical string representation of the instance
         """
         fmt = "[{}] ({}) {}/{} - {}/{}"
-        fmt = fmt.format(type(self).__name__, self.id, self.x, self.y,
+        fmt = fmt.format(self.__class__.__name__, self.id, self.x, self.y,
                          self.width, self.height)
         return fmt
 
