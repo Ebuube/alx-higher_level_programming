@@ -72,3 +72,15 @@ class Base:
         enc = "utf-8"   # UTF8 encoding
         with open(filename, mode, encoding=enc) as f:
             f.write(objs_json)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Return an instance of the class ``cls`` with all attributes already set
+
+        * ``dictionary`` is a dictionary of attributes
+        """
+        new = cls(1, 1, 0)      # dummy attributes
+        new.update(**dictionary)
+
+        return new
