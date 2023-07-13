@@ -68,3 +68,29 @@ class Square(Rectangle):
         if not (args and (len(args) > 0)):
             for key, val in kwargs.items():
                 setattr(self, key, val)
+
+    def to_dictionary(self):
+        """
+        Retrieve the dictionary representation of a Square
+        It contains: "id", "size", "x", "y" and ...
+        """
+        obj_dict = super().to_dictionary()
+
+        # Remove unrelated key/value pairs and add new key/value pair
+        rect_attrs = ["height", "width"]    # attributes of a Rectangle
+        for attr in rect_attrs:
+            obj_dict.pop(attr, None)
+
+        new_key = "size"
+        obj_dict[new_key] = self.size
+
+        # Assertion
+        attrs = ["id", new_key, "x", "y"]
+        for item in attrs:
+            if item not in obj_dict:
+                msg = """'{}' not in dictionary representation.
+                Rquirement Failure.
+                """.format(item)
+                raise Exception(msg)
+
+        return obj_dict
