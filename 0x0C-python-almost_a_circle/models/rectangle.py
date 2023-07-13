@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module defines the `Rectangle` class
+This module defines the ``Rectangle`` class
 """
 from models.base import Base
 
@@ -12,11 +12,11 @@ class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
-        Initialize and instance of the `Rectangle` class
+        Initialize and instance of the ``Rectangle`` class
         """
         super().__init__(id)
 
-        # Use the `setter` to set the attributes
+        # Use the ``setter`` to set the attributes
         self.width = width
         self.height = height
         self.x = x
@@ -25,36 +25,36 @@ class Rectangle(Base):
     @property
     def width(self):
         """
-        Retrieve the `width` attribute
+        Retrieve the ``width`` attribute
         """
         return self.__width
 
     @property
     def height(self):
         """
-        Retrieve the `height` attribute
+        Retrieve the ``height`` attribute
         """
         return self.__height
 
     @property
     def x(self):
         """
-        Retrieve the `x` attribute
+        Retrieve the ``x`` attribute
         """
         return self.__x
 
     @property
     def y(self):
         """
-        Retrieve the `y` attribute
+        Retrieve the ``y`` attribute
         """
         return self.__y
 
     @width.setter
     def width(self, value):
         """
-        Set the `width` attribute
-        * `value` must be an integer greater than zero(0)
+        Set the ``width`` attribute
+        * ``value`` must be an integer greater than zero(0)
         """
         name = "width"
         if type(value) is not int:
@@ -66,8 +66,8 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """
-        Set the `height` attribute
-        * `value` must be an integer greater than zero(0)
+        Set the ``height`` attribute
+        * ``value`` must be an integer greater than zero(0)
         """
         name = "height"
         if type(value) is not int:
@@ -79,8 +79,8 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """
-        Set the `x` attribute
-        * `value` must be an integer greater than or equal to zero(0)
+        Set the ``x`` attribute
+        * ``value`` must be an integer greater than or equal to zero(0)
         """
         name = "x"
         if type(value) is not int:
@@ -92,8 +92,8 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """
-        Set the `y` attribute
-        * `value` must be an integer greater than or equal to zero(0)
+        Set the ``y`` attribute
+        * ``value`` must be an integer greater than or equal to zero(0)
         """
         name = "y"
         if type(value) is not int:
@@ -104,7 +104,7 @@ class Rectangle(Base):
 
     def area(self):
         """
-        Retrieve the `area` value
+        Retrieve the ``area`` value
         """
         return self.width * self.height
 
@@ -115,7 +115,7 @@ class Rectangle(Base):
         SYMBOL = '#'
         SPACE = ' '
 
-        # Move `y` steps down
+        # Move ``y`` steps down
         print("{}".format(self.y * '\n'), end='')
 
         # Add the x position
@@ -131,16 +131,22 @@ class Rectangle(Base):
                          self.width, self.height)
         return fmt
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-        Update the instance with no-keyword arguments in this order
-        1) id
-        2) width
-        3) height
-        4) x    # position
-        5) y    # position
+        * Update the instance with no-keyword arguments in this order
+            1) id
+            2) width
+            3) height
+            4) x    # position
+            5) y    # position
+            Argument order is super important
 
-        Argument order is super important
+        * Update the instance using keyword-arguments (dictionary)
+            - Each key in this dictionary represents an attribute to the
+                instance.
+            - Order is not important
+
+        NB: ``**kwargs`` are skipped if ``*args`` exists and is not empty.
         """
         try:
             self.id = args[0]
@@ -150,3 +156,8 @@ class Rectangle(Base):
             self.y = args[4]
         except IndexError:
             pass    # argument not supplied -> leave it un-updated
+
+        # Skip ``kwargs`` if args exists and is not empty
+        if not (args and (len(args) > 0)):
+            for key, val in kwargs.items():
+                setattr(self, key, val)
