@@ -161,3 +161,41 @@ class Rectangle(Base):
         if not (args and (len(args) > 0)):
             for key, val in kwargs.items():
                 setattr(self, key, val)
+
+    def to_dictionary(self):
+        """
+        Retrieve the dictionary representation of a `Rectangle`
+        It contains: "id", "width", "height", "x", "y" and ...
+        """
+        # Obtain name mangling string
+        self.__pevcae425jcea_mangling = None
+        search_str = "pevcae425jcea_mangling"
+        replacement = ''    # to securely remove the mangling
+        key_plus_mangling = str()
+        for key in self.__dict__.keys():
+            if search_str in key:
+                key_plus_mangling = key
+                break
+
+        del self.__pevcae425jcea_mangling   # remove test case
+        mangling = key_plus_mangling.replace(search_str, replacement)
+        # print("mangling = {}".format(mangling))
+
+        # Retrieve values and remove the name mangling from keys
+        obj_dict = dict()
+        for key, val in self.__dict__.items():
+            if mangling in key:
+                key = key.replace(mangling, replacement)
+
+            obj_dict.update({key: val})
+
+        # Assertion
+        attrs = ["id", "width", "height", "x", "y"]
+        for item in attrs:
+            if item not in obj_dict:
+                msg = """'{}' not in dictionary representation.
+                Rquirement Failure.
+                """.format(item)
+                raise Exception(msg)
+
+        return obj_dict
