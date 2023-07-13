@@ -107,3 +107,11 @@ class Rectangle(Base):
         Retrieve the `area` value
         """
         return self.width * self.height
+
+    def display(self):
+        """
+        Print an instance with the '#' character to stdout
+        """
+        symbol = '#'
+        for row in range(self.height):
+            print(symbol * self.width)
