@@ -39,3 +39,32 @@ class Square(Rectangle):
         """
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        * Update the instance with no-keyword arguments in this order
+            1) id
+            2) size
+            3) x    # position
+            4) y    # position
+            Argument order is super important
+
+        * Update the instance using keyword-arguments (dictionary)
+            - Each key in this dictionary represents an attribute to the
+                instance.
+            - Order is not important
+
+        NB: ``**kwargs`` are skipped if ``*args`` exists and is not empty.
+        """
+        try:
+            self.id = args[0]
+            self.size = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        except IndexError:
+            pass    # argument not supplied -> leave it un-updated
+
+        # Skip ``kwargs`` if args exists and is not empty
+        if not (args and (len(args) > 0)):
+            for key, val in kwargs.items():
+                setattr(self, key, val)
