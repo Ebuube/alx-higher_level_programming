@@ -115,3 +115,12 @@ class Rectangle(Base):
         symbol = '#'
         for row in range(self.height):
             print(symbol * self.width)
+
+    def __str__(self):
+        """
+        Return a non-canonical string representation of the instance
+        """
+        fmt = "[{}] ({}) {}/{} - {}/{}"
+        fmt = fmt.format(type(self).__name__, self.id, self.x, self.y,
+                         self.width, self.height)
+        return fmt
