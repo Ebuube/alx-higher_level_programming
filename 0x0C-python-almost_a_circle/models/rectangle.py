@@ -54,26 +54,50 @@ class Rectangle(Base):
     def width(self, value):
         """
         Set the `width` attribute
+        * `value` must be an integer greater than zero(0)
         """
+        name = "width"
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(name))
         self.__width = value
 
     @height.setter
     def height(self, value):
         """
         Set the `height` attribute
+        * `value` must be an integer greater than zero(0)
         """
+        name = "height"
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be > 0".format(name))
         self.__height = value
 
     @x.setter
     def x(self, value):
         """
         Set the `x` attribute
+        * `value` must be an integer greater than or equal to zero(0)
         """
+        name = "x"
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(name))
         self.__x = value
 
     @y.setter
     def y(self, value):
         """
         Set the `y` attribute
+        * `value` must be an integer greater than or equal to zero(0)
         """
+        name = "y"
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value < 0:
+            raise ValueError("{} must be >= 0".format(name))
         self.__y = value
