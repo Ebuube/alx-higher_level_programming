@@ -3,6 +3,7 @@
 This module defines the class `Base`
 """
 import json
+import os
 
 
 class Base:
@@ -84,3 +85,30 @@ class Base:
         new.update(**dictionary)
 
         return new
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return a list of instances saved to the file ``<Class name>.json``
+
+        * If file doesn't exist, returns an empty list.
+        """
+        filename = "{}.json".format(cls.__name__)
+
+        if not os.path.exists(filename):
+            return list()
+
+        # Read JSON file
+        objs_json = str()
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            objs_json = f.read()
+
+        # Create a list of dictionaries representing objects
+        objs_dict_list = Base.from_json_string(objs_json)
+        objs = list()
+        for obj_dict in objs_dict_list:
+            objs.append(cls.create(**obj_dict))
+
+        return objs
