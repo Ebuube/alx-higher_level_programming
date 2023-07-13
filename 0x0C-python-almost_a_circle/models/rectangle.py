@@ -112,9 +112,15 @@ class Rectangle(Base):
         """
         Print an instance with the '#' character to stdout
         """
-        symbol = '#'
+        SYMBOL = '#'
+        SPACE = ' '
+
+        # Move `y` steps down
+        print("{}".format(self.y * '\n'), end='')
+
+        # Add the x position
         for row in range(self.height):
-            print(symbol * self.width)
+            print("{}".format((SPACE * self.x) + (SYMBOL * self.width)))
 
     def __str__(self):
         """
