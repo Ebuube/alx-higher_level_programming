@@ -21,6 +21,21 @@ class Square(Rectangle):
         Format: ``[Square] (<id>) <x>/<y> - <size>``
         """
         fmt = "[{}] ({}) {}/{} - {}"
-        fmt = fmt.format(type(self).__name__, self.id, self.x, self.y,
+        fmt = fmt.format(self.__class__.__name__, self.id, self.x, self.y,
                          self.width)
         return fmt
+
+    @property
+    def size(self):
+        """
+        Retrieve the ``size`` of an instance
+        """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        Set the ``size`` of an instance
+        """
+        self.width = value
+        self.height = value
