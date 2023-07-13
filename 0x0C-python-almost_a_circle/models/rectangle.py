@@ -130,3 +130,23 @@ class Rectangle(Base):
         fmt = fmt.format(type(self).__name__, self.id, self.x, self.y,
                          self.width, self.height)
         return fmt
+
+    def update(self, *args):
+        """
+        Update the instance with no-keyword arguments in this order
+        1) id
+        2) width
+        3) height
+        4) x    # position
+        5) y    # position
+
+        Argument order is super important
+        """
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        except IndexError:
+            pass    # argument not supplied -> leave it un-updated
