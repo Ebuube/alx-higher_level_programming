@@ -14,7 +14,7 @@ class Base:
         """
         Initialize an instance of the class
         """
-        if not id is None:
+        if id is not None:
             self.id = id
         else:
             self.id = Base.__nb_objects + 1
