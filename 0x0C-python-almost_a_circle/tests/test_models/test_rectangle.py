@@ -133,7 +133,52 @@ class test_Rectangle(test_Base):
             row = new.width * SYMBOL
             output.append(row)
         output = NEWLINE.join(output) + NEWLINE
-        print(output)
+
+        with patch(STDOUT, new=io.StringIO()) as my_patch:
+            new.display()
+            foo = my_patch.getvalue()
+            self.assertEqual(foo, output)
+
+    def test_display_1(self):
+        """
+        Validate ``display`` method with zero(0) values of ``x`` and ``y``
+        """
+        new = Rectangle(width=3, height=5, x=3, y=11)
+        output = list()
+        '''
+        SYMBOL = '#'
+        SPACE = ' '
+
+        # Add ``y`` position
+        for y in range(int(new.y / 2) + 1):
+            output.append(NEWLINE)
+
+        # Add ``x`` position
+        for x in range(new.height):
+            row = (new.x * SPACE) + (new.width * SYMBOL)
+            output.append(row)
+        output = NEWLINE.join(output)
+        output = output + NEWLINE
+
+        ==================================================
+        '''
+        SYMBOL = '#'
+        SPACE = ' '
+        NEWLINE = '\n'
+        STDOUT = 'sys.stdout'
+
+        # Move ``y`` steps down
+        y_move = str(new.y * NEWLINE)
+        # print("{}".format(self.y * '\n'), end='')
+
+        # Add the x position
+        for row in range(new.height):
+            # print("{}".format((SPACE * self.x) + (SYMBOL * self.width)))
+            x_move = (new.x * SPACE) + (new.width * SYMBOL)
+            output.append(x_move)
+
+        output = NEWLINE.join(output)
+        output = y_move + output + NEWLINE
 
         with patch(STDOUT, new=io.StringIO()) as my_patch:
             new.display()
