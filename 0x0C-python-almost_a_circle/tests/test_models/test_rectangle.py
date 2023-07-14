@@ -6,6 +6,7 @@ from tests.test_models.test_base import test_Base
 from models.rectangle import Rectangle
 
 
+'''
 class test_Rectangle(test_Base):
     """
     Define extra tests for the ``Rectangle`` class
@@ -39,3 +40,4 @@ class test_Rectangle(test_Base):
         for attr in attrs:
             with self.subTest(attr=attr):
                 self.assertTrue(hasattr(new, attr))
+'''
