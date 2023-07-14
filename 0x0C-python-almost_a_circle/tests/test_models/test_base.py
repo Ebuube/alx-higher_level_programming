@@ -49,19 +49,19 @@ class test_Base(unittest.TestCase):
         for file_path in files:
             os.remove(file_path)
 
-    def test_id(self):
+    def test_Base_id(self):
         """
         Ensure that ``Base.id`` is implemented
         """
         # id is of right type
-        foo = self.value()
+        foo = Base()
         self.assertTrue(type(foo.id) is int)
 
         # Each instance has a different id
-        bar = self.value()
+        bar = Base()
         self.assertNotEqual(foo.id, bar.id)
 
         # Custom id is implemented
         var = 14
-        baz = self.value(var)
+        baz = Base(var)
         self.assertEqual(baz.id, var)
