@@ -84,3 +84,23 @@ class test_base(unittest.TestCase):
         """
         Ensure that the module and its contents have docstrings
         """
+        # module = (self._source_code.split(self._sep))[-1]
+        # to be completed
+        pass
+
+    def test_executable_file(self):
+        """
+        Ensure that the source code has executable access for the users
+        """
+
+        """Check for read access"""
+        is_read_true = os.access(self._source_code, os.R_OK)
+        self.assertTrue(is_read_true)
+
+        """Check for write access"""
+        is_write_true = os.access(self._source_code, os.W_OK)
+        self.assertTrue(is_write_true)
+
+        """Check for execution access"""
+        is_exec_true = os.access(self._source_code, os.X_OK)
+        self.assertTrue(is_exec_true)
