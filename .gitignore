@@ -6,3 +6,5 @@ __pycache__
 *.bak
 # JSON files
 *.json
+# CSV files
+*.csv
