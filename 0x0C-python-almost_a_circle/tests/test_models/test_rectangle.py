@@ -100,3 +100,10 @@ class test_Rectangle(test_Base):
             new = Rectangle(width=1, height=1, x=-3, y=5)
         with self.assertRaises(ValueError):
             new = Rectangle(width=1, height=1, x=3, y=-3)
+
+    def test_area(self):
+        """
+        Ensure area is properly calculated
+        """
+        new = Rectangle(width=5, height=3)
+        self.assertEqual(new.area(), new.width * new.height)
