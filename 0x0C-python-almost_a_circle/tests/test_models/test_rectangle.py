@@ -56,3 +56,47 @@ class test_Rectangle(test_Base):
             with self.subTest(attr=attr):
                 self.assertTrue(hasattr(new, attr))
                 self.assertTrue(getattr(new, attr) == attrs[attr])
+
+    def test_constr_default_args(self):
+        """
+        Ensure that the right default arguments are used
+        """
+        new = Rectangle(10, 2)
+        defaults = {'x': 0, 'y': 0}
+
+        for key, val in defaults.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(getattr(new, key) == val)
+
+    def test_validate_attr_type(self):
+        """
+        Ensure that the ``type`` are validated before assignment
+        """
+        with self.assertRaises(TypeError):
+            new = Rectangle(width='12', height=3, x=4, y=5, id=14)
+        with self.assertRaises(TypeError):
+            new = Rectangle(width=12, height='3', x=4, y=5, id=14)
+        with self.assertRaises(TypeError):
+            new = Rectangle(width=12, height=3, x='4', y=5, id=14)
+        with self.assertRaises(TypeError):
+            new = Rectangle(width=12, height=3, x=4, y='5', id=14)
+
+    def test_validate_attr_value(self):
+        """
+        Ensure that the ``value`` of attributes are validated before assignment
+        """
+        # Validate width and height
+        with self.assertRaises(ValueError):
+            new = Rectangle(width=0, height=3, x=4, y=5)
+        with self.assertRaises(ValueError):
+            new = Rectangle(width=4, height=0, x=12, y=8)
+        with self.assertRaises(ValueError):
+            new = Rectangle(width=-3, height=3, x=4, y=5)
+        with self.assertRaises(ValueError):
+            new = Rectangle(width=2, height=-3, x=12, y=8)
+
+        # Validate x and y positions
+        with self.assertRaises(ValueError):
+            new = Rectangle(width=1, height=1, x=-3, y=5)
+        with self.assertRaises(ValueError):
+            new = Rectangle(width=1, height=1, x=3, y=-3)
