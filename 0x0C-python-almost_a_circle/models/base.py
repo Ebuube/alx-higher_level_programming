@@ -4,6 +4,7 @@ This module defines the class `Base`
 """
 import json
 import os
+import csv
 
 
 class Base:
@@ -75,6 +76,45 @@ class Base:
             f.write(objs_json)
 
     @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Write the object to a CSV file name
+        * fileanme -> <Class name>.csv
+        * Format of the CSV
+
+        For Rectangle:
+        <id>,<width>,<height>,<x>,<y>
+
+        For Square:
+        <id>,<size>,<height>,<x>,<y>
+        """
+        filename = "{}.csv".format(cls.__name__)
+        list_dictionaries = list()
+
+        if list_objs is not None:
+            for obj in list_objs:
+                list_dictionaries.append(obj.to_dictionary())
+
+        mode = 'w'  # write mode
+        enc = "utf-8"   # UTF8 encoding
+        delim = ','     # delimiter
+        # Create fields
+        fields = list()
+        if cls.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            fields = ["id", "size", "x", "y"]
+
+        with open(filename, mode, encoding=enc) as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fields,
+                                    delimiter=delim, quotechar='|',
+                                    quoting=csv.QUOTE_MINIMAL)
+
+            writer.writeheader()     # write the fields
+            for row in list_dictionaries:
+                writer.writerow(row)
+
+    @classmethod
     def create(cls, **dictionary):
         """
         Return an instance of the class ``cls`` with all attributes already set
@@ -110,5 +150,55 @@ class Base:
         objs = list()
         for obj_dict in objs_dict_list:
             objs.append(cls.create(**obj_dict))
+
+        return objs
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Return a list of instances saved to the file ``<Class name>.csv``
+
+        * If file doesn't exist, returns an empty list.
+        """
+        filename = "{}.csv".format(cls.__name__)
+
+        if not os.path.exists(filename):
+            return list()
+
+        # Read CSV file
+        objs = list()   # list of instances to be returned
+        mode = 'r'      # read mode
+        enc = "utf-8"   # UTF8 encoding
+        delim = ','     # delimiter used
+        # Create fields
+        fields = list()
+        if cls.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+        elif cls.__name__ == "Square":
+            fields = ["id", "size", "x", "y"]
+
+        with open(filename, mode, encoding=enc) as csvfile:
+            reader = csv.DictReader(csvfile, fieldnames=fields,
+                                    delimiter=delim, quotechar='|',
+                                    quoting=csv.QUOTE_MINIMAL)
+
+            header = next(reader)   # ignore the header
+            header_fields = [key for key in header.keys()]
+            if header_fields != fields:
+                print("Warning: header_fields is different from object fields",
+                      file=sys.stderr)
+                print("header_fields: {}".format(header_fields),
+                      file=sys.stderr)
+                print("object fields: {}".format(fields), file=sys.stderr)
+
+            for obj_dict in reader:
+                # Convert integers
+                for key, val in obj_dict.items():
+                    try:
+                        obj_dict[key] = int(val)
+                    except (ValueError, TypeError):
+                        pass    # leave the value as it is
+                # Create instance
+                objs.append(cls.create(**obj_dict))
 
         return objs
