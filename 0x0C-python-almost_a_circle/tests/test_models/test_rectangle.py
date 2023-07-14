@@ -2,8 +2,10 @@
 """
 Test for the ``Rectangle`` class
 """
+import io
 from tests.test_models.test_base import test_Base
 from models.rectangle import Rectangle
+from unittest.mock import patch
 
 
 class test_Rectangle(test_Base):
@@ -117,3 +119,23 @@ class test_Rectangle(test_Base):
         string = string.format(type(new).__name__, new.id, new.x, new.y,
                                new.width, new.height)
         self.assertEqual(string, str(new))
+
+    def test_display_0(self):
+        """
+        Validate ``display`` method with zero(0) values of ``x`` and ``y``
+        """
+        new = Rectangle(width=3, height=5, x=0, y=0)
+        output = list()
+        SYMBOL = '#'
+        NEWLINE = '\n'
+        STDOUT = 'sys.stdout'
+        for x in range(new.height):
+            row = new.width * SYMBOL
+            output.append(row)
+        output = NEWLINE.join(output) + NEWLINE
+        print(output)
+
+        with patch(STDOUT, new=io.StringIO()) as my_patch:
+            new.display()
+            foo = my_patch.getvalue()
+            self.assertEqual(foo, output)
