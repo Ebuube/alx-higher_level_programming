@@ -107,3 +107,13 @@ class test_Rectangle(test_Base):
         """
         new = Rectangle(width=5, height=3)
         self.assertEqual(new.area(), new.width * new.height)
+
+    def test_string(self):
+        """
+        Validate that the `Rectangle`'s ``__str__``
+        """
+        new = Rectangle(width=3, height=4)
+        string = "[{}] ({}) {}/{} - {}/{}"
+        string = string.format(type(new).__name__, new.id, new.x, new.y,
+                               new.width, new.height)
+        self.assertEqual(string, str(new))
