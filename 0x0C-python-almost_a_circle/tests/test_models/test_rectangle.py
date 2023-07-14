@@ -145,23 +145,6 @@ class test_Rectangle(test_Base):
         """
         new = Rectangle(width=3, height=5, x=3, y=11)
         output = list()
-        '''
-        SYMBOL = '#'
-        SPACE = ' '
-
-        # Add ``y`` position
-        for y in range(int(new.y / 2) + 1):
-            output.append(NEWLINE)
-
-        # Add ``x`` position
-        for x in range(new.height):
-            row = (new.x * SPACE) + (new.width * SYMBOL)
-            output.append(row)
-        output = NEWLINE.join(output)
-        output = output + NEWLINE
-
-        ==================================================
-        '''
         SYMBOL = '#'
         SPACE = ' '
         NEWLINE = '\n'
