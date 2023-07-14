@@ -167,3 +167,22 @@ class test_Rectangle(test_Base):
             new.display()
             foo = my_patch.getvalue()
             self.assertEqual(foo, output)
+
+    def test_update_0(self):
+        """
+        Validate update with only ordered arguments
+        ORDER: id, width, height, x, y
+        """
+        new = Rectangle(1, 1, 1, 1)
+        width = 12
+        height = 5
+        x = 8
+        y = 1
+        _id = 9
+        new.update(_id, width, height, x, y)
+
+        attrs = {"width": width, "height": height, "id": _id, "x": x, "y": y}
+        for key, val in attrs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
