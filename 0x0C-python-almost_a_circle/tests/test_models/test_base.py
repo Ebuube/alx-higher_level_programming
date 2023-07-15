@@ -31,24 +31,34 @@ class test_Base(unittest.TestCase):
         Set up the environment for each test method
         """
         # Remove previous json and csv files
-        json_files = glob.glob("*.json")
-        csv_files = glob.glob("*.csv")
-        files = json_files + csv_files
+        json_fmt = ".json"
+        csv_fmt = ".csv"
+        path = "./"     # path to work on
 
-        for file_path in files:
-            os.remove(file_path)
+        for root, dirs, files in os.walk(path):
+            for _file in files:
+                if _file.endswith(json_fmt) or _file.endswith(csv_fmt):
+                    file_path = os.path.join(root, _file)
+                    os.remove(file_path)
+                    if config.setUp_verbose is True:
+                        print("Removed: '{}'".format(file_path))
 
     def tearDown(self):
         """
         Tear down method for each test
         """
         # Remove previous json and csv files
-        json_files = glob.glob("*.json")
-        csv_files = glob.glob("*.csv")
-        files = json_files + csv_files
+        json_fmt = ".json"
+        csv_fmt = ".csv"
+        path = "./"     # path to work on
 
-        for file_path in files:
-            os.remove(file_path)
+        for root, dirs, files in os.walk(path):
+            for _file in files:
+                if _file.endswith(json_fmt) or _file.endswith(csv_fmt):
+                    file_path = os.path.join(root, _file)
+                    os.remove(file_path)
+                    if config.tearDown_verbose is True:
+                        print("Removed: '{}'".format(file_path))
 
     def test_Base_id(self):
         """
