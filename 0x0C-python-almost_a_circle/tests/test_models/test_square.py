@@ -75,3 +75,17 @@ class test_Square(test_Rectangle):
             with self.subTest(key=key, val=val):
                 self.assertTrue(hasattr(new, key))
                 self.assertEqual(getattr(new, key), val)
+
+    def test_string(self):
+        """
+        Validate that the `Square`'s ``__str__``
+        Format: [Square] (<id>) <x>/<y> - <size>
+        """
+        size = 10
+        _x = 5
+        _y = 9
+        new = Square(size, x=_x, y=_y)
+        string = "[{}] ({}) {}/{} - {}"
+        string = string.format(type(new).__name__, new.id, new.x, new.y,
+                               new.size)
+        self.assertEqual(string, str(new))
