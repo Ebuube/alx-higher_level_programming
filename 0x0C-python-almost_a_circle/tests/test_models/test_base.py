@@ -6,6 +6,7 @@ import unittest
 import glob
 import os
 import pep8
+import json
 import re
 from models.base import Base
 from tests import config
@@ -89,3 +90,33 @@ class test_Base(unittest.TestCase):
             result = style.check_files(paths=path)
             self.assertEqual(result.total_errors, 0, "Fix pep8")
             config.pep8_checked = True
+
+    def test_dictionary_to_json_string(self):
+        """
+        Ensure that the method ``to_json_string`` performs as required
+
+        * It should return a JSON string representation for a list of
+            dictionaries.
+        * If the list of dictionaries is None or empty, should return
+            '[]' string
+        """
+        dsquare = {"id": 4, "size": 14, "x": 5, "y": 1}
+        drectangle = {"id": 8, "width": 98, "height": 21, "x": 0, "y": 8}
+
+        # list_dictionaries -> None
+        # Should return '[]'
+        list_dictionaries = None
+        return_val = "[]"
+        self.assertEqual(Base.to_json_string(list_dictionaries), return_val)
+
+        # list_dictionaries -> [] i.e empty
+        # Should return '[]'
+        list_dictionaries = list()
+        return_val = "[]"
+        self.assertEqual(Base.to_json_string(list_dictionaries), return_val)
+
+        # list_dictionaries -> not empty
+        # Should return the json
+        list_dictionaries = [dsquare, drectangle]
+        self.assertEqual(Base.to_json_string(list_dictionaries),
+                         json.dumps(list_dictionaries))
