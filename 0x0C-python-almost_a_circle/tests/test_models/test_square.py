@@ -110,3 +110,86 @@ class test_Square(test_Rectangle):
                     self.assertTrue(hasattr(Square, attr))
                     my_property = getattr(Square, attr)
                     self.assertTrue(getattr(my_property, method) is not None)
+
+    def test_update_0(self):
+        """
+        Validate update with only ordered arguments
+        ORDER: id, size, x, y
+        """
+        new = Square(1, 1, 1)
+        size = 5
+        x = 8
+        y = 1
+        _id = 9
+        args = (_id, size, x, y)
+        new.update(*args)
+
+        attrs = {"size": size, "id": _id, "x": x, "y": y}
+        for key, val in attrs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+
+    def test_update_1(self):
+        """
+        Validate update with key-worded arguments
+        ``**kwargs`` must be skipped if ``*args`` exists and is not empty
+        """
+        # Using only key-worded arguments
+        new = Square(1, 1, 1)
+        kwargs = {"size": 14, "x": 90, "y": 12, "id": "rect bar"}
+
+        new.update(**kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+        del new
+
+        # Using both *args and **kwargs
+        # The *args should be implemented, leaving the **kwargs
+        new = Square(1, 1, 1)
+        _id = "rect foo"
+        size = 13
+        x = 9
+        y = 3
+        args = (_id, size, x, y)
+
+        new.update(*args, **kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertNotEqual(getattr(new, key), val)
+        del new
+
+        # Using an empty *args and a non-empty **kwargs
+        # The **kwargs should be implemented, leaving the *args
+        new = Square(1, 1, 1)
+        args = ()
+
+        new.update(*args, **kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+        del new
+
+        # Not using *args, but a non-empty **kwargs
+        # The **kwargs should be implemented, leaving the *args
+        new = Square(1, 1, 1)
+
+        new.update(**kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+        del new
+
+        # Not using both *args and **kwargs
+        new = Square(1, 1, 1)
+        new.update()
+
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertNotEqual(getattr(new, key), val)
+        del new
