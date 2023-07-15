@@ -253,3 +253,25 @@ class test_Rectangle(test_Base):
                 self.assertTrue(hasattr(new, key))
                 self.assertNotEqual(getattr(new, key), val)
         del new
+
+    def test_setter_getter_attrs(self):
+        """
+        Ensure ``Rectangle`` has setter and getter methods for its attributes
+
+        To check for width getter -> fget
+        >>> Rectangle.width.fget is not None
+
+        To check for width setter -> fset
+        >>> Rectangle.width.fset is not None
+        """
+        _class = Rectangle
+        methods = {"fset": "fset", "fget": "fget"}
+        attrs = {"x": "x", "y": "y", "width": "width",
+                 "height": "height"}
+
+        for attr in attrs.keys():
+            for method in methods.keys():
+                with self.subTest(method=method, attr=attr):
+                    self.assertTrue(hasattr(_class, attr))
+                    my_property = getattr(_class, attr)
+                    self.assertTrue(getattr(my_property, method) is not None)
