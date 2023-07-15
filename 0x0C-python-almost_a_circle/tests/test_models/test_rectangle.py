@@ -187,3 +187,69 @@ class test_Rectangle(test_Base):
             with self.subTest(key=key, val=val):
                 self.assertTrue(hasattr(new, key))
                 self.assertEqual(getattr(new, key), val)
+
+    def test_update_1(self):
+        """
+        Validate update with key-worded arguments
+        ``**kwargs`` must be skipped if ``*args`` exists and is not empty
+        """
+        # Using only key-worded arguments
+        new = Rectangle(1, 1, 1, 1)
+        kwargs = {"height": 100, "width": 452, "x": 90, "y": 12,
+                  "id": "rect bar"}
+
+        new.update(**kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+        del new
+
+        # Using both *args and **kwargs
+        # The *args should be implemented, leaving the **kwargs
+        new = Rectangle(1, 1, 1, 1)
+        _id = "rect foo"
+        width = 13
+        height = 4
+        x = 9
+        y = 3
+        args = (_id, width, height, x, y)
+
+        new.update(*args, **kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertNotEqual(getattr(new, key), val)
+        del new
+
+        # Using an empty *args and a non-empty **kwargs
+        # The **kwargs should be implemented, leaving the *args
+        new = Rectangle(1, 1, 1, 1)
+        args = ()
+
+        new.update(*args, **kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+        del new
+
+        # Not using *args, but a non-empty **kwargs
+        # The **kwargs should be implemented, leaving the *args
+        new = Rectangle(1, 1, 1, 1)
+
+        new.update(**kwargs)
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertEqual(getattr(new, key), val)
+        del new
+
+        # Not using both *args and **kwargs
+        new = Rectangle(1, 1, 1, 1)
+        new.update()
+
+        for key, val in kwargs.items():
+            with self.subTest(key=key, val=val):
+                self.assertTrue(hasattr(new, key))
+                self.assertNotEqual(getattr(new, key), val)
+        del new
