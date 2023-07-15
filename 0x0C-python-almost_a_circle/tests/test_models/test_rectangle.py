@@ -275,3 +275,31 @@ class test_Rectangle(test_Base):
                     self.assertTrue(hasattr(_class, attr))
                     my_property = getattr(_class, attr)
                     self.assertTrue(getattr(my_property, method) is not None)
+
+    def test_to_dictionary(self):
+        """
+        Ensure that ``to_dictionary()`` method returns good a representation
+
+        The returned dictionary must contain:
+        id, width, height, x and y attributes with same values as the instance
+        that returned them
+        """
+        _class = Rectangle
+        _method = "to_dictionary"
+        _id = "new Rectangle"
+        _width = 12
+        _height = 3
+        _x = 8
+        _y = 0
+        new = _class(id=_id, width=_width, height=_height, x=_x, y=_y)
+
+        attrs = {"id": _id, "width": _width, "height": _height, "x": _x,
+                 "y": _y}
+
+        # Ensure class has the method ``_method``
+        self.assertTrue(hasattr(_class, _method))
+        self.assertTrue(getattr(_class, _method) is not None)
+
+        for key, val in new.to_dictionary().items():
+            with self.subTest(key=key, val=val):
+                self.assertEqual(attrs[key], val)
