@@ -8,6 +8,7 @@ import os
 import pep8
 import re
 from models.base import Base
+from models import config
 
 
 class test_Base(unittest.TestCase):
@@ -65,3 +66,16 @@ class test_Base(unittest.TestCase):
         var = 14
         baz = Base(var)
         self.assertEqual(baz.id, var)
+
+    def test_check_pep8_conformance(self):
+        """
+        Ensure all *.py files are pep8 (or pycodestyle) compliant
+        It is run only ``once`` during a test
+        """
+        if config.pep8_checked is False:
+            path = "."
+            style = pep8.StyleGuide(quite=False, show_source=True,
+                                    verbose=config.pep8_verbose)
+            result = style.check_files(paths=path)
+            self.assertEqual(result.total_errors, 0, "Fix pep8")
+            config.pep8_checked = True
