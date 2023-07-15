@@ -8,7 +8,7 @@ import os
 import pep8
 import re
 from models.base import Base
-from models import config
+from tests import config
 
 
 class test_Base(unittest.TestCase):
