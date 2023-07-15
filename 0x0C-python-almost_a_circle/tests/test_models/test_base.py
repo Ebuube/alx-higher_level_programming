@@ -120,3 +120,137 @@ class test_Base(unittest.TestCase):
         list_dictionaries = [dsquare, drectangle]
         self.assertEqual(Base.to_json_string(list_dictionaries),
                          json.dumps(list_dictionaries))
+
+    def test_save_to_file_none(self):
+        """
+        Ensure that the method ``save_to_file()`` performs as required
+
+        * If list of objects is None, saves an empty list i.e "[]"
+        * The filename will be <Class name>.json - example: Base.json
+        """
+        _class = Base
+        file_fmt = ".json"
+        filename = _class.__name__ + file_fmt
+
+        # list_objs -> None
+        # Should save '[]'
+        list_objs = None
+        saved_val = "[]"
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Analyze content of file
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            val = f.read()
+            self.assertEqual(saved_val, val)
+
+    def test_save_to_file_empty(self):
+        """
+        Ensure that the method ``save_to_file()`` performs as required
+
+        * If list of objects is empty, saves an empty list i.e "[]"
+        * The filename will be <Class name>.json - example: Base.json
+        """
+        _class = Base
+        file_fmt = ".json"
+        filename = _class.__name__ + file_fmt
+
+        # list_objs -> empty -> list()
+        # Should save '[]'
+        list_objs = list()
+        saved_val = "[]"
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Analyze content of file
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            val = f.read()
+            self.assertEqual(saved_val, val)
+
+    def test_save_to_file_not_empty(self):
+        """
+        Ensure that the method ``save_to_file()`` performs as required
+
+        * If list of objects is not empty and not None,
+            saves a JSON representation of the objects
+        * The filename will be <Class name>.json - example: Rectangle.json
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_fmt = ".json"
+        filename = _class.__name__ + file_fmt
+        new1 = _class(id=41, width=4, height=8)
+        new2 = _class(id=1, width=8, height=1)
+
+        # list_objs -> not empty
+        # Should save json string representation of objects
+        list_objs = [new1, new2]
+        list_dictionaries = list()
+
+        # get dictionary representation of objects
+        for obj in list_objs:
+            list_dictionaries.append(obj.to_dictionary())
+
+        # Save the objects to file
+        saved_val = _class.to_json_string(list_dictionaries)
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Analyze content of file
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            val = f.read()
+            self.assertEqual(json.loads(saved_val), json.loads(val))
+
+    def test_save_to_file_overwrite(self):
+        """
+        Ensure that the method ``save_to_file()`` overwrites existing file
+
+        * If file exists, it should be overwritten by another call to
+            ``save_to_file()`` method
+        * The filename will be <Class name>.json e.g. Rectangle.json
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_fmt = ".json"
+        filename = _class.__name__ + file_fmt
+        new1 = _class(id=41, width=4, height=8)
+        new2 = _class(id=1, width=8, height=1)
+
+        # list_objs -> not empty
+        # Should save json string representation of objects
+        list_objs = [new1, new2]
+
+        # save objects to file
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Fetch saved value
+        previous_val = str()
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            previous_val = f.read()
+
+        # Add new objects and resave
+        new3 = _class(id=5, width=12, height=98)
+        list_objs.append(new3)
+        _class.save_to_file(list_objs)
+
+        # Compare content of file with previous content
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            val = f.read()
+            self.assertNotEqual(json.loads(previous_val), json.loads(val))
