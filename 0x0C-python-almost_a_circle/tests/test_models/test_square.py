@@ -193,3 +193,29 @@ class test_Square(test_Rectangle):
                 self.assertTrue(hasattr(new, key))
                 self.assertNotEqual(getattr(new, key), val)
         del new
+
+    def test_to_dictionary(self):
+        """
+        Ensure that ``to_dictionary()`` method returns good a representation
+
+        The returned dictionary must contain:
+        id, size, x and y attributes with same values as the instance
+        that returned them.
+        """
+        _class = Square
+        _method = "to_dictionary"
+        _id = "new Square"
+        _size = 12
+        _x = 8
+        _y = 0
+        new = _class(id=_id, size=_size, x=_x, y=_y)
+
+        attrs = {"id": _id, "size": _size, "x": _x, "y": _y}
+
+        # Ensure class has the method ``_method``
+        self.assertTrue(hasattr(_class, _method))
+        self.assertTrue(getattr(_class, _method) is not None)
+
+        for key, val in new.to_dictionary().items():
+            with self.subTest(key=key, val=val):
+                self.assertEqual(attrs[key], val)
