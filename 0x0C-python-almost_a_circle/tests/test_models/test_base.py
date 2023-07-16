@@ -296,3 +296,20 @@ class test_Base(unittest.TestCase):
 
         self.assertEqual(_class.from_json_string(list_input),
                          list_dictionaries)
+
+    def test_dictionary_to_instance(self):
+        """
+        Ensure that an instance is returned by the ``create()``
+        class method
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        new1 = _class(1, 1, 1, 1)     # dummy instance
+        d_attrs = {'width': 4, 'height': 7, 'x': 8, 'y': 12, 'id': 41}
+
+        self.assertEqual(type(_class.create(**d_attrs)), _class)
+
+        new2 = _class(**d_attrs)
+        new1 = _class.create(**d_attrs)
+        self.assertEqual(new2.to_dictionary(), new1.to_dictionary())
