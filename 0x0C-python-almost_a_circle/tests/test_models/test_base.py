@@ -254,3 +254,45 @@ class test_Base(unittest.TestCase):
         with open(filename, mode, encoding=enc) as f:
             val = f.read()
             self.assertNotEqual(json.loads(previous_val), json.loads(val))
+
+    def test_json_string_to_dictionary_none(self):
+        """
+        Ensure that an empty list is returned when a JSON string is None
+        or empty.
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        json_string = None
+        empty_list = list()
+
+        self.assertEqual(_class.from_json_string(json_string), empty_list)
+
+    def test_json_string_to_dictionary_empty(self):
+        """
+        Ensure that an empty list is returned when a JSON string is
+        an empty list string.
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        json_string = json.dumps(list())
+        empty_list = list()
+
+        self.assertEqual(_class.from_json_string(json_string), empty_list)
+
+    def test_json_string_to_dictionary(self):
+        """
+        Ensure a list of dictionaries is returned when the json_string is not
+        empty or None
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        d1 = {'height': 4, 'width': 10, 'id': 89}
+        d2 = {'height': 7, 'width': 1, 'id': 7}
+        list_dictionaries = [d1, d2]
+        list_input = json.dumps(list_dictionaries)
+
+        self.assertEqual(_class.from_json_string(list_input),
+                         list_dictionaries)
