@@ -194,7 +194,7 @@ class Rectangle(Base):
         for item in attrs:
             if item not in obj_dict:
                 msg = """'{}' not in dictionary representation.
-                Rquirement Failure.
+                Requirement Failure.
                 """.format(item)
                 raise Exception(msg)
 

@@ -47,7 +47,7 @@ class test_Square(test_Rectangle):
                 self.assertEqual(getattr(new, key), val)
         del new
 
-        # Positionals and keyword arguments
+        # Positional and keyword arguments
         size = 4
         _x = 4
         _y = 6

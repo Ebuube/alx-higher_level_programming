@@ -8,6 +8,7 @@ import os
 import pep8
 import json
 import re
+import csv
 from models.base import Base
 from tests import config
 
@@ -243,7 +244,7 @@ class test_Base(unittest.TestCase):
         with open(filename, mode, encoding=enc) as f:
             previous_val = f.read()
 
-        # Add new objects and resave
+        # Add new objects and re-save
         new3 = _class(id=5, width=12, height=98)
         list_objs.append(new3)
         _class.save_to_file(list_objs)
@@ -361,3 +362,166 @@ class test_Base(unittest.TestCase):
         for instance_dict in list_output:
             with self.subTest(instance_dict=instance_dict):
                 self.assertTrue(instance_dict in list_dictionaries)
+
+    def test_save_to_file_csv_empty(self):
+        """
+        Ensure that the method ``save_to_file_csv()`` performs as required
+
+        * If list of objects is empty, saves nothing else beside the header
+            fields.
+        * The filename will be <Class name>.csv - example: Rectangle.csv
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_fmt = ".csv"
+        filename = _class.__name__ + file_fmt
+
+        # list_objs -> empty -> list()
+        # Should save nothing else beside the header fields
+        list_objs = list()
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file_csv(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Analyze content of file
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        delim = ','
+
+        # Create fields
+        fields = list()
+        if _class.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+        elif _class.__name__ == "Square":
+            fields = ["id", "size", "x", "y"]
+
+        with open(filename, mode, encoding=enc) as csvfile:
+            reader = csv.DictReader(csvfile, fieldnames=fields,
+                                    delimiter=delim, quotechar='|',
+                                    quoting=csv.QUOTE_MINIMAL)
+
+            header = next(reader)   # ignore the header
+            header_fields = [key for key in header.keys()]
+
+            # Ensure that nothing else is saved apart from the header fields
+            with self.assertRaises(StopIteration):
+                val = next(reader)
+                print("val: {}".format(val))
+
+    def test_save_to_file_csv_not_empty(self):
+        """
+        Ensure that the method ``save_to_file_csv()`` performs as required
+
+        * If list of objects is not empty and not None,
+            saves a CSV representation of the objects
+        * The filename will be <Class name>.csv - example: Rectangle.csv
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_fmt = ".csv"
+        filename = _class.__name__ + file_fmt
+        new1 = _class(id=41, width=4, height=8)
+        new2 = _class(id=1, width=8, height=1)
+
+        # list_objs -> not empty
+        # Should save json string representation of objects
+        list_objs = [new1, new2]
+        list_dictionaries = list()
+
+        # get dictionary representation of objects
+        for obj in list_objs:
+            list_dictionaries.append(obj.to_dictionary())
+
+        # Save the objects to file
+        saved_val = _class.to_json_string(list_dictionaries)
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file_csv(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Analyze content of file
+
+        # Read CSV file
+        obj_dictionaries = list()   # list of instances to be returned
+        mode = 'r'      # read mode
+        enc = "utf-8"   # UTF8 encoding
+        delim = ','     # delimiter used
+        # Create fields
+        fields = list()
+        if _class.__name__ == "Rectangle":
+            fields = ["id", "width", "height", "x", "y"]
+        elif _class.__name__ == "Square":
+            fields = ["id", "size", "x", "y"]
+
+        with open(filename, mode, encoding=enc) as csvfile:
+            reader = csv.DictReader(csvfile, fieldnames=fields,
+                                    delimiter=delim, quotechar='|',
+                                    quoting=csv.QUOTE_MINIMAL)
+
+            header = next(reader)   # ignore the header
+            header_fields = [key for key in header.keys()]
+            if header_fields != fields:
+                print("Warning: header_fields is different from object fields",
+                      file=sys.stderr)
+                print("header_fields: {}".format(header_fields),
+                      file=sys.stderr)
+                print("object fields: {}".format(fields), file=sys.stderr)
+
+            for obj_dict in reader:
+                # Convert integers
+                for key, val in obj_dict.items():
+                    try:
+                        obj_dict[key] = int(val)
+                    except (ValueError, TypeError):
+                        pass    # leave the value as it is
+                # Create instance
+                obj_dictionaries.append(obj_dict)
+
+            for obj_dict in list_dictionaries:
+                with self.subTest(obj_dict=obj_dict):
+                    self.assertIn(obj_dict, obj_dictionaries)
+
+    def test_save_to_file_csv_overwrite(self):
+        """
+        Ensure that the method ``save_to_file_csv()`` overwrites existing file
+
+        * If file exists, it should be overwritten by another call to
+            ``save_to_file_csv()`` method
+        * The filename will be <Class name>.csv e.g. Rectangle.csv
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_fmt = ".csv"
+        filename = _class.__name__ + file_fmt
+        new1 = _class(id=41, width=4, height=8)
+        new2 = _class(id=1, width=8, height=1)
+
+        # list_objs -> not empty
+        # Should save json string representation of objects
+        list_objs = [new1, new2]
+
+        # save objects to file
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file_csv(list_objs)
+        self.assertTrue(os.path.exists(filename))
+
+        # Fetch saved value
+        previous_val = str()
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            previous_val = f.read()
+
+        # Add new objects and resave
+        new3 = _class(id=5, width=12, height=98)
+        list_objs.append(new3)
+        _class.save_to_file_csv(list_objs)
+
+        # Compare content of file with previous content
+        mode = 'r'
+        enc = "utf-8"   # UTF8 encoding
+        with open(filename, mode, encoding=enc) as f:
+            val = f.read()
+            self.assertNotEqual(previous_val, val)

@@ -79,7 +79,7 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """
         Write the object to a CSV file name
-        * fileanme -> <Class name>.csv
+        * filename -> <Class name>.csv
         * Format of the CSV
 
         For Rectangle:

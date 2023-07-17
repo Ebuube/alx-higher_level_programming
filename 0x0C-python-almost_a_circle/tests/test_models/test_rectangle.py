@@ -44,7 +44,7 @@ class test_Rectangle(test_Base):
 
     def test_rectangle_constructor(self):
         """
-        Ensure that the constructuor can set attributes
+        Ensure that the constructor can set attributes
         """
         width = 5
         height = 7
