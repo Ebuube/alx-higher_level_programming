@@ -514,7 +514,7 @@ class test_Base(unittest.TestCase):
         with open(filename, mode, encoding=enc) as f:
             previous_val = f.read()
 
-        # Add new objects and resave
+        # Add new objects and re-save
         new3 = _class(id=5, width=12, height=98)
         list_objs.append(new3)
         _class.save_to_file_csv(list_objs)
@@ -525,3 +525,51 @@ class test_Base(unittest.TestCase):
         with open(filename, mode, encoding=enc) as f:
             val = f.read()
             self.assertNotEqual(previous_val, val)
+
+    def test_file_to_instances__csv_file_absent(self):
+        """
+        Ensure that an empty list if file doesn't exist
+
+        method = ``load_from_file_csv``
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_format = ".csv"
+        filename = _class.__name__ + file_format
+
+        list_output = list()    # empty list
+
+        # Ensure that file is absent
+        self.assertFalse(os.path.exists(filename))
+
+        self.assertEqual(_class.load_from_file_csv(), list_output)
+
+    def test_file_to_instances(self):
+        """
+        Ensure that a list of instances is returned by the method
+        ``load_from_file_csv`` class method
+        """
+        from models.rectangle import Rectangle
+
+        _class = Rectangle
+        file_format = ".csv"
+        filename = _class.__name__ + file_format
+        new1 = _class(width=2, height=4, x=5, y=6, id=8)
+        new2 = _class(width=5, height=1, x=8, y=13, id="My id")
+        list_instances = [new1, new2]
+        list_dictionaries = [new1.to_dictionary(), new2.to_dictionary()]
+
+        self.assertFalse(os.path.exists(filename))
+        _class.save_to_file_csv(list_instances)
+        self.assertTrue(os.path.exists(filename))
+
+        list_input = _class.load_from_file_csv()
+        list_output = list()
+
+        for instance in list_input:
+            list_output.append(instance.to_dictionary())
+
+        for instance_dict in list_output:
+            with self.subTest(instance_dict=instance_dict):
+                self.assertTrue(instance_dict in list_dictionaries)
