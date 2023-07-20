@@ -121,7 +121,14 @@ class Base:
 
         * ``dictionary`` is a dictionary of attributes
         """
-        new = cls(1, 1, 0)      # dummy attributes
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        if cls == Rectangle:
+            new = cls(width=1, height=1, x=0, y=0)      # dummy attributes
+        if cls == Square:
+            new = cls(size=1, x=0, y=0)     # dummy attributes
+
         new.update(**dictionary)
 
         return new
