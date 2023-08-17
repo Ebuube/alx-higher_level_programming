@@ -1,4 +1,5 @@
 -- Dump cities and states table values
+-- it builds on existing data if any
 CREATE DATABASE IF NOT EXISTS `hbtn_0d_usa`;
 USE `hbtn_0d_usa`;
 
