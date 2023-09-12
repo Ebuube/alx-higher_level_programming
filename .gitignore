@@ -8,3 +8,5 @@ __pycache__
 *.json
 # CSV files
 *.csv
+# NODEJS tests
+*-main.js
