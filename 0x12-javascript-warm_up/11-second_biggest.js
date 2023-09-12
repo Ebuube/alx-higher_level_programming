@@ -4,8 +4,12 @@
 
 let args = process.argv.slice(2);
 
-args = arrToInt(args);
-console.log(secondBiggest(args));
+if (args.length <= 1) {
+  console.log('0');
+} else {
+  args = arrToInt(args);
+  console.log(secondBiggest(args));
+}
 
 function arrToInt (array) {
   // convert the elements of an array to int if possible
