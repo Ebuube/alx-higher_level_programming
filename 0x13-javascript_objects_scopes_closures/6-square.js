@@ -10,10 +10,10 @@ class Square extends require('./5-square') {
       symbol = c;
     }
     let row = '';
-    for (let i = 0; i < this.size; i++) {
+    for (let i = 0; i < this.width; i++) {
       row += symbol;
     }
-    for (let i = 0; i < this.size; i++) {
+    for (let i = 0; i < this.height; i++) {
       console.log(row);
     }
   }
