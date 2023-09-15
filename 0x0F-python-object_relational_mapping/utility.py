@@ -4,6 +4,7 @@ Function to safely execute a query in MySQLdb
 """
 import MySQLdb
 
+
 def execsafe(cur, query):
     """
     Safely execute a query on a cursor
