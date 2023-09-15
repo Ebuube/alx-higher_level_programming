@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Get all states from a database
+Filter states starting with N (upper N)
 """
 import MySQLdb
 from utility import execsafe
