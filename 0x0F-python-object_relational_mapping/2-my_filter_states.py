@@ -30,8 +30,8 @@ if __name__ == '__main__':
 
     # Execute query
     execsafe(cur, """SELECT states.id, states.name FROM states
-                        WHERE states.name LIKE BINARY '{}'
-                        ORDER BY states.id ASC""".format(str(argv[4])))
+                        WHERE states.name LIKE BINARY %s
+                        ORDER BY states.id ASC""", (str(argv[4]),))
 
     # Print details
     rows = cur.fetchall()
