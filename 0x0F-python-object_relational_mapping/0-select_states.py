@@ -28,7 +28,7 @@ db = MySQLdb.connect(**db_login)
 cur = db.cursor()
 
 # Execute query
-execsafe(cur, "SELECT * FROM states")
+execsafe(cur, "SELECT * FROM states ORDER BY states.id ASC")
 
 # Print details
 rows = cur.fetchall()
