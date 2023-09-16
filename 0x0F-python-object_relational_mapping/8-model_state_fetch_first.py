@@ -38,15 +38,9 @@ if __name__ == "__main__":
 
     sess = Session()
 
-    """
-    NECESSARY SQL
-    =============
-
-    SELECT states.id, states.name FROM states;
-    """
-
+    # QUERY
     instance = sess.query(State).order_by(State.id).first()
     if instance != None:
         print("{:d}: {:s}".format(instance.id, instance.name))
     else:
-        print()
+        print("Nothing")
