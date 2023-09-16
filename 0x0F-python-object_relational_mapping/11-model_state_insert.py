@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Get a state
+Add a new state
 """
 from sys import argv
 from model_state import Base, State
@@ -10,13 +10,12 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     # Get database login details from command line arguments
-    if len(argv) < 5:
+    if len(argv) < 4:
         msg = "Usage: {:s} mysql username, mysql password, database name"
         msg.format(argv[0])
         print(msg)
         exit(1)
 
-    match = argv[4]
     # Global scope -> Application starts
     Session = sessionmaker()
 
@@ -39,11 +38,15 @@ if __name__ == "__main__":
 
     sess = Session()
 
-    # QUERY
-    res = sess.query(State).filter(
-            State.name.like(match)).order_by(State.id).first()
+    # Operation on database
+    state_name = "Louisiana"
+    new = State(name=state_name)
 
-    if res is not None:
-        print("{:d}".format(res.id))
-    else:
-        print("Not found")
+    # Save changes
+    sess.add(new)
+    sess.commit()
+
+    # Get id of the state
+    instance = sess.query(State).filter_by(name=state_name).first()
+    if instance is not None:
+        print("{:d}".format(instance.id))
