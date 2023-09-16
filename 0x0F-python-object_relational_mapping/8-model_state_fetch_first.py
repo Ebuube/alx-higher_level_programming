@@ -45,8 +45,8 @@ if __name__ == "__main__":
     SELECT states.id, states.name FROM states;
     """
 
-    res = sess.query(State).order_by(State.id).all()
-    if len(res) > 0:
-        print("{:d}: {:s}".format(res[0].id, res[0].name))
+    instance = sess.query(State).order_by(State.id).first()
+    if instance != None:
+        print("{:d}: {:s}".format(instance.id, instance.name))
     else:
         print()
