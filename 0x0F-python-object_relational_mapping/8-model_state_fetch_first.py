@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
     # QUERY
     instance = sess.query(State).order_by(State.id).first()
-    if instance != None:
+    if instance is not None:
         print("{:d}: {:s}".format(instance.id, instance.name))
     else:
         print("Nothing")
