@@ -35,7 +35,8 @@ if __name__ == '__main__':
 
     params = str(argv[4])
 
-    cur.execute(query, (params,))
+    # cur.execute(query, (params,))
+    execsafe(cur, query, (params,))
 
     # Print details
     rows = cur.fetchall()

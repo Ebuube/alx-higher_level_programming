@@ -5,11 +5,18 @@ Function to safely execute a query in MySQLdb
 import MySQLdb
 
 
-def execsafe(cur, query, params):
+def execsafe(cur=None, query=str(), params=tuple()):
     """
     Safely execute a query on a cursor
+
+    cur     -> a cursor object
+    query   -> a query to execute
+    parasms -> a tuple of parameters
     """
     if cur is None or query is None:
+        return
+    if type(params) is not tuple:
+        print("parameters must be a tuple")
         return
 
     try:
