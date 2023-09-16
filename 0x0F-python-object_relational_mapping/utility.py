@@ -20,6 +20,7 @@ def execsafe(cur, query, params):
         except IndexError:
             print("MySQL Error: {}".format(str(e)))
 
+
 def run(command=None, statement='', params=()):
     """
     Run - execute a MySQLdb command
@@ -46,5 +47,3 @@ def run(command=None, statement='', params=()):
             print("MySQL Error: {:s}".format(str(e)))
 
     return return_value
-
-
