@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Get the size of response in bytes
-curl -s "$1" | wc -c
+curl -s -o /dev/null -w "%{size_download}\n" localhost
