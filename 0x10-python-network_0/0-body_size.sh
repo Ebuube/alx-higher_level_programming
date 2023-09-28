@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Get the size of response in bytes
-curl -s -o /dev/null -w "%{size_download}\n" localhost
+curl -sI GET "$1" | grep -i "Content-Length" | cut -d " " -f 2
