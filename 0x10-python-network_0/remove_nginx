@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Totally remove the nginx web server
+
+apt-get -y purge nginx nginx-common
+apt-get -y autoremove
