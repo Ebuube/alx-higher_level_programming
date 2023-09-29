@@ -1,3 +1,3 @@
 #!/bin/bash
 # cURL to the end
-curl -s --request GET "$1"
+curl -s -L --request GET "$1"
