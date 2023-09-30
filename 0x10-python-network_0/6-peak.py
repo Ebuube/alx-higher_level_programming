@@ -6,27 +6,6 @@ than both of its neighboring elements
 """
 
 
-def ceil(frac):
-    """
-    Find the lowest number greater than the fraction
-    e.g
-    >>> ceil(5.5)
-    6
-    >>> ceil(5)
-    5
-    """
-    if type(frac) is int:
-        return frac
-    if not isinstance(frac, float):
-        return
-
-    n_int = int(frac)
-    if frac > n_int:
-        return n_int + 1
-    else:
-        return n_int
-
-
 def find_peak(list_of_integers):
     """
     Find a peak in a list of integers
@@ -47,7 +26,13 @@ def find_peak(list_of_integers):
         else:
             return None
     else:
-        mid = ceil(len(list_of_integers) / 2)
+        mid = len(list_of_integers) / 2
+        n_int = int(mid)
+        if mid > n_int:
+            mid = n_int + 1
+        else:
+            mid = n_int
+
         left = find_peak(list_of_integers[:mid])
         right = find_peak(list_of_integers[mid:])
         if (left is not None) and (left > right):
