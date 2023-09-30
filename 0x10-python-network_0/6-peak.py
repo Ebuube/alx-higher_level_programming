@@ -49,7 +49,8 @@ def find_peak(list_of_integers):
     else:
         mid = ceil(len(list_of_integers) / 2)
         left = find_peak(list_of_integers[:mid])
-        if left is not None:
+        right = find_peak(list_of_integers[mid:])
+        if (left is not None) and (left > right):
             return left
         else:
-            return find_peak(list_of_integers[mid:])
+            return right
