@@ -17,13 +17,10 @@ def find_peak(list_of_integers):
     # Indices
     lower = 0;
     upper = len(list_of_integers) - 1
-    trials = 0
-    print()     # test
-    peak = find_peak_aux(list_of_integers, lower, upper, trials)
-    print("\nExhausted this list")    # test
+    peak = find_peak_aux(list_of_integers, lower, upper)
     return(peak)
 
-def find_peak_aux(i_list, lower, upper, trials):
+def find_peak_aux(i_list, lower, upper):
     """
     An auxiallary function
     Find any of the peaks in a list
@@ -45,12 +42,7 @@ def find_peak_aux(i_list, lower, upper, trials):
         return
 
     # Operation
-    print("\nAnalyzing: {}".format(i_list))   # test
-    print("Range: {}".format(i_list[lower:upper + 1]))  # test
-    print("lower index: {}".format(lower))    # test
-    print("upper index: {}".format(upper))    # test
     if upper == lower:
-        print("aux: upper is same as lower")    # test
         return i_list[upper]
 
     if upper - lower == 1:
@@ -67,8 +59,8 @@ def find_peak_aux(i_list, lower, upper, trials):
             return None
 
     elif upper - lower > 2:
-        peak1 = find_peak_aux(i_list, lower, lower + int((upper - lower) / 2), trials)
-        peak2 = find_peak_aux(i_list, lower + int((upper - lower) / 2) + 1, upper, trials)
+        peak1 = find_peak_aux(i_list, lower, lower + int((upper - lower) / 2))
+        peak2 = find_peak_aux(i_list, lower + int((upper - lower) / 2) + 1, upper)
         if peak1 is not None:
             return peak1
         else:
