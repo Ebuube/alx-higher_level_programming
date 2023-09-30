@@ -34,8 +34,8 @@ def find_peak(list_of_integers):
             mid = n_int
 
         left = find_peak(list_of_integers[:mid])
-        right = find_peak(list_of_integers[mid:])
-        if (left is not None) and (left > right):
+        if left is not None:
             return left
         else:
+            right = find_peak(list_of_integers[mid:])
             return right
