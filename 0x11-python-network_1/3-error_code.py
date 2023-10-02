@@ -11,9 +11,5 @@ if __name__ == "__main__":
     try:
         with request.urlopen(url) as response:
             response
-    except error.URLError as e:
-        if hasattr(e, 'reason'):
-            print("We failed to reach a server.")
-        elif hasattr(e, 'code'):
-            print("The server couldn\'t fulfill the request.")
-            print("Error code: {}".format(e.code))
+    except error.HTTPError as e:
+        print("Error code: {}".format(e.code))
