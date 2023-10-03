@@ -11,5 +11,5 @@ if __name__ == "__main__":
     email = argv[2]
 
     payload = {'email': email}
-    response = requests.post(url, data=payload)
+    response = post(url, data=payload)
     print(response.text)
