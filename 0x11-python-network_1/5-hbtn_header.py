@@ -11,4 +11,7 @@ if __name__ == "__main__":
     header = 'X-Request-Id'
 
     response = requests.get(url)
-    print(response.headers[header])
+    try:
+        print(response.headers[header])
+    except KeyError:
+        pass
