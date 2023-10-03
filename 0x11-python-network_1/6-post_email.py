@@ -2,7 +2,7 @@
 """
 POST an email #1
 """
-import requests.post
+from requests import post
 from sys import argv
 
 
