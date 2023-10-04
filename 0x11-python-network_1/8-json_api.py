@@ -15,13 +15,13 @@ if __name__ == "__main__":
 
     payload = {'q': query}
     response = post(url, data=payload)
-    if type(response) is str:
+
+    try:
+        js_res = response.json()
+    except ValueError:
         print("Not a valid JSON")
         exit()
 
-    js_res = response.json()
-    if type(js_res) is not dict:
-        print("Not a valid JSON")
     if len(js_res) == 0:
         print("No result")
     else:
