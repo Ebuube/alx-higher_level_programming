@@ -26,7 +26,7 @@ if __name__ == "__main__":
     except ValueError:
         exit()
 
-    if len(js_res) == 0:
+    if len(js_res) == 0 or js_res is None:
         pass
     else:
         count = 0
