@@ -7,9 +7,9 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    url = argv[1]
+    url = 'http://0.0.0.0:5000/search_user'
     try:
-        query = argv[2]
+        query = argv[1]
     except IndexError:
         query = ""
 
