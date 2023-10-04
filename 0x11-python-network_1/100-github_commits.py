@@ -24,11 +24,10 @@ if __name__ == "__main__":
     try:
         js_res = response.json()
     except ValueError:
-        print("Not a valid JSON")
         exit()
 
     if len(js_res) == 0:
-        print("No result")
+        pass
     else:
         count = 0
         max_len = 10
