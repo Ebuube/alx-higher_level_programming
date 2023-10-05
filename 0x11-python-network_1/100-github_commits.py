@@ -8,8 +8,8 @@ from sys import argv
 
 if __name__ == "__main__":
     try:
-        user = str(argv[1])
-        repo_name = str(argv[2])
+        repo_name = str(argv[1])
+        user = str(argv[2])
     except IndexError:
         print("Usage: {} user repository".format(argv[0]))
         exit()
