@@ -34,7 +34,7 @@ request.get(url, (err, response, body) => {
         users[task.userId] = users[task.userId] + 1;
       }
     } else {
-      users[task.userId] = 0;
+      users[task.userId] = 1;
     }
   }
 
