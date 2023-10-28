@@ -24,6 +24,10 @@ request.get(url, (err, response, body) => {
   if (err) {
     throw err;
   }
+  if (response.statusCode !== 200) {
+    console.log(`status code: ${response.statusCode}`);
+    return;
+  }
 
   const resJson = JSON.parse(body);
   let count = 0;
