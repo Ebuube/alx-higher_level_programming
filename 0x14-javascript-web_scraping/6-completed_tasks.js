@@ -35,10 +35,7 @@ request.get(url, (err, response, body) => {
       users.set(task.userId, 0);
     }
   }
+
   // console.log(users); // test
-  console.log('{');
-  for (const [userId, completed] of users) {
-    console.log(` '${userId}': ${completed},`);
-  }
-  console.log(' }');
+  console.log(users); // test
 });
