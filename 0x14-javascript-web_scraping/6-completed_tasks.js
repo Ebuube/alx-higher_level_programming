@@ -27,12 +27,14 @@ request.get(url, (err, response, body) => {
   // console.log(body.toString());
   const tasks = JSON.parse(body);
 
-  const users = new Map(); // id: <number of completed tasks
+  const users = {}; // id: <number of completed tasks
   for (const task of tasks) {
-    if (users.has(task.userId) && task.completed === true) {
-      users.set(task.userId, users.get(task.userId) + 1);
-    } else if (!users.has(task.userId)) {
-      users.set(task.userId, 0);
+    if (task.userId in users) {
+      if (task.completed === true) {
+        users[task.userId] = users[task.userId] + 1;
+      }
+    } else {
+      users[task.userId] = 0;
     }
   }
 
