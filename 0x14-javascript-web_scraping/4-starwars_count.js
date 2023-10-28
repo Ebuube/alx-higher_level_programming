@@ -4,6 +4,7 @@
 //
 const request = require('request');
 
+const scriptName = process.argv[1];
 const cmdLineArgs = process.argv.slice(2);
 // Remove the first two arguments
 // The first argument is the interpreter running the program
@@ -12,7 +13,7 @@ const cmdLineArgs = process.argv.slice(2);
 
 const exitFailure = 1;
 if (cmdLineArgs.length !== 1) {
-  console.log('Usage: ./2-statuscode <https://swapi-api.alx-tools.com/api/films>');
+  console.log(`Usage: ${scriptName} <https://swapi-api.alx-tools.com/api/films>`);
   process.exit(exitFailure);
 }
 
