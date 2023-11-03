@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
-    let myHeader = document.querySelector("header");
-    myHeader.style.color = "#FF0000";
-})
+window.addEventListener('load', function () {
+  const myHeader = document.querySelector('header');
+  myHeader.style.color = '#FF0000';
+});
